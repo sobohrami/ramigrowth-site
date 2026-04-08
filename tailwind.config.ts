@@ -13,15 +13,16 @@ const config: Config = {
     extend: {
       colors: {
         rami: {
-          night: '#090b10',
-          deep: '#0f1621',
-          panel: '#121b28',
-          cream: '#f7f1e4',
-          fog: '#b3bcc9',
-          line: 'rgba(255,255,255,0.1)',
-          gold: '#c7a061',
-          goldSoft: '#f0dec0',
-          steel: '#4c6788',
+          night: '#050816',
+          deep: '#0a1226',
+          panel: '#101b35',
+          cream: '#eaf4ff',
+          fog: '#9fb3d8',
+          line: 'rgba(120,153,206,0.14)',
+          gold: '#59e5ff',
+          goldSoft: '#9affd2',
+          steel: '#7b61ff',
+          mint: '#97ffc4',
         },
       },
       fontFamily: {

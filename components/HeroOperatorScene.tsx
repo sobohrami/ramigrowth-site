@@ -61,18 +61,18 @@ export default function HeroOperatorScene() {
             <svg viewBox="0 0 520 620" className="hero-sentinel__svg" aria-hidden="true">
               <defs>
                 <linearGradient id="shellGradient" x1="0%" x2="100%" y1="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(247,241,228,0.92)" />
-                  <stop offset="55%" stopColor="rgba(159,177,201,0.42)" />
-                  <stop offset="100%" stopColor="rgba(17,24,39,0.18)" />
+                  <stop offset="0%" stopColor="rgba(234,244,255,0.94)" />
+                  <stop offset="55%" stopColor="rgba(89,229,255,0.36)" />
+                  <stop offset="100%" stopColor="rgba(123,97,255,0.18)" />
                 </linearGradient>
                 <linearGradient id="visorGradient" x1="0%" x2="100%" y1="0%" y2="0%">
-                  <stop offset="0%" stopColor="#9ec3ff" />
-                  <stop offset="50%" stopColor="#f0dec0" />
-                  <stop offset="100%" stopColor="#8ac5ff" />
+                  <stop offset="0%" stopColor="#59e5ff" />
+                  <stop offset="50%" stopColor="#9affd2" />
+                  <stop offset="100%" stopColor="#7b61ff" />
                 </linearGradient>
                 <linearGradient id="jawGradient" x1="0%" x2="100%" y1="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(112,138,167,0.7)" />
-                  <stop offset="100%" stopColor="rgba(20,28,38,0.92)" />
+                  <stop offset="0%" stopColor="rgba(78,119,201,0.68)" />
+                  <stop offset="100%" stopColor="rgba(10,18,38,0.94)" />
                 </linearGradient>
               </defs>
 
@@ -83,29 +83,29 @@ export default function HeroOperatorScene() {
               />
               <path
                 d="M260 90c-44 0-82 16-113 48-34 35-51 85-51 151 0 73 28 129 84 168 23 17 50 30 80 40 30-10 57-23 81-40 55-39 83-95 83-168 0-66-17-116-51-151-31-32-69-48-113-48Z"
-                fill="rgba(8,12,18,0.72)"
+                fill="rgba(6,11,24,0.72)"
                 stroke="rgba(255,255,255,0.12)"
                 strokeWidth="3"
               />
               <path
                 d="M171 188c20-27 49-40 89-40s69 13 89 40c10 13 15 26 15 40 0 10-4 18-12 24-8 7-19 10-31 10H152c-12 0-22-3-31-10-8-6-12-14-12-24 0-14 5-27 15-40Z"
-                fill="rgba(17,25,37,0.95)"
+                fill="rgba(12,20,39,0.95)"
                 stroke="rgba(255,255,255,0.08)"
                 strokeWidth="2"
               />
               <path
                 d="M170 211h180c15 0 27 12 27 27v6c0 15-12 27-27 27H170c-15 0-27-12-27-27v-6c0-15 12-27 27-27Z"
-                fill="rgba(7,10,16,0.96)"
+                fill="rgba(5,10,22,0.96)"
                 stroke="rgba(255,255,255,0.08)"
                 strokeWidth="2"
               />
               <g opacity="0.98">
                 <rect x="161" y="225" width="80" height="30" rx="15" fill="url(#visorGradient)" />
                 <rect x="279" y="225" width="80" height="30" rx="15" fill="url(#visorGradient)" />
-                <circle cx="201" cy="240" r="9" fill="#f7f1e4" opacity="0.9" />
-                <circle cx="319" cy="240" r="9" fill="#f7f1e4" opacity="0.9" />
+                <circle cx="201" cy="240" r="9" fill="#eaf4ff" opacity="0.92" />
+                <circle cx="319" cy="240" r="9" fill="#eaf4ff" opacity="0.92" />
               </g>
-              <path d="M235 240h50" stroke="rgba(247,241,228,0.92)" strokeWidth="4" strokeLinecap="round" opacity="0.9" />
+              <path d="M235 240h50" stroke="rgba(234,244,255,0.92)" strokeWidth="4" strokeLinecap="round" opacity="0.9" />
               <path
                 d="M188 305c14-16 38-24 72-24s58 8 72 24c8 9 12 22 12 38v38c0 27-9 49-27 66-16 15-35 22-57 22s-41-7-57-22c-18-17-27-39-27-66v-38c0-16 4-29 12-38Z"
                 fill="url(#jawGradient)"
@@ -114,22 +114,22 @@ export default function HeroOperatorScene() {
               />
               <path
                 d="M202 346h116"
-                stroke="rgba(240,222,192,0.7)"
+                stroke="rgba(154,255,210,0.7)"
                 strokeWidth="3"
                 strokeLinecap="round"
                 opacity="0.72"
               />
               <path
                 d="M214 372h92M223 398h74M236 424h48"
-                stroke="rgba(158,195,255,0.7)"
+                stroke="rgba(89,229,255,0.72)"
                 strokeWidth="3"
                 strokeLinecap="round"
                 opacity="0.72"
               />
-              <circle cx="260" cy="134" r="10" fill="rgba(240,222,192,0.8)" />
+              <circle cx="260" cy="134" r="10" fill="rgba(89,229,255,0.82)" />
               <path
                 d="M260 145v28"
-                stroke="rgba(240,222,192,0.85)"
+                stroke="rgba(89,229,255,0.88)"
                 strokeWidth="4"
                 strokeLinecap="round"
               />

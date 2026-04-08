@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 import HeroOperatorScene from '@/components/HeroOperatorScene'
+import SystemDisassemblySection from '@/components/SystemDisassemblySection'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -93,7 +94,7 @@ export default function HomePage() {
               concrete operational upgrade now, not six weeks of discovery.
             </p>
             <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
-              Animated systems. Autonomous workflows. A visible AI layer that feels alive.
+              Deep-trust AI visuals. Autonomous workflows. A system layer that actually feels alive.
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -130,6 +131,8 @@ export default function HomePage() {
           <HeroOperatorScene />
         </div>
       </section>
+
+      <SystemDisassemblySection />
 
       <section className="section-divider py-24">
         <div className="shell grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
