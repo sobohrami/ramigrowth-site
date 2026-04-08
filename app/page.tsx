@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
+import HeroOperatorScene from '@/components/HeroOperatorScene'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -79,7 +80,7 @@ export default function HomePage() {
         <div className="ambient-orb absolute left-[-8%] top-24 h-64 w-64 rounded-full bg-rami-gold/10 blur-3xl" />
         <div className="ambient-orb absolute right-[-10%] top-16 h-80 w-80 rounded-full bg-rami-steel/20 blur-3xl" />
 
-        <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-16 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-16 py-16 md:py-24 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Automation systems for operators</p>
             <h1 className="display-title mt-6 max-w-4xl">
@@ -90,6 +91,9 @@ export default function HomePage() {
             <p className="lede mt-7">
               I design and ship revenue systems, internal tools, and AI-enhanced workflows for businesses that need a
               concrete operational upgrade now, not six weeks of discovery.
+            </p>
+            <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
+              Animated systems. Autonomous workflows. A visible AI layer that feels alive.
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -123,57 +127,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur md:p-10">
-              <div className="flex items-center justify-between border-b border-white/10 pb-6">
-                <div>
-                  <p className="eyebrow">Current offer</p>
-                  <h2 className="mt-3 font-display text-3xl text-rami-cream">RamiGrowth</h2>
-                </div>
-                <span className="rounded-full border border-rami-gold/40 bg-rami-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-rami-gold">
-                  Available
-                </span>
-              </div>
-
-              <div className="grid gap-8 py-8">
-                <div>
-                  <p className="label">What gets built</p>
-                  <ul className="mt-4 space-y-3 text-sm leading-7 text-rami-fog">
-                    <li>Outbound systems that create qualified demand</li>
-                    <li>Internal workflows that remove repeated manual work</li>
-                    <li>Custom apps when off-the-shelf tools stop fitting</li>
-                  </ul>
-                </div>
-
-                <div className="grid gap-5 border-y border-white/10 py-8 sm:grid-cols-2">
-                  <div>
-                    <p className="label">Project style</p>
-                    <p className="mt-3 text-base text-rami-cream">Small number of engagements, handled directly.</p>
-                  </div>
-                  <div>
-                    <p className="label">Decision filter</p>
-                    <p className="mt-3 text-base text-rami-cream">If the outcome is vague, I do not take it.</p>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="label">Fast proof</p>
-                  <div className="mt-4 space-y-4">
-                    <Link href="/work/prodetailer" className="block border-b border-white/10 pb-4 hover:border-rami-gold/50">
-                      <p className="text-xs uppercase tracking-[0.22em] text-rami-fog/70">Case study</p>
-                      <p className="mt-2 text-xl font-semibold text-rami-cream">ProDetailer.app</p>
-                      <p className="mt-2 text-sm leading-7 text-rami-fog">Lead generation platform for auto detailing businesses.</p>
-                    </Link>
-                    <Link href="/work/salariuok" className="block pb-1 hover:text-rami-goldSoft">
-                      <p className="text-xs uppercase tracking-[0.22em] text-rami-fog/70">Case study</p>
-                      <p className="mt-2 text-xl font-semibold text-rami-cream">SalariuOk.ro</p>
-                      <p className="mt-2 text-sm leading-7 text-rami-fog">Focused market-intelligence app shipped for a clear use case.</p>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroOperatorScene />
         </div>
       </section>
 
