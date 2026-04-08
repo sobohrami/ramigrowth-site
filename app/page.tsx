@@ -6,29 +6,67 @@ import { getCalendlyUrl } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Home',
   description:
-    'I build systems that grow your business — automated outreach, custom apps, and workflow tools with real outcomes.',
+    'I build systems that grow your business: automated outreach, custom apps, and workflow tools with real outcomes.',
 }
 
 const services = [
   {
-    name: 'Lead Generation Systems',
-    desc: 'Outreach automations that fill your calendar — without you manually finding prospects.',
+    index: '01',
+    name: 'Lead generation systems',
+    desc: 'Prospect sourcing, personalized outbound, follow-up logic, and lead routing built around your specific market.',
+    outcome: 'More qualified conversations without manual prospecting.',
     id: 'lead-generation',
   },
   {
-    name: 'Workflow Automation',
-    desc: 'Kill the repetitive tasks draining your team. Same work, fewer people-hours.',
+    index: '02',
+    name: 'Workflow automation',
+    desc: 'Operational bottlenecks mapped, automated, and shipped into the tools your team already uses.',
+    outcome: 'Less admin drag and faster execution with the same headcount.',
     id: 'workflow-automation',
   },
   {
-    name: 'Custom Web Apps',
-    desc: 'Scoped, fast, functional. Built for the specific problem you actually have — not a generic platform you\'ll outgrow.',
+    index: '03',
+    name: 'Custom web apps',
+    desc: 'Focused internal tools, client-facing apps, and MVPs built around one business problem instead of a generic platform.',
+    outcome: 'A working product in weeks, not a six-month plan.',
     id: 'custom-web-apps',
   },
   {
-    name: 'AI-Enhanced Tools',
-    desc: 'Add intelligence to existing workflows without rebuilding everything from scratch.',
+    index: '04',
+    name: 'AI-enhanced tooling',
+    desc: 'Practical AI features layered into real workflows: summarization, document handling, routing, and decision support.',
+    outcome: 'Better throughput without rebuilding your whole operation.',
     id: 'ai-enhanced-tooling',
+  },
+]
+
+const principles = [
+  {
+    title: 'Built close to the business problem',
+    body: 'No long handoff chain, no agency theater, and no giant requirement documents before anything real exists.',
+  },
+  {
+    title: 'Scoped for outcomes, not vanity',
+    body: 'Each build is tied to a commercial or operational result: more leads, less manual work, or a product that can ship.',
+  },
+  {
+    title: 'Fast enough to create leverage',
+    body: 'The goal is momentum. We narrow the brief, build the useful version first, and iterate after the system is live.',
+  },
+]
+
+const caseStudies = [
+  {
+    slug: 'prodetailer',
+    label: 'Lead-gen platform',
+    title: 'ProDetailer.app',
+    body: 'A lead generation and follow-up engine for auto detailing businesses, built to turn outreach into booked work.',
+  },
+  {
+    slug: 'salariuok',
+    label: 'Market intelligence app',
+    title: 'SalariuOk.ro',
+    body: 'A focused salary benchmarking product for the Romanian market, built with live data and a clean operator-first surface.',
   },
 ]
 
@@ -37,127 +75,192 @@ export default function HomePage() {
 
   return (
     <main>
-      <section className="border-b border-rami-border py-20 md:py-28">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose text-center">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-[52px] md:leading-[1.1]">
-              I build systems that grow your business.
-            </h1>
-            <p className="mt-6 text-lg text-rami-muted md:text-xl">
-              Automated outreach. Custom apps. Workflow tools.
+      <section className="relative overflow-hidden">
+        <div className="ambient-orb absolute left-[-8%] top-24 h-64 w-64 rounded-full bg-rami-gold/10 blur-3xl" />
+        <div className="ambient-orb absolute right-[-10%] top-16 h-80 w-80 rounded-full bg-rami-steel/20 blur-3xl" />
+
+        <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-16 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <p className="eyebrow">Automation systems for operators</p>
+            <h1 className="display-title mt-6 max-w-4xl">
+              Build the engine,
               <br />
-              Real outcomes — not tech for the sake of tech.
+              not another bottleneck.
+            </h1>
+            <p className="lede mt-7">
+              I design and ship revenue systems, internal tools, and AI-enhanced workflows for businesses that need a
+              concrete operational upgrade now, not six weeks of discovery.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <Link
-                href="/work"
-                className="inline-flex min-w-[160px] items-center justify-center rounded-md border border-rami-border bg-white px-6 py-3 text-sm font-semibold text-rami-ink transition-colors hover:border-rami-ink"
-              >
-                See my work
-              </Link>
+
+            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               {cal ? (
-                <a
-                  href={cal}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-w-[160px] items-center justify-center rounded-md bg-rami-ink px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
-                >
+                <a href={cal} target="_blank" rel="noopener noreferrer" className="button-primary min-w-[210px]">
                   Book a discovery call
                 </a>
               ) : (
-                <Link
-                  href="/contact"
-                  className="inline-flex min-w-[160px] items-center justify-center rounded-md bg-rami-ink px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
-                >
+                <Link href="/contact" className="button-primary min-w-[210px]">
                   Book a discovery call
                 </Link>
               )}
+              <Link href="/work" className="button-secondary min-w-[170px]">
+                See recent work
+              </Link>
+            </div>
+
+            <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+              <div>
+                <p className="eyebrow text-rami-fog/60">Focus</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">Lead generation, workflow automation, custom apps.</p>
+              </div>
+              <div>
+                <p className="eyebrow text-rami-fog/60">Delivery</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">Tight scope, direct communication, working software.</p>
+              </div>
+              <div>
+                <p className="eyebrow text-rami-fog/60">Ideal client</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">Operators who care about speed and commercial upside.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur md:p-10">
+              <div className="flex items-center justify-between border-b border-white/10 pb-6">
+                <div>
+                  <p className="eyebrow">Current offer</p>
+                  <h2 className="mt-3 font-display text-3xl text-rami-cream">RamiGrowth</h2>
+                </div>
+                <span className="rounded-full border border-rami-gold/40 bg-rami-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-rami-gold">
+                  Available
+                </span>
+              </div>
+
+              <div className="grid gap-8 py-8">
+                <div>
+                  <p className="label">What gets built</p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-rami-fog">
+                    <li>Outbound systems that create qualified demand</li>
+                    <li>Internal workflows that remove repeated manual work</li>
+                    <li>Custom apps when off-the-shelf tools stop fitting</li>
+                  </ul>
+                </div>
+
+                <div className="grid gap-5 border-y border-white/10 py-8 sm:grid-cols-2">
+                  <div>
+                    <p className="label">Project style</p>
+                    <p className="mt-3 text-base text-rami-cream">Small number of engagements, handled directly.</p>
+                  </div>
+                  <div>
+                    <p className="label">Decision filter</p>
+                    <p className="mt-3 text-base text-rami-cream">If the outcome is vague, I do not take it.</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="label">Fast proof</p>
+                  <div className="mt-4 space-y-4">
+                    <Link href="/work/prodetailer" className="block border-b border-white/10 pb-4 hover:border-rami-gold/50">
+                      <p className="text-xs uppercase tracking-[0.22em] text-rami-fog/70">Case study</p>
+                      <p className="mt-2 text-xl font-semibold text-rami-cream">ProDetailer.app</p>
+                      <p className="mt-2 text-sm leading-7 text-rami-fog">Lead generation platform for auto detailing businesses.</p>
+                    </Link>
+                    <Link href="/work/salariuok" className="block pb-1 hover:text-rami-goldSoft">
+                      <p className="text-xs uppercase tracking-[0.22em] text-rami-fog/70">Case study</p>
+                      <p className="mt-2 text-xl font-semibold text-rami-cream">SalariuOk.ro</p>
+                      <p className="mt-2 text-sm leading-7 text-rami-fog">Focused market-intelligence app shipped for a clear use case.</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-rami-border bg-rami-surface py-20 md:py-24">
-        <div className="mx-auto max-w-content px-6">
-          <h2 className="text-center text-sm font-semibold uppercase tracking-wide text-rami-muted">
-            Why work with me
-          </h2>
-          <div className="mt-12 grid gap-12 md:grid-cols-3 md:gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-rami-ink">Speed</h3>
-              <p className="mt-3 text-base text-rami-muted">
-                From idea to working system in weeks, not months. No long discovery phases, no unnecessary meetings.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-rami-ink">Outcome-focused</h3>
-              <p className="mt-3 text-base text-rami-muted">
-                Every build targets a specific result — more leads, less manual work, or a working product. If I can&apos;t
-                name the outcome upfront, I don&apos;t take the project.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-rami-ink">No hand-holding needed</h3>
-              <p className="mt-3 text-base text-rami-muted">
-                I understand business problems, not just code. You don&apos;t need to know what the tech is called — just
-                tell me what&apos;s costing you time or money.
-              </p>
-            </div>
+      <section className="section-divider py-24">
+        <div className="shell grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Why clients choose this model</p>
+            <h2 className="section-title mt-6 max-w-xl">Less ceremony. More leverage.</h2>
+          </div>
+
+          <div className="grid gap-10 md:grid-cols-3">
+            {principles.map((item) => (
+              <div key={item.title} className="border-t border-white/10 pt-6">
+                <h3 className="text-xl font-semibold text-rami-cream">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-rami-fog">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-rami-border py-20 md:py-24">
-        <div className="mx-auto max-w-content px-6">
-          <h2 className="text-center text-2xl font-bold md:text-[28px]">What I build</h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+      <section className="section-divider py-24">
+        <div className="shell">
+          <div className="max-w-3xl">
+            <p className="eyebrow">What I build</p>
+            <h2 className="section-title mt-6">Four high-leverage ways to remove drag and create momentum.</h2>
+          </div>
+
+          <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
+            {services.map((service) => (
               <Link
-                key={s.id}
-                href={`/services#${s.id}`}
-                className="flex flex-col rounded-lg border border-rami-border bg-white p-8 transition-colors hover:border-rami-muted"
+                key={service.id}
+                href={`/services#${service.id}`}
+                className="grid gap-4 py-8 md:grid-cols-[100px_1fr_0.8fr] md:gap-8 hover:bg-white/[0.025]"
               >
-                <h3 className="text-lg font-semibold text-rami-ink">{s.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-rami-muted">{s.desc}</p>
-                <span className="mt-6 text-sm font-medium text-rami-link">Learn more →</span>
+                <p className="font-display text-4xl text-rami-gold">{service.index}</p>
+                <div>
+                  <h3 className="text-2xl font-semibold text-rami-cream">{service.name}</h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-8 text-rami-fog">{service.desc}</p>
+                </div>
+                <div className="self-center">
+                  <p className="label">Primary outcome</p>
+                  <p className="mt-3 text-sm leading-7 text-rami-cream">{service.outcome}</p>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-rami-border bg-rami-surface py-20 md:py-24">
-        <div className="mx-auto max-w-content px-6">
-          <h2 className="text-2xl font-bold md:text-[28px]">Recent builds</h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <Link
-              href="/work/prodetailer"
-              className="block rounded-lg border border-rami-border bg-white p-8 transition-colors hover:border-rami-muted"
-            >
-              <h3 className="text-lg font-semibold text-rami-ink">ProDetailer.app</h3>
-              <p className="mt-3 text-sm leading-relaxed text-rami-muted">
-                Outreach and lead-gen automation for auto detailing businesses. Finds prospects, sends personalized
-                follow-ups, routes leads — without manual work.
-              </p>
-              <span className="mt-4 inline-block text-sm font-medium text-rami-link">View case study →</span>
+      <section className="section-divider py-24">
+        <div className="shell">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 className="section-title mt-6">Proof in live products, not hypothetical mockups.</h2>
+            </div>
+            <Link href="/work" className="button-secondary max-w-max">
+              Browse all work
             </Link>
-            <Link
-              href="/work/salariuok"
-              className="block rounded-lg border border-rami-border bg-white p-8 transition-colors hover:border-rami-muted"
-            >
-              <h3 className="text-lg font-semibold text-rami-ink">SalariuOk.ro</h3>
-              <p className="mt-3 text-sm leading-relaxed text-rami-muted">
-                Salary benchmarking tool for the Romanian job market. Custom-built web app, live data, clean interface.
-              </p>
-              <span className="mt-4 inline-block text-sm font-medium text-rami-link">View case study →</span>
-            </Link>
+          </div>
+
+          <div className="mt-14 grid gap-8">
+            {caseStudies.map((item, index) => (
+              <Link
+                key={item.slug}
+                href={`/work/${item.slug}`}
+                className="grid gap-10 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.22)] md:grid-cols-[0.25fr_0.75fr] md:p-10"
+              >
+                <div className="flex flex-col justify-between">
+                  <p className="font-display text-6xl leading-none text-rami-gold/80">0{index + 1}</p>
+                  <p className="eyebrow">{item.label}</p>
+                </div>
+                <div>
+                  <h3 className="font-display text-4xl text-rami-cream md:text-5xl">{item.title}</h3>
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">{item.body}</p>
+                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-rami-gold">Open case study</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       <CTAStrip
-        headline="Have a problem that fits?"
-        subtext="Let's spend 20 minutes figuring out if I can solve it. No pitch, no hard sell — just a direct conversation about what you need."
+        headline="Have an operational bottleneck worth fixing?"
+        subtext="Bring the actual problem. I will tell you if it should be automated, built as a tool, or left alone."
         ctaLabel="Book a discovery call"
       />
     </main>

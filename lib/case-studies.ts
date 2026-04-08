@@ -16,48 +16,47 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
   prodetailer: {
     slug: 'prodetailer',
     title: 'ProDetailer.app',
-    tags: 'Auto Detailing · Lead Generation Automation · Web App',
+    tags: 'Auto detailing | Lead generation automation | Web app',
     status: 'Live',
     context:
-      'Auto detailing businesses run lean. The owner is usually the operator — doing the work, managing the schedule, handling customer calls. Finding new customers means cold outreach, and most owners don\'t have time to do it consistently, let alone follow up.',
+      "Auto detailing businesses run lean. The owner is usually the operator doing the work, managing the schedule, and handling customer calls. Finding new customers means cold outreach, and most owners do not have time to do it consistently, let alone follow up.",
     problem:
-      'Manual prospecting is slow and inconsistent. Detailers would identify potential customers — car fleets, dealerships, high-end vehicle owners — but following up reliably was a full-time job on its own. Leads would go cold. Good prospects were never contacted. Growth stalled because outreach was always the last thing on the list.',
-    solutionLead:
-      'A lead generation and outreach system built into the ProDetailer.app platform. The system:',
+      'Manual prospecting is slow and inconsistent. Detailers can identify potential customers, but following up reliably becomes a full-time job on its own. Leads go cold, good prospects never get contacted, and growth stalls because outreach is always the last thing on the list.',
+    solutionLead: 'A lead generation and outreach system built directly into the ProDetailer.app platform.',
     solutionBullets: [
       'Identifies target prospects based on defined criteria',
-      'Sends personalized initial outreach automatically',
+      'Sends personalized first-touch outreach automatically',
       'Runs follow-up sequences without manual intervention',
-      'Routes interested leads to the owner\'s inbox or booking flow',
+      "Routes interested leads to the owner's inbox or booking flow",
       'Tracks every touchpoint so nothing falls through',
     ],
     solutionClosing:
-      'No prospecting spreadsheets. No manual follow-up. The system runs in the background while the business owner does the actual work.',
+      'The result is a system running in the background while the business owner focuses on delivery instead of prospecting spreadsheets.',
     outcome:
-      'Eliminates manual prospecting entirely. Outreach happens consistently — even during busy seasons when the owner has no time to think about sales. New leads arrive through a system, not through luck or effort.',
+      'Manual prospecting is removed from the weekly operating burden. Outreach happens consistently, even during busy periods, and new leads arrive through a repeatable system instead of luck.',
     builtWith: ['Custom automation pipeline', 'Web app platform', 'Outreach tooling'],
   },
   salariuok: {
     slug: 'salariuok',
     title: 'SalariuOk.ro',
-    tags: 'Romanian Job Market · Salary Benchmarking · Custom Web App',
+    tags: 'Romanian job market | Salary benchmarking | Custom web app',
     status: 'Live',
     context:
-      'Salary conversations in Romania are opaque. Employees don\'t know if they\'re underpaid. Employers don\'t know if their offers are competitive. Publicly available data is scattered, outdated, or country-generic rather than Romania-specific.',
+      "Salary conversations in Romania are opaque. Employees do not know if they are underpaid. Employers do not know if their offers are competitive. Public data is scattered, outdated, or too generic to be useful.",
     problem:
-      'There was no clean, focused tool for salary benchmarking in the Romanian market. Existing options were either too broad (global tools) or too manual (asking in forums, word-of-mouth). Someone needed to build the right thing: fast, accurate, and designed for the actual question people were trying to answer.',
-    solutionLead: 'SalariuOk.ro — a custom web application for salary benchmarking in the Romanian job market. The app:',
+      'There was no clean, focused salary benchmarking tool built specifically for the Romanian market. Existing options were either too broad or too manual, forcing people to guess through forums and informal conversations.',
+    solutionLead: 'SalariuOk.ro is a focused product built to answer one question well: what is a fair salary range in this market?',
     solutionBullets: [
-      'Lets users look up salary ranges by role, industry, and experience level',
-      'Surfaces relevant, Romania-specific data',
-      'Presents results cleanly — no noise, no forced account creation',
-      'Loads fast and works on mobile',
+      'Lets users search salary ranges by role, industry, and experience level',
+      'Surfaces Romania-specific data instead of generic global benchmarks',
+      'Keeps the experience clean and direct with minimal friction',
+      'Loads quickly and works comfortably on mobile',
     ],
     solutionClosing:
-      'Built and shipped as a focused tool. Scoped tightly to the one problem it solves — no feature creep, no unnecessary complexity.',
+      'The build was intentionally tight: one use case, one clear interface, and no unnecessary feature sprawl.',
     outcome:
-      'A working, live product that gives Romanian professionals and employers a reliable reference point for salary conversations. Clean, direct, and useful — which is the point.',
-    builtWith: ['Custom web application (full-stack build)', 'Romanian market data integration'],
+      'A live product that gives Romanian professionals and employers a practical reference point for salary conversations. Clear, useful, and built around the actual decision people need to make.',
+    builtWith: ['Custom web application', 'Romanian market data integration'],
   },
 }
 

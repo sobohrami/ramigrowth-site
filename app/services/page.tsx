@@ -5,149 +5,125 @@ import CTAStrip from '@/components/CTAStrip'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Lead generation, workflow automation, custom web apps, and AI-enhanced internal tooling — outcome-led builds.',
+    'Lead generation, workflow automation, custom web apps, and AI-enhanced internal tooling for outcome-led builds.',
 }
+
+const services = [
+  {
+    id: 'lead-generation',
+    title: 'Lead generation and outreach systems',
+    description:
+      'A custom-built system that finds target prospects, sends personalized outreach, follows up automatically, and routes interest directly into your pipeline.',
+    outcome: [
+      'A fuller calendar without manual prospecting',
+      'Follow-up logic running in the background',
+      'Leads tracked and routed instead of disappearing into inboxes',
+    ],
+    fit: 'Local service businesses, B2B operators, recruiters, and teams spending real time every week chasing new business.',
+    proof: 'Built the lead generation and follow-up engine behind ProDetailer.app.',
+    cta: "Let's talk about your lead problem",
+  },
+  {
+    id: 'workflow-automation',
+    title: 'Business workflow automation',
+    description:
+      'Client onboarding, reporting, scheduling, invoicing, data entry, and back-office loops mapped and rebuilt into faster workflows.',
+    outcome: [
+      'Hours returned each week',
+      'Fewer manual errors and less copy-paste work',
+      'Operational capacity without hiring just to handle admin',
+    ],
+    fit: 'Service businesses, clinics, agencies, and small ops teams repeating the same work over and over.',
+    proof: 'Built automation and internal workflow tooling across multiple client and internal projects.',
+    cta: "Tell me what's eating your team's time",
+  },
+  {
+    id: 'custom-web-apps',
+    title: 'Custom web apps and MVPs',
+    description:
+      'Focused products for a specific business problem: portals, calculators, dashboards, internal tools, or a sharp MVP with a commercial purpose.',
+    outcome: [
+      'A working product in weeks, not quarters',
+      'Built around the exact workflow instead of forcing a generic tool',
+      'Code you can keep extending after launch',
+    ],
+    fit: 'Founders who need a real first product and operators who have outgrown spreadsheets or stitched-together tools.',
+    proof: 'Built ProDetailer.app and SalariuOk.ro as focused products for clear market needs.',
+    cta: 'Describe what you need built',
+  },
+  {
+    id: 'ai-enhanced-tooling',
+    title: 'AI-enhanced internal tooling',
+    description:
+      'Practical AI layered into existing operations: summarization, information extraction, routing, content workflows, and internal assistant surfaces.',
+    outcome: [
+      'High-volume repetitive tasks handled automatically',
+      'Useful outputs delivered inside the existing stack',
+      'No full rebuild required just to add intelligence',
+    ],
+    fit: 'Teams processing documents, messages, or repetitive information flows in legal, finance, HR, operations, and content.',
+    proof: 'Used across internal systems and automation-led builds where speed and triage matter.',
+    cta: "Tell me what you're trying to automate",
+  },
+]
 
 export default function ServicesPage() {
   return (
     <main>
-      <section className="border-b border-rami-border py-16 md:py-20">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose">
-            <h1 className="text-3xl font-bold tracking-tight md:text-[40px]">What I build</h1>
-            <p className="mt-6 text-lg text-rami-muted">
-              Four types of systems, each targeting a specific kind of problem. If you&apos;re not sure which fits,
-              describe your problem in the contact form — I&apos;ll tell you.
-            </p>
+      <section className="section-divider py-20 md:py-24">
+        <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Services</p>
+            <h1 className="section-title mt-6">The work is scoped around one business problem at a time.</h1>
           </div>
+          <p className="lede">
+            If the outcome is not clear, I do not dress it up with process. These are the four categories where I am
+            most useful and where the payoff is usually easiest to measure.
+          </p>
         </div>
       </section>
 
-      <section id="lead-generation" className="scroll-mt-24 border-b border-rami-border py-16 md:py-20">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose">
-            <h2 className="text-2xl font-bold">Lead Generation &amp; Outreach Systems</h2>
-            <p className="mt-6 text-rami-muted">
-              A custom-built system that finds your target prospects, sends personalized outreach (email, SMS, or DM
-              depending on your industry), follows up automatically, and routes interested leads directly to you.
-            </p>
-            <p className="mt-4 font-medium text-rami-ink">Outcome</p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-rami-muted">
-              <li>A full appointment calendar without manual prospecting</li>
-              <li>Follow-up sequences that run while you&apos;re doing the actual work</li>
-              <li>Leads tracked and routed — no leads slipping through spreadsheets</li>
-            </ul>
-            <p className="mt-6 font-medium text-rami-ink">Who it&apos;s for</p>
-            <p className="mt-2 text-rami-muted">
-              Local service businesses, recruiters, B2B sales teams, or anyone spending real time each week finding and
-              chasing customers.
-            </p>
-            <p className="mt-6 font-medium text-rami-ink">Proof</p>
-            <p className="mt-2 text-rami-muted">
-              Built the outreach and lead-gen module for ProDetailer.app — auto detailing businesses use it to generate
-              and follow up with new prospects automatically.
-            </p>
-            <Link href="/contact" className="mt-8 inline-block text-sm font-semibold text-rami-link hover:underline">
-              Let&apos;s talk about your lead problem →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <section className="section-divider py-8">
+        <div className="shell">
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {services.map((service, index) => (
+              <div key={service.id} id={service.id} className="scroll-mt-24 py-10 md:py-12">
+                <div className="grid gap-8 lg:grid-cols-[100px_1.1fr_0.9fr] lg:gap-12">
+                  <div className="font-display text-5xl text-rami-gold">0{index + 1}</div>
 
-      <section id="workflow-automation" className="scroll-mt-24 border-b border-rami-border bg-rami-surface py-16 md:py-20">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose">
-            <h2 className="text-2xl font-bold">Business Workflow Automation</h2>
-            <p className="mt-6 text-rami-muted">
-              Find the repetitive manual processes running your operations — client onboarding, invoicing, scheduling,
-              reporting, data entry — and replace them with automated workflows using the right tools for your stack.
-            </p>
-            <p className="mt-4 font-medium text-rami-ink">Outcome</p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-rami-muted">
-              <li>Hours back per week on tasks that shouldn&apos;t require a person</li>
-              <li>Fewer errors from manual copy-paste and re-keying</li>
-              <li>Faster operations without hiring more people to handle volume</li>
-            </ul>
-            <p className="mt-6 font-medium text-rami-ink">Who it&apos;s for</p>
-            <p className="mt-2 text-rami-muted">
-              Any business doing the same manual task more than 10 times per week. Especially common in trades, services,
-              clinics, agencies, and small ops teams.
-            </p>
-            <p className="mt-6 font-medium text-rami-ink">Proof</p>
-            <p className="mt-2 text-rami-muted">
-              Built internal automation tooling and workflow systems across multiple client projects and internal builds.
-            </p>
-            <Link href="/contact" className="mt-8 inline-block text-sm font-semibold text-rami-link hover:underline">
-              Tell me what&apos;s eating your team&apos;s time →
-            </Link>
-          </div>
-        </div>
-      </section>
+                  <div>
+                    <h2 className="font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
+                    <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
+                    <p className="mt-6 label">Who this is for</p>
+                    <p className="mt-3 text-sm leading-7 text-rami-fog">{service.fit}</p>
+                    <p className="mt-6 label">Proof</p>
+                    <p className="mt-3 text-sm leading-7 text-rami-fog">{service.proof}</p>
+                  </div>
 
-      <section id="custom-web-apps" className="scroll-mt-24 border-b border-rami-border py-16 md:py-20">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose">
-            <h2 className="text-2xl font-bold">Custom Web Apps &amp; MVPs</h2>
-            <p className="mt-6 text-rami-muted">
-              Build a focused, functional web application to solve one specific business problem — a client portal,
-              pricing calculator, booking system, internal dashboard, or SaaS MVP. Scoped tightly, built fast, shipped
-              without unnecessary complexity.
-            </p>
-            <p className="mt-4 font-medium text-rami-ink">Outcome</p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-rami-muted">
-              <li>A working product in weeks, not months</li>
-              <li>Built for the exact problem — not a platform configured around it</li>
-              <li>Clean code you can hand off or build on later</li>
-            </ul>
-            <p className="mt-6 font-medium text-rami-ink">Who it&apos;s for</p>
-            <p className="mt-2 text-rami-muted">
-              Founders who need a working MVP without a six-figure agency quote. Businesses who&apos;ve outgrown
-              spreadsheets and need a real tool. Operators who have a specific workflow that no off-the-shelf product
-              covers.
-            </p>
-            <p className="mt-6 font-medium text-rami-ink">Proof</p>
-            <p className="mt-2 text-rami-muted">
-              Built ProDetailer.app (lead-gen and business ops for auto detailing) and SalariuOk.ro (salary benchmarking
-              tool for the Romanian market).
-            </p>
-            <Link href="/contact" className="mt-8 inline-block text-sm font-semibold text-rami-link hover:underline">
-              Describe what you need built →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section id="ai-enhanced-tooling" className="scroll-mt-24 border-b border-rami-border bg-rami-surface py-16 md:py-20">
-        <div className="mx-auto max-w-content px-6">
-          <div className="mx-auto max-w-prose">
-            <h2 className="text-2xl font-bold">AI-Enhanced Internal Tooling</h2>
-            <p className="mt-6 text-rami-muted">
-              Add AI to existing business workflows without rebuilding everything. Automated document processing, smart
-              summaries, internal chatbots for FAQs, AI-assisted content pipelines — layered on top of what you already
-              have.
-            </p>
-            <p className="mt-4 font-medium text-rami-ink">Outcome</p>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-rami-muted">
-              <li>High-volume, low-complexity tasks handled automatically</li>
-              <li>Information extracted, summarized, or routed without a person in the loop</li>
-              <li>Works alongside your existing tools — no migration required</li>
-            </ul>
-            <p className="mt-6 font-medium text-rami-ink">Who it&apos;s for</p>
-            <p className="mt-2 text-rami-muted">
-              Businesses processing large amounts of repetitive information — legal, finance, real estate, HR,
-              recruitment. Also useful for content teams running regular publishing workflows.
-            </p>
-            <Link href="/contact" className="mt-8 inline-block text-sm font-semibold text-rami-link hover:underline">
-              Tell me what you&apos;re trying to automate →
-            </Link>
+                  <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
+                    <p className="label">Primary outcomes</p>
+                    <ul className="mt-4 space-y-3 text-sm leading-7 text-rami-cream">
+                      {service.outcome.map((item) => (
+                        <li key={item} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/contact" className="button-secondary mt-8 w-full">
+                      {service.cta}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <CTAStrip
-        headline="Have a problem that fits?"
-        subtext="Let's spend 20 minutes figuring out if I can solve it. No pitch, no hard sell — just a direct conversation about what you need."
-        ctaLabel="Book a discovery call"
+        headline="Need help choosing the right build?"
+        subtext="Bring the problem, not the spec. I will tell you whether it wants outreach automation, a workflow rebuild, or a product."
+        ctaLabel="Start the conversation"
       />
     </main>
   )

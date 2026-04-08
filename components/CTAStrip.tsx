@@ -5,7 +5,6 @@ type Props = {
   headline: string
   subtext: string
   ctaLabel: string
-  /** When true, CTA always goes to /contact (ignore Calendly). */
   contactOnly?: boolean
 }
 
@@ -13,28 +12,34 @@ export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly }: P
   const cal = getCalendlyUrl()
 
   return (
-    <section className="bg-rami-ink py-16 text-white md:py-20">
-      <div className="mx-auto max-w-[1100px] px-6 text-center">
-        <h2 className="text-2xl font-bold tracking-tight md:text-[28px]">{headline}</h2>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/80">{subtext}</p>
-        <div className="mt-8">
-          {cal && !contactOnly ? (
-            <a
-              href={cal}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-rami-ink transition-colors hover:bg-white/90"
-            >
-              {ctaLabel}
-            </a>
-          ) : (
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-rami-ink transition-colors hover:bg-white/90"
-            >
-              {ctaLabel}
-            </Link>
-          )}
+    <section className="section-divider relative overflow-hidden py-24">
+      <div className="ambient-orb absolute left-[-120px] top-8 h-64 w-64 rounded-full bg-rami-gold/10 blur-3xl" />
+      <div className="ambient-orb absolute bottom-[-80px] right-0 h-72 w-72 rounded-full bg-rami-steel/20 blur-3xl" />
+
+      <div className="shell relative">
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] px-8 py-10 shadow-[0_30px_100px_rgba(0,0,0,0.25)] md:px-12 md:py-14">
+          <p className="eyebrow">Next move</p>
+          <div className="mt-6 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <div>
+              <h2 className="section-title max-w-3xl">{headline}</h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">{subtext}</p>
+            </div>
+
+            <div className="lg:justify-self-end">
+              {cal && !contactOnly ? (
+                <a href={cal} target="_blank" rel="noopener noreferrer" className="button-primary min-w-[220px]">
+                  {ctaLabel}
+                </a>
+              ) : (
+                <Link href="/contact" className="button-primary min-w-[220px]">
+                  {ctaLabel}
+                </Link>
+              )}
+              <p className="mt-4 max-w-sm text-sm leading-7 text-rami-fog">
+                Clear problem, direct recommendation, and a fast yes or no on whether I should build it.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
