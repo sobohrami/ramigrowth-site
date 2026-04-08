@@ -3,58 +3,66 @@
 import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
-const parts = [
+const modules = [
   {
     key: 'perception',
-    title: 'Perception layer',
-    detail: 'Inbound signals, forms, CRM updates, email intent',
-    className: 'breakdown-part breakdown-part--wide',
-    motion: { x: 0, y: -220, rotate: -3, scale: 1.02 },
+    title: 'Perception',
+    detail: 'Inbound forms, CRM updates, email intent, live signals',
+    side: 'right' as const,
+    y: 27,
+    shiftY: -10,
   },
   {
     key: 'workflow',
-    title: 'Workflow engine',
-    detail: 'Rules, orchestration, retries, routing logic',
-    className: 'breakdown-part breakdown-part--module',
-    motion: { x: -230, y: -20, rotate: -8, scale: 1.04 },
+    title: 'Workflow',
+    detail: 'Rules, retries, branching logic, orchestration',
+    side: 'left' as const,
+    y: 44,
+    shiftY: -2,
   },
   {
     key: 'actions',
-    title: 'Action router',
-    detail: 'Messages, follow-up, handoff, calendar actions',
-    className: 'breakdown-part breakdown-part--module',
-    motion: { x: 230, y: -10, rotate: 8, scale: 1.04 },
+    title: 'Actions',
+    detail: 'Messages, booking, handoff, outbound triggers',
+    side: 'right' as const,
+    y: 61,
+    shiftY: 4,
   },
   {
     key: 'memory',
-    title: 'Memory bus',
-    detail: 'Summaries, client state, synced context',
-    className: 'breakdown-part breakdown-part--wide',
-    motion: { x: 0, y: 235, rotate: 2, scale: 1.03 },
+    title: 'Memory',
+    detail: 'State, summaries, synced context, historical trace',
+    side: 'left' as const,
+    y: 78,
+    shiftY: 12,
   },
 ]
 
 const steps = [
   {
-    title: 'Core assembled',
-    body: 'At first the system reads like one intelligent operator: polished, calm, and unified.',
+    title: 'Core column',
+    body: 'The system first reads as one controlled intelligence layer with a single luminous spine.',
   },
   {
-    title: 'Signals separate',
-    body: 'As you scroll, the sensing layer lifts away to show how the system sees forms, inboxes, and live events.',
+    title: 'Sensing peels away',
+    body: 'The top intake layer lifts from the column so the perception surface becomes legible.',
   },
   {
-    title: 'Execution modules split',
-    body: 'The outreach, workflow, and action modules move apart so the automation stack becomes legible instead of magical.',
+    title: 'Branches reveal',
+    body: 'Execution and workflow modules move outward with guided connections rather than flying out of frame.',
   },
   {
-    title: 'Full architecture revealed',
-    body: 'By the end, the entire operating system is exposed: perception, memory, orchestration, and output.',
+    title: 'Architecture exposed',
+    body: 'By the end, the whole operating body is visible: spine, branches, callouts, and state memory.',
   },
 ]
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value))
+}
+
+function lerp(start: number, end: number, amount: number) {
+  return start + (end - start) * amount
 }
 
 export default function SystemDisassemblySection() {
@@ -71,7 +79,7 @@ export default function SystemDisassemblySection() {
       const rect = sectionRef.current.getBoundingClientRect()
       const viewport = window.innerHeight
       const total = sectionRef.current.offsetHeight - viewport
-      const raw = (-rect.top + viewport * 0.15) / Math.max(total, 1)
+      const raw = (-rect.top + viewport * 0.16) / Math.max(total, 1)
       setProgress(clamp(raw, 0, 1))
     }
 
@@ -93,36 +101,30 @@ export default function SystemDisassemblySection() {
 
   const activeStep = Math.min(steps.length - 1, Math.floor(progress * steps.length))
 
-  const partStyles = useMemo(
+  const diagramState = useMemo(
     () =>
-      parts.map((part) => ({
-        key: part.key,
-        style: {
-          transform: `translate3d(calc(-50% + ${part.motion.x * progress}px), calc(-50% + ${part.motion.y * progress}px), 0) rotate(${part.motion.rotate * progress}deg) scale(${1 + (part.motion.scale - 1) * progress})`,
-          opacity: 0.48 + progress * 0.52,
-        },
-      })),
+      modules.map((module, index) => {
+        const y = module.y + module.shiftY * progress
+        const calloutX = module.side === 'left' ? lerp(-138, -300, progress) : lerp(30, 84, progress)
+        const nodeScale = lerp(0.94, 1.02, progress)
+        const nodeLift = (index - 1.5) * 8 * progress
+        const opacity = lerp(0.5, 1, progress)
+        const endX = module.side === 'left' ? lerp(45, 24, progress) : lerp(55, 76, progress)
+        const controlX = module.side === 'left' ? lerp(48, 36, progress) : lerp(52, 64, progress)
+
+        return {
+          ...module,
+          y,
+          calloutX,
+          nodeScale,
+          nodeLift,
+          opacity,
+          path: `M 50 ${y} C 50 ${y}, ${controlX} ${y - 1}, ${endX} ${y - 2}`,
+          endX,
+        }
+      }),
     [progress],
   )
-
-  const pointerStyles = {
-    top: {
-      transform: `translate3d(${progress * 8}px, ${progress * -32}px, 0)`,
-      opacity: 0.4 + progress * 0.6,
-    },
-    left: {
-      transform: `translate3d(${progress * -48}px, ${progress * -14}px, 0)`,
-      opacity: 0.4 + progress * 0.6,
-    },
-    right: {
-      transform: `translate3d(${progress * 48}px, ${progress * -10}px, 0)`,
-      opacity: 0.4 + progress * 0.6,
-    },
-    bottom: {
-      transform: `translate3d(${progress * 4}px, ${progress * 24}px, 0)`,
-      opacity: 0.4 + progress * 0.6,
-    },
-  }
 
   return (
     <section ref={sectionRef} className="section-divider relative h-[240vh]">
@@ -130,10 +132,10 @@ export default function SystemDisassemblySection() {
         <div className="shell grid h-full gap-12 py-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div className="max-w-xl">
             <p className="eyebrow">System breakdown</p>
-            <h2 className="section-title mt-6">Scroll and the AI operator disassembles into the layers that make it work.</h2>
+            <h2 className="section-title mt-6">Scroll and the AI operator opens into a visible neural spine.</h2>
             <p className="mt-6 text-base leading-8 text-rami-fog">
-              Instead of showing AI as a vague glowing object, this section turns it into visible operating parts: perception,
-              memory, orchestration, and action.
+              This version stays inside the frame and reads more like a real systems diagram: a central operating spine with
+              controlled branches for perception, workflow, actions, and memory.
             </p>
 
             <div className="mt-10 space-y-4">
@@ -164,51 +166,74 @@ export default function SystemDisassemblySection() {
             </div>
           </div>
 
-          <div className="breakdown-frame relative h-full min-h-[640px]">
+          <div className="breakdown-frame relative h-full min-h-[680px]">
             <div className="breakdown-grid" />
-            <div className="breakdown-ring breakdown-ring--one" />
-            <div className="breakdown-ring breakdown-ring--two" />
 
             <div className="absolute left-6 right-6 top-6 rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-5 py-4">
               <p className="breakdown-label">Operator blueprint</p>
-              <p className="breakdown-value">A visible stack for modern AI automation: intake, reasoning, routing, execution.</p>
+              <p className="breakdown-value">A spine-first automation map: intake, reasoning, routing, execution, memory.</p>
             </div>
 
-            <div className="breakdown-core" style={{ transform: `translate(-50%, -50%) scale(${1 - progress * 0.06})` }} />
+            <div className="spine-canvas absolute inset-x-0 bottom-0 top-28">
+              <div className="spine-aura" style={{ opacity: lerp(0.35, 0.62, progress) }} />
+              <div className="spine-axis" />
+              <div className="spine-axis spine-axis--glow" style={{ opacity: lerp(0.35, 0.78, progress) }} />
 
-            {parts.map((part, index) => (
-              <div key={part.key} className={part.className} style={partStyles[index].style}>
-                <p className="breakdown-part__title">{part.title}</p>
-                <p className="breakdown-part__detail">{part.detail}</p>
-              </div>
-            ))}
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                {diagramState.map((module) => (
+                  <g key={module.key}>
+                    <path
+                      d={module.path}
+                      fill="none"
+                      stroke={module.side === 'left' ? 'rgba(123,97,255,0.38)' : 'rgba(89,229,255,0.38)'}
+                      strokeWidth="0.22"
+                      strokeLinecap="round"
+                      strokeDasharray="1"
+                      strokeDashoffset={1 - progress}
+                      opacity={lerp(0.1, 0.8, progress)}
+                    />
+                    <circle cx="50" cy={module.y} r="0.7" fill="rgba(89,229,255,0.95)" opacity={lerp(0.4, 0.95, progress)} />
+                    <circle cx={module.endX} cy={module.y - 2} r="0.7" fill="rgba(154,255,210,0.9)" opacity={lerp(0.25, 0.9, progress)} />
+                  </g>
+                ))}
+              </svg>
 
-            <div className="breakdown-pointer left-[53%] top-[18%]" style={pointerStyles.top}>
-              <div className="flex items-center gap-3">
-                <span className="breakdown-marker" />
-                <span>Perception</span>
-              </div>
-            </div>
+              {diagramState.map((module, index) => (
+                <div
+                  key={module.key}
+                  className="spine-node"
+                  style={{
+                    top: `${module.y}%`,
+                    transform: `translate3d(-50%, calc(-50% + ${module.nodeLift}px), 0) scale(${module.nodeScale})`,
+                    opacity: module.opacity,
+                  }}
+                >
+                  <div className="spine-node__shell">
+                    <div className="spine-node__rib spine-node__rib--top" />
+                    <div className="spine-node__core" />
+                    <div className="spine-node__rib spine-node__rib--bottom" />
+                  </div>
+                  <div className="spine-node__meta">
+                    <span className="spine-node__index">{`0${index + 1}`}</span>
+                    <span className="spine-node__name">{module.title}</span>
+                  </div>
+                </div>
+              ))}
 
-            <div className="breakdown-pointer left-[9%] top-[48%]" style={pointerStyles.left}>
-              <div className="flex items-center gap-3">
-                <span className="breakdown-marker" />
-                <span>Workflow</span>
-              </div>
-            </div>
-
-            <div className="breakdown-pointer right-[8%] top-[46%]" style={pointerStyles.right}>
-              <div className="flex items-center gap-3">
-                <span className="breakdown-marker" />
-                <span>Actions</span>
-              </div>
-            </div>
-
-            <div className="breakdown-pointer left-[41%] bottom-[18%]" style={pointerStyles.bottom}>
-              <div className="flex items-center gap-3">
-                <span className="breakdown-marker" />
-                <span>Memory</span>
-              </div>
+              {diagramState.map((module) => (
+                <div
+                  key={`${module.key}-callout`}
+                  className={`spine-callout ${module.side === 'left' ? 'spine-callout--left' : 'spine-callout--right'}`}
+                  style={{
+                    top: `${module.y}%`,
+                    transform: `translate3d(${module.calloutX}px, -50%, 0)`,
+                    opacity: lerp(0.2, 1, progress),
+                  }}
+                >
+                  <p className="spine-callout__title">{module.title}</p>
+                  <p className="spine-callout__detail">{module.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

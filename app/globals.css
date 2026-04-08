@@ -260,90 +260,105 @@
     @apply mt-2 text-sm leading-6 text-rami-cream;
   }
 
-  .breakdown-part {
-    @apply absolute left-1/2 top-1/2 rounded-[1.4rem] border border-white/10 px-5 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur;
-    background-color: rgba(9, 17, 32, 0.88);
-    transform-style: preserve-3d;
-    transition: transform 120ms linear, opacity 120ms linear;
-  }
-
-  .breakdown-part--wide {
-    @apply min-w-[240px];
-  }
-
-  .breakdown-part--module {
-    @apply min-w-[170px];
-  }
-
-  .breakdown-part__title {
-    @apply text-xs font-semibold uppercase tracking-[0.22em] text-rami-gold;
-  }
-
-  .breakdown-part__detail {
-    @apply mt-2 text-sm leading-6 text-rami-fog;
-  }
-
-  .breakdown-core {
-    @apply absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10;
-    background:
-      radial-gradient(circle, rgba(89, 229, 255, 0.22), transparent 54%),
-      radial-gradient(circle at 70% 30%, rgba(123, 97, 255, 0.24), transparent 44%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-    box-shadow:
-      0 0 0 1px rgba(89, 229, 255, 0.08),
-      0 0 90px rgba(89, 229, 255, 0.12),
-      0 0 120px rgba(123, 97, 255, 0.12);
-  }
-
-  .breakdown-core::before,
-  .breakdown-core::after {
-    content: '';
-    @apply absolute rounded-full;
-  }
-
-  .breakdown-core::before {
-    inset: 24px;
-    border: 1px solid rgba(89, 229, 255, 0.18);
-  }
-
-  .breakdown-core::after {
-    inset: 58px;
-    background: radial-gradient(circle, rgba(154, 255, 210, 0.8), rgba(89, 229, 255, 0.15) 68%, transparent 72%);
-    animation: pulse-halo 5.2s ease-in-out infinite;
-  }
-
-  .breakdown-ring {
-    @apply absolute left-1/2 top-1/2 rounded-full border border-white/10;
-    transform: translate(-50%, -50%);
-  }
-
-  .breakdown-ring--one {
-    width: 360px;
-    height: 360px;
-    border-color: rgba(89, 229, 255, 0.18);
-    animation: orbit-slow 20s linear infinite;
-  }
-
-  .breakdown-ring--two {
-    width: 460px;
-    height: 460px;
-    border-color: rgba(123, 97, 255, 0.16);
-    border-style: dashed;
-    animation: orbit-reverse 24s linear infinite;
-  }
-
-  .breakdown-pointer {
-    @apply absolute text-[11px] font-medium uppercase tracking-[0.2em] text-rami-fog/75;
-    transition: transform 120ms linear, opacity 120ms linear;
-  }
-
-  .breakdown-marker {
-    @apply inline-flex h-2.5 w-2.5 rounded-full bg-rami-gold;
-    box-shadow: 0 0 18px rgba(89, 229, 255, 0.55);
-  }
-
   .breakdown-panel {
     @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)];
+  }
+
+  .spine-canvas {
+    @apply relative h-full;
+  }
+
+  .spine-aura {
+    @apply absolute left-1/2 top-1/2 h-[440px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl;
+    background:
+      radial-gradient(circle, rgba(89, 229, 255, 0.18), transparent 52%),
+      radial-gradient(circle at 65% 40%, rgba(123, 97, 255, 0.18), transparent 58%);
+  }
+
+  .spine-axis {
+    @apply absolute left-1/2 top-[12%] h-[72%] w-[2px] -translate-x-1/2 rounded-full;
+    background: linear-gradient(180deg, rgba(89, 229, 255, 0), rgba(89, 229, 255, 0.65), rgba(154, 255, 210, 0.8), rgba(89, 229, 255, 0));
+  }
+
+  .spine-axis--glow {
+    width: 14px;
+    filter: blur(10px);
+    opacity: 0.65;
+  }
+
+  .spine-node {
+    @apply absolute left-1/2 z-10;
+    transition: transform 120ms linear, opacity 120ms linear;
+  }
+
+  .spine-node__shell {
+    @apply relative flex h-[118px] w-[104px] flex-col items-center justify-between rounded-[999px] border border-white/10 px-4 py-3 shadow-[0_30px_90px_rgba(0,0,0,0.28)];
+    background-color: rgba(9, 17, 31, 0.92);
+    box-shadow:
+      0 0 0 1px rgba(89, 229, 255, 0.06),
+      0 30px 90px rgba(0, 0, 0, 0.28);
+  }
+
+  .spine-node__rib {
+    @apply w-[72px] rounded-full border border-white/10 bg-white/[0.03];
+    height: 18px;
+  }
+
+  .spine-node__rib--top {
+    box-shadow: 0 0 22px rgba(89, 229, 255, 0.06);
+  }
+
+  .spine-node__rib--bottom {
+    box-shadow: 0 0 22px rgba(123, 97, 255, 0.08);
+  }
+
+  .spine-node__core {
+    @apply relative h-[44px] w-[44px] rounded-full;
+    background:
+      radial-gradient(circle, rgba(154, 255, 210, 0.82), rgba(89, 229, 255, 0.16) 58%, transparent 72%);
+    box-shadow:
+      0 0 30px rgba(89, 229, 255, 0.32),
+      0 0 50px rgba(123, 97, 255, 0.18);
+  }
+
+  .spine-node__core::after {
+    content: '';
+    @apply absolute inset-[8px] rounded-full border border-white/15;
+  }
+
+  .spine-node__meta {
+    @apply absolute left-1/2 top-1/2 flex -translate-x-1/2 translate-y-[78px] items-center gap-2 whitespace-nowrap rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-rami-fog;
+    background-color: rgba(9, 17, 31, 0.88);
+  }
+
+  .spine-node__index {
+    @apply text-rami-gold;
+  }
+
+  .spine-node__name {
+    @apply text-rami-cream;
+  }
+
+  .spine-callout {
+    @apply absolute left-1/2 z-10 w-[230px] rounded-[1.35rem] border border-white/10 px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur;
+    background-color: rgba(10, 19, 35, 0.9);
+    transition: transform 120ms linear, opacity 120ms linear;
+  }
+
+  .spine-callout--left {
+    transform-origin: right center;
+  }
+
+  .spine-callout--right {
+    transform-origin: left center;
+  }
+
+  .spine-callout__title {
+    @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-rami-gold;
+  }
+
+  .spine-callout__detail {
+    @apply mt-2 text-sm leading-6 text-rami-fog;
   }
 }
 
