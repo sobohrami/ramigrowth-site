@@ -127,9 +127,9 @@ export default function SystemDisassemblySection() {
   )
 
   return (
-    <section ref={sectionRef} className="section-divider relative h-[240vh]">
+    <section ref={sectionRef} className="section-divider relative h-[200vh]">
       <div className="sticky top-[88px] h-[calc(100vh-88px)] overflow-hidden">
-        <div className="shell grid h-full gap-12 py-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+        <div className="shell grid h-full gap-10 py-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
           <div className="max-w-xl">
             <p className="eyebrow">System breakdown</p>
             <h2 className="section-title mt-6">Scroll and the AI operator opens into a visible neural spine.</h2>
@@ -138,35 +138,59 @@ export default function SystemDisassemblySection() {
               controlled branches for perception, workflow, actions, and memory.
             </p>
 
-            <div className="mt-10 space-y-4">
+            <div className="mt-8">
+              <div className="mb-4 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-fog/65">
+                <span>Reveal progress</span>
+                <span>{Math.round(progress * 100)}%</span>
+              </div>
+
+              <div className="h-px w-full overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-rami-gold via-rami-goldSoft to-rami-steel transition-[width] duration-200"
+                  style={{ width: `${Math.max(8, progress * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 space-y-3">
               {steps.map((step, index) => {
                 const active = index === activeStep
                 return (
                   <div
                     key={step.title}
-                    className={`breakdown-panel transition-all duration-300 ${
-                      active ? 'border-rami-gold/40 bg-white/[0.06]' : 'opacity-70'
+                    className={`breakdown-step transition-all duration-300 ${
+                      active ? 'border-rami-gold/40 bg-white/[0.06]' : 'opacity-80'
                     }`}
                   >
-                    <p className="label">{`0${index + 1}`}</p>
-                    <h3 className="mt-3 text-xl font-semibold text-rami-cream">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-rami-fog">{step.body}</p>
+                    <div className="flex items-start gap-4">
+                      <div className={`breakdown-step__index ${active ? 'border-rami-gold/40 text-rami-gold' : ''}`}>{`0${index + 1}`}</div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-base font-semibold text-rami-cream md:text-lg">{step.title}</h3>
+                        <p
+                          className={`overflow-hidden text-sm leading-7 text-rami-fog transition-all duration-300 ${
+                            active ? 'mt-2 max-h-32 opacity-100' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          {step.body}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 )
               })}
             </div>
 
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 flex items-center gap-4">
               <Link href="/services" className="button-primary">
                 Explore the stack
               </Link>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rami-fog/70">
-                Scroll depth {Math.round(progress * 100)}%
+                Continue scrolling to reveal the full stack
               </p>
             </div>
           </div>
 
-          <div className="breakdown-frame relative h-full min-h-[680px]">
+          <div className="breakdown-frame relative h-full min-h-[620px]">
             <div className="breakdown-grid" />
 
             <div className="absolute left-6 right-6 top-6 rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-5 py-4">

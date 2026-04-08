@@ -264,6 +264,14 @@
     @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)];
   }
 
+  .breakdown-step {
+    @apply rounded-[1.5rem] border border-white/10 bg-white/[0.035] px-4 py-4 shadow-[0_14px_44px_rgba(0,0,0,0.18)] md:px-5;
+  }
+
+  .breakdown-step__index {
+    @apply inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-[11px] font-semibold uppercase tracking-[0.18em] text-rami-fog;
+  }
+
   .spine-canvas {
     @apply relative h-full;
   }
