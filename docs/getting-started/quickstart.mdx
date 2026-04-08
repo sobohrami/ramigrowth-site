@@ -1,0 +1,42 @@
+---
+title: Quickstart
+description: Make your first RAMA API call in under five minutes.
+icon: rocket
+---
+
+# Quickstart
+
+## Prerequisites
+
+- A RAMA account at [app.rama.ai](https://app.rama.ai)
+- `curl` or any HTTP client
+
+## Step 1 — Create an API key
+
+1. Open **Settings → API keys**
+2. Create a key and copy it once (format `sk-rama-…`)
+
+<Warning>Store keys in environment variables or a secrets manager — never commit them.</Warning>
+
+## Step 2 — Generate content
+
+```bash
+curl -X POST https://api.rama.ai/v1/content/generate \
+  -H "Authorization: Bearer sk-rama-YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "Write a short product description for a task management SaaS aimed at developers",
+    "format": "markdown",
+    "tone": "professional",
+    "max_tokens": 200
+  }'
+```
+
+## Step 3 — Read the response
+
+You receive a job object with `status`, optional `output`, and `usage` token counts. For async flows, poll jobs or use webhooks.
+
+## Next steps
+
+- [Your first API call](/getting-started/first-api-call) — parameters and errors
+- [Node.js SDK](/sdks/nodejs) / [Python SDK](/sdks/python)

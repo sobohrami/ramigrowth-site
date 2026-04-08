@@ -1,0 +1,23 @@
+---
+title: Core concepts
+description: Jobs, operations, webhooks, and rate limits.
+icon: book-open
+---
+
+# Core concepts
+
+## Jobs
+
+A **job** is a unit of work. Content generation returns a `job_id` and transitions through `queued` → `processing` → `done` (or `failed`).
+
+## Operations
+
+An **operation** is one billable unit: one generation, one edit, or each item in a batch (see product limits). Failed jobs are not billed.
+
+## Webhooks
+
+Provide `webhook_url` on a request or register a persistent endpoint via `POST /v1/webhooks`. Verify `X-Rama-Signature` on every delivery.
+
+## Rate limits
+
+Per-minute and per-day limits depend on your plan. Full tier table is in the OpenAPI description and [Rate limits](/authentication/rate-limits).

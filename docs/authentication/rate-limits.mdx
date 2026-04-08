@@ -1,0 +1,28 @@
+---
+title: Rate limits & quotas
+description: Per-minute and per-day limits by plan, plus 429 handling.
+icon: gauge
+---
+
+# Rate limits & quotas
+
+RAMA enforces per-key limits. Responses include:
+
+- `X-RateLimit-Limit`
+- `X-RateLimit-Remaining`
+- `X-RateLimit-Reset` (Unix timestamp)
+
+## Canonical tiers
+
+These values match the published OpenAPI description and product defaults:
+
+| Plan | Requests/min | Operations/day | Concurrent jobs |
+| --- | --- | --- | --- |
+| Free | 5 | 100 | 2 |
+| Starter | 30 | 2,000 | 10 |
+| Pro | 100 | 20,000 | 50 |
+| Enterprise | Custom | Custom | Custom |
+
+## 429 responses
+
+When limited, the API returns `429 Too Many Requests` with a JSON error and `Retry-After` where applicable. Back off exponentially for retries.

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "RAMA API",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#3b82f6",
+    "dark": "#1d4ed8"
+  },
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Dashboard",
+        "href": "https://app.rama.ai"
+      }
+    ]
+  },
+  "api": {
+    "openapi": "openapi/openapi.yaml",
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["curl", "javascript", "python"],
+      "autogenerate": true
+    }
+  },
+  "seo": {
+    "indexing": "navigable"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["index"]
+          },
+          {
+            "group": "Introduction",
+            "pages": [
+              "introduction/what-is-rama",
+              "introduction/use-cases",
+              "introduction/how-it-works"
+            ]
+          },
+          {
+            "group": "Getting started",
+            "pages": [
+              "getting-started/quickstart",
+              "getting-started/first-api-call",
+              "getting-started/core-concepts"
+            ]
+          },
+          {
+            "group": "Authentication",
+            "pages": [
+              "authentication/api-keys",
+              "authentication/rate-limits",
+              "authentication/billing"
+            ]
+          },
+          {
+            "group": "Tutorials",
+            "pages": [
+              "tutorials/automate-a-blog",
+              "tutorials/content-pipeline",
+              "tutorials/smart-editing-integration",
+              "tutorials/webhook-walkthrough"
+            ]
+          },
+          {
+            "group": "SDKs",
+            "pages": ["sdks/nodejs", "sdks/python", "sdks/curl-postman"]
+          },
+          {
+            "group": "Changelog",
+            "pages": ["changelog/index"]
+          },
+          {
+            "group": "Support",
+            "pages": ["support/discord", "support/github"]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "openapi": "openapi/openapi.yaml"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://rama.ai"
+    }
+  }
+}

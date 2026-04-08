@@ -1,0 +1,32 @@
+---
+title: API keys
+description: Create, rotate, and use RAMA API keys safely.
+icon: key
+---
+
+# API keys
+
+Every RAMA API request is authenticated with an API key sent as a Bearer token.
+
+## Key format
+
+```
+sk-rama-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Create and rotate keys from **Settings → API keys** in the dashboard.
+
+## Using your key
+
+```bash
+curl https://api.rama.ai/v1/content/generate \
+  -H "Authorization: Bearer sk-rama-YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ ... }'
+```
+
+<Warning>Never commit API keys. Use environment variables or a secrets manager.</Warning>
+
+## Rotation
+
+Use **Rotate** in the dashboard to invalidate an old key and receive a new one in one step.

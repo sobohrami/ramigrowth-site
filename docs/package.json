@@ -1,0 +1,8 @@
+{
+  "name": "rama-docs",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes mint@4.2.500 dev",
+    "broken-links": "npx --yes mint@4.2.500 broken-links"
+  }
+}

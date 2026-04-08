@@ -1,0 +1,35 @@
+---
+title: Node.js / TypeScript SDK
+description: Official RAMA SDK for Node.js — package name @rama/sdk.
+icon: node-js
+---
+
+# Node.js / TypeScript SDK
+
+## Package name (canonical)
+
+```bash
+npm install @rama/sdk
+```
+
+`@rama/sdk` is the official npm package name for RAMA’s Node.js client.
+
+## Minimal usage
+
+```typescript
+import Rama from '@rama/sdk';
+
+const rama = new Rama({ apiKey: process.env.RAMA_API_KEY! });
+
+const job = await rama.content.generate({
+  prompt: 'Write a product description for a wireless keyboard.',
+  format: 'markdown',
+  tone: 'professional',
+});
+
+console.log(job.output);
+```
+
+<Note>
+  Until the package is published, point local development at staging artifacts or keep using `curl` and the REST reference.
+</Note>

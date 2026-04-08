@@ -1,0 +1,36 @@
+---
+title: Your first API call
+description: Parameters, responses, and HTTP errors for content generation.
+icon: terminal
+---
+
+# Your first API call
+
+## Base URL
+
+```
+https://api.rama.ai
+```
+
+All versioned routes live under `/v1/…`. The authoritative schema is published as `openapi/openapi.yaml` in the docs repo and rendered under the **API reference** tab.
+
+## POST /v1/content/generate
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `prompt` | string | yes | Instruction for what to generate |
+| `format` | string | yes | `markdown`, `html`, `plain_text`, `json` |
+| `tone` | string | | `professional`, `casual`, `technical`, `friendly` |
+| `max_tokens` | integer | | Cap output length |
+| `webhook_url` | string | | Async completion callback |
+
+## Common HTTP status codes
+
+| Status | Meaning |
+| --- | --- |
+| `200` | Success |
+| `401` | Invalid or missing API key |
+| `429` | Rate limited — retry after `Retry-After` |
+| `500` | Server error — retry with backoff |
+
+Error bodies follow the `ErrorResponse` schema in OpenAPI.

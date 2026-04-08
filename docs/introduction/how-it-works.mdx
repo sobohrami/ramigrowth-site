@@ -1,0 +1,23 @@
+---
+title: How it works
+description: Sync vs async jobs, webhooks, and the RAMA request lifecycle.
+icon: diagram-project
+---
+
+# How it works
+
+## Synchronous vs asynchronous
+
+For smaller requests, RAMA may return `status: done` inline. For longer work, responses include a `job_id` — poll `GET /v1/content/jobs/{job_id}` or pass `webhook_url` for push delivery.
+
+## Authentication
+
+Every request sends your API key as a Bearer token (`Authorization: Bearer sk-rama-…`). See [API keys](/authentication/api-keys).
+
+## Webhooks
+
+RAMA signs deliveries with `X-Rama-Signature` (HMAC-SHA256). Canonical event names are documented in the OpenAPI spec: `job.completed`, `job.failed`, `batch.completed`.
+
+## Billing snapshot
+
+You are billed per successful operation. Failed jobs are not charged. See [Billing](/authentication/billing).

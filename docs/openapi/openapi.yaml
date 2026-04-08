@@ -1,0 +1,499 @@
+openapi: 3.1.0
+info:
+  title: RAMA API
+  version: 1.0.0
+  description: |
+    REST API for RAMA — AI content generation, smart editing, and webhooks.
+
+    **Base URL:** `https://api.rama.ai`
+
+    ## Authentication
+
+    All requests require a RAMA API key sent as a Bearer token:
+
+    ```
+    Authorization: Bearer sk-rama-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```
+
+    Keys are created in the RAMA dashboard and use the `sk-rama-` prefix.
+
+    ## Rate limits (canonical tiers)
+
+    Limits apply per API key. Responses include standard rate-limit headers.
+
+    | Plan | Requests / minute | Operations / day | Concurrent jobs |
+    |------|-------------------|------------------|-------------------|
+    | Free | 5 | 100 | 2 |
+    | Starter | 30 | 2,000 | 10 |
+    | Pro | 100 | 20,000 | 50 |
+    | Enterprise | Custom | Custom | Custom |
+
+    When exceeded, the API returns `429 Too Many Requests` with `Retry-After` (seconds) and a JSON error body.
+
+    ## Webhook event types (canonical strings)
+
+    Use these exact `event` values in webhook subscription `events[]` and in delivered webhook payloads:
+
+    - `job.completed` — a content or edit job finished successfully
+    - `job.failed` — a job failed after retries
+    - `batch.completed` — all items in a batch job finished
+
+    ## Official SDKs
+
+    - **Node.js / TypeScript:** `@rama/sdk` (npm)
+    - **Python:** `rama-sdk` (PyPI)
+
+servers:
+  - url: https://api.rama.ai
+    description: Production
+
+tags:
+  - name: Content
+    description: Generate and poll async content jobs
+  - name: Editing
+    description: Smart editing and templates
+  - name: Webhooks
+    description: Register and manage outbound webhooks
+
+paths:
+  /v1/content/generate:
+    post:
+      operationId: contentGenerate
+      tags: [Content]
+      summary: Generate content from a prompt
+      description: |
+        Creates a content generation job. Short requests may complete synchronously with `status: done`;
+        longer work returns `queued` or `processing` — poll `GET /v1/content/jobs/{job_id}` or use a `webhook_url`.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/XRequestIdResponse'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentGenerateRequest'
+      responses:
+        '200':
+          description: Job created or completed inline
+          headers:
+            X-RateLimit-Limit:
+              schema: { type: string }
+            X-RateLimit-Remaining:
+              schema: { type: string }
+            X-RateLimit-Reset:
+              schema: { type: string }
+            Retry-After:
+              schema: { type: string }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentJob'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /v1/content/jobs/{job_id}:
+    get:
+      operationId: contentJobGet
+      tags: [Content]
+      summary: Get job status and output
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: job_01HZQX3N7MFVK9T2PCRB8W4YE
+      responses:
+        '200':
+          description: Current job state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentJob'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /v1/content/batch:
+    post:
+      operationId: contentBatch
+      tags: [Content]
+      summary: Submit multiple generation jobs in one request
+      description: |
+        Counts as **one** request against per-minute rate limits regardless of batch size (up to product max items).
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentBatchRequest'
+      responses:
+        '200':
+          description: Batch accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchJob'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /v1/edit:
+    post:
+      operationId: editApply
+      tags: [Editing]
+      summary: Edit existing content with structured instructions
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditRequest'
+      responses:
+        '200':
+          description: Edited content and diff metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EditResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /v1/edit/templates:
+    get:
+      operationId: editTemplatesList
+      tags: [Editing]
+      summary: List editing instruction templates
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Template catalog
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EditTemplate'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /v1/webhooks:
+    get:
+      operationId: webhooksList
+      tags: [Webhooks]
+      summary: List registered webhooks
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Webhook registrations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WebhookRegistration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: webhooksCreate
+      tags: [Webhooks]
+      summary: Register a webhook endpoint
+      description: |
+        `events` must use canonical event names: `job.completed`, `job.failed`, `batch.completed`.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreateRequest'
+      responses:
+        '201':
+          description: Webhook created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookRegistration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /v1/webhooks/{webhook_id}:
+    delete:
+      operationId: webhooksDelete
+      tags: [Webhooks]
+      summary: Delete a webhook registration
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: webhook_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: wh_01HX3N8FQZPXC7M9E2W5B6D4K
+      responses:
+        '204':
+          description: Deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: sk-rama-...
+      description: RAMA API key with `sk-rama-` prefix.
+
+  parameters:
+    XRequestIdResponse:
+      name: X-Request-Id
+      in: header
+      description: Present on responses for support correlation.
+      schema:
+        type: string
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Rate limit exceeded
+      headers:
+        Retry-After:
+          schema: { type: integer }
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: rate_limit_exceeded
+            message:
+              type: string
+            retry_after_seconds:
+              type: integer
+              description: Seconds to wait before retrying (429 responses).
+
+    Usage:
+      type: object
+      properties:
+        input_tokens:
+          type: integer
+        output_tokens:
+          type: integer
+        operations:
+          type: integer
+
+    ContentGenerateRequest:
+      type: object
+      required: [prompt, format]
+      properties:
+        prompt:
+          type: string
+        format:
+          type: string
+          enum: [markdown, html, plain_text, json]
+        tone:
+          type: string
+          enum: [professional, casual, technical, friendly]
+        max_tokens:
+          type: integer
+          maximum: 8000
+        webhook_url:
+          type: string
+          format: uri
+        metadata:
+          type: object
+          additionalProperties: true
+
+    ContentJob:
+      type: object
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [queued, processing, done, failed]
+        output:
+          type: string
+          nullable: true
+        format:
+          type: string
+          nullable: true
+        usage:
+          $ref: '#/components/schemas/Usage'
+        metadata:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+
+    ContentBatchRequest:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          maxItems: 100
+          items:
+            type: object
+            required: [prompt, format]
+            properties:
+              prompt: { type: string }
+              format: { type: string }
+        webhook_url:
+          type: string
+          format: uri
+
+    BatchJob:
+      type: object
+      properties:
+        batch_id:
+          type: string
+        status:
+          type: string
+        item_count:
+          type: integer
+
+    EditRequest:
+      type: object
+      required: [content, instructions]
+      properties:
+        content:
+          type: string
+        instructions:
+          type: string
+        format:
+          type: string
+          enum: [markdown, html, plain_text, json]
+
+    EditResponse:
+      type: object
+      properties:
+        edited_content:
+          type: string
+        diff:
+          description: Structured change list (format is implementation-defined)
+          nullable: true
+        changes_summary:
+          type: string
+          nullable: true
+        usage:
+          $ref: '#/components/schemas/Usage'
+
+    EditTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+
+    WebhookCreateRequest:
+      type: object
+      required: [url, events]
+      properties:
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+              - job.completed
+              - job.failed
+              - batch.completed
+
+    WebhookRegistration:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Signing secret for `X-Rama-Signature` verification (shown once on create).
+
+    WebhookDeliveryPayload:
+      type: object
+      description: |
+        Payload POSTed to your `url` when an event fires. Verify `X-Rama-Signature` (HMAC-SHA256 over raw body).
+      properties:
+        event:
+          type: string
+          enum:
+            - job.completed
+            - job.failed
+            - batch.completed
+        job_id:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        output:
+          type: string
+          nullable: true
+        metadata:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time

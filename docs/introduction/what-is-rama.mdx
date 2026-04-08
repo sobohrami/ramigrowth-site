@@ -1,0 +1,47 @@
+---
+title: What is RAMA?
+description: RAMA is an AI automations platform that gives developers an API to generate, edit, and orchestrate content at scale.
+icon: bolt
+---
+
+# What is RAMA?
+
+RAMA is an **AI automations API** built for developers who want to move fast. Instead of wiring raw model APIs yourself, RAMA provides purpose-built endpoints for common AI content workflows:
+
+- **Content generation** — blog posts, product descriptions, social copy, and long-form articles from one API call
+- **Smart editing** — rewrite, summarize, expand, or restyle existing content with structured instructions
+- **Webhooks** — async jobs with signed delivery to your infrastructure
+
+## Who is RAMA for?
+
+<CardGroup cols={2}>
+  <Card title="Developers" icon="code">
+    Integrate AI content workflows into your product with REST and official SDKs.
+  </Card>
+  <Card title="Small businesses" icon="building">
+    Automate repetitive content tasks without building LLM infrastructure.
+  </Card>
+  <Card title="Agencies" icon="users">
+    Run pipelines for multiple clients from a single dashboard and API key.
+  </Card>
+  <Card title="Solopreneurs" icon="person">
+    Ship AI-powered content features without operating your own models.
+  </Card>
+</CardGroup>
+
+## Quick example
+
+```bash
+curl -X POST https://api.rama.ai/v1/content/generate \
+  -H "Authorization: Bearer sk-rama-YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "Write a 500-word blog post about AI automation trends in 2026",
+    "format": "markdown",
+    "tone": "professional"
+  }'
+```
+
+<Note>
+  New here? Jump to the [Quickstart](/getting-started/quickstart) to ship your first call in minutes.
+</Note>

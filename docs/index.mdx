@@ -1,0 +1,32 @@
+---
+title: RAMA API documentation
+description: Developer guides and API reference for the RAMA AI automations platform.
+---
+
+# Welcome
+
+RAMA is an **AI automations API** for content generation, smart editing, and webhooks. Use these docs to integrate in minutes.
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/getting-started/quickstart">
+    Make your first API call in under five minutes.
+  </Card>
+  <Card title="API reference" icon="book-open" href="/api-reference">
+    Interactive endpoints generated from the OpenAPI spec.
+  </Card>
+  <Card title="Authentication" icon="key" href="/authentication/api-keys">
+    API keys, rotation, and security practices.
+  </Card>
+  <Card title="SDKs" icon="code" href="/sdks/nodejs">
+    Official Node.js and Python SDKs.
+  </Card>
+</CardGroup>
+
+## Canonical API details
+
+The published OpenAPI spec lives at `openapi/openapi.yaml` in this repo. It is the source of truth for:
+
+- **Auth:** Bearer tokens using RAMA API keys (`sk-rama-…`).
+- **Rate limits:** Tier table (Free / Starter / Pro / Enterprise) in the spec description.
+- **Webhooks:** Event strings `job.completed`, `job.failed`, `batch.completed`.
+- **SDKs:** npm package `@rama/sdk` and PyPI package `rama-sdk`.

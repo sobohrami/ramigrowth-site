@@ -1,0 +1,21 @@
+---
+title: cURL & Postman
+description: Explore the API without installing an SDK.
+icon: terminal
+---
+
+# cURL & Postman
+
+## Authentication
+
+```bash
+export RAMA_API_KEY="sk-rama-your-key"
+curl https://api.rama.ai/v1/content/generate \
+  -H "Authorization: Bearer $RAMA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"Hello","format":"markdown"}'
+```
+
+## Postman
+
+Import a collection when it ships at launch; until then, generate requests from the **API reference** tab and copy as cURL.

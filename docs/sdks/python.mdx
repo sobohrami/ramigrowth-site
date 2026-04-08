@@ -1,0 +1,36 @@
+---
+title: Python SDK
+description: Official RAMA SDK for Python — PyPI package rama-sdk.
+icon: python
+---
+
+# Python SDK
+
+## Package name (canonical)
+
+```bash
+pip install rama-sdk
+```
+
+`rama-sdk` is the official PyPI distribution name.
+
+## Minimal usage
+
+```python
+import os
+import rama
+
+client = rama.Client(api_key=os.environ["RAMA_API_KEY"])
+
+job = client.content.generate(
+    prompt="Write a product description for a wireless keyboard.",
+    format="markdown",
+    tone="professional",
+)
+
+print(job.output)
+```
+
+<Note>
+  Until the package is published, use REST examples from the API reference tab.
+</Note>
