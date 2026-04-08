@@ -9,15 +9,15 @@ const modules = [
     title: 'Perception',
     detail: 'Inbound forms, CRM updates, email intent, live signals',
     side: 'right' as const,
-    y: 27,
-    shiftY: -10,
+    y: 24,
+    shiftY: -6,
   },
   {
     key: 'workflow',
     title: 'Workflow',
     detail: 'Rules, retries, branching logic, orchestration',
     side: 'left' as const,
-    y: 44,
+    y: 40,
     shiftY: -2,
   },
   {
@@ -25,16 +25,16 @@ const modules = [
     title: 'Actions',
     detail: 'Messages, booking, handoff, outbound triggers',
     side: 'right' as const,
-    y: 61,
-    shiftY: 4,
+    y: 56,
+    shiftY: 2,
   },
   {
     key: 'memory',
     title: 'Memory',
     detail: 'State, summaries, synced context, historical trace',
     side: 'left' as const,
-    y: 78,
-    shiftY: 12,
+    y: 71,
+    shiftY: 4,
   },
 ]
 
@@ -105,12 +105,12 @@ export default function SystemDisassemblySection() {
     () =>
       modules.map((module, index) => {
         const y = module.y + module.shiftY * progress
-        const calloutX = module.side === 'left' ? lerp(-138, -300, progress) : lerp(30, 84, progress)
+        const calloutX = module.side === 'left' ? lerp(-128, -248, progress) : lerp(28, 62, progress)
         const nodeScale = lerp(0.94, 1.02, progress)
-        const nodeLift = (index - 1.5) * 8 * progress
+        const nodeLift = (index - 1.5) * 5 * progress
         const opacity = lerp(0.5, 1, progress)
-        const endX = module.side === 'left' ? lerp(45, 24, progress) : lerp(55, 76, progress)
-        const controlX = module.side === 'left' ? lerp(48, 36, progress) : lerp(52, 64, progress)
+        const endX = module.side === 'left' ? lerp(45, 30, progress) : lerp(55, 70, progress)
+        const controlX = module.side === 'left' ? lerp(48, 39, progress) : lerp(52, 61, progress)
 
         return {
           ...module,
@@ -127,7 +127,7 @@ export default function SystemDisassemblySection() {
   )
 
   return (
-    <section ref={sectionRef} className="section-divider relative h-[200vh]">
+    <section ref={sectionRef} className="section-divider relative h-[190vh]">
       <div className="sticky top-[88px] h-[calc(100vh-88px)] overflow-hidden">
         <div className="shell grid h-full gap-10 py-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
           <div className="max-w-xl">
@@ -190,7 +190,7 @@ export default function SystemDisassemblySection() {
             </div>
           </div>
 
-          <div className="breakdown-frame relative h-full min-h-[620px]">
+          <div className="breakdown-frame relative h-full min-h-[520px] xl:min-h-[560px]">
             <div className="breakdown-grid" />
 
             <div className="absolute left-6 right-6 top-6 rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-5 py-4">
@@ -198,7 +198,7 @@ export default function SystemDisassemblySection() {
               <p className="breakdown-value">A spine-first automation map: intake, reasoning, routing, execution, memory.</p>
             </div>
 
-            <div className="spine-canvas absolute inset-x-0 bottom-0 top-28">
+            <div className="spine-canvas absolute inset-x-0 bottom-6 top-24">
               <div className="spine-aura" style={{ opacity: lerp(0.35, 0.62, progress) }} />
               <div className="spine-axis" />
               <div className="spine-axis spine-axis--glow" style={{ opacity: lerp(0.35, 0.78, progress) }} />
