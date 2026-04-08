@@ -239,19 +239,6 @@
     color: #9affd2;
   }
 
-  .breakdown-frame {
-    @apply relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] shadow-[0_40px_120px_rgba(0,0,0,0.32)];
-  }
-
-  .breakdown-grid {
-    @apply absolute inset-0 opacity-30;
-    background-image:
-      linear-gradient(rgba(89, 229, 255, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(89, 229, 255, 0.08) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), transparent 92%);
-  }
-
   .breakdown-label {
     @apply text-[10px] font-semibold uppercase tracking-[0.26em] text-rami-fog/70;
   }
@@ -260,113 +247,140 @@
     @apply mt-2 text-sm leading-6 text-rami-cream;
   }
 
-  .breakdown-panel {
-    @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)];
-  }
-
-  .breakdown-step {
+  .rail-step {
     @apply rounded-[1.5rem] border border-white/10 bg-white/[0.035] px-4 py-4 shadow-[0_14px_44px_rgba(0,0,0,0.18)] md:px-5;
   }
 
-  .breakdown-step__index {
+  .rail-step__index {
     @apply inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-[11px] font-semibold uppercase tracking-[0.18em] text-rami-fog;
   }
 
-  .spine-canvas {
-    @apply relative h-full;
+  .rail-frame {
+    @apply relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] shadow-[0_40px_120px_rgba(0,0,0,0.28)];
+    min-height: 620px;
   }
 
-  .spine-aura {
-    @apply absolute left-1/2 top-1/2 h-[380px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl;
-    background:
-      radial-gradient(circle, rgba(89, 229, 255, 0.18), transparent 52%),
-      radial-gradient(circle at 65% 40%, rgba(123, 97, 255, 0.18), transparent 58%);
+  .rail-grid {
+    @apply absolute inset-0 opacity-30;
+    background-image:
+      linear-gradient(rgba(89, 229, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(89, 229, 255, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), transparent 92%);
   }
 
-  .spine-axis {
-    @apply absolute left-1/2 top-[14%] h-[64%] w-[2px] -translate-x-1/2 rounded-full;
-    background: linear-gradient(180deg, rgba(89, 229, 255, 0), rgba(89, 229, 255, 0.65), rgba(154, 255, 210, 0.8), rgba(89, 229, 255, 0));
+  .rail-header {
+    @apply absolute left-5 right-5 top-5 rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-5 py-4 md:left-6 md:right-6 md:top-6;
   }
 
-  .spine-axis--glow {
-    width: 14px;
-    filter: blur(10px);
-    opacity: 0.65;
+  .rail-system {
+    @apply relative min-h-[620px] px-6 pb-8 pt-28 md:px-10 md:pt-32;
   }
 
-  .spine-node {
-    @apply absolute left-1/2 z-10;
-    transition: transform 120ms linear, opacity 120ms linear;
-  }
-
-  .spine-node__shell {
-    @apply relative flex h-[94px] w-[84px] flex-col items-center justify-between rounded-[999px] border border-white/10 px-3 py-2.5 shadow-[0_30px_90px_rgba(0,0,0,0.28)];
-    background-color: rgba(9, 17, 31, 0.92);
-    box-shadow:
-      0 0 0 1px rgba(89, 229, 255, 0.06),
-      0 30px 90px rgba(0, 0, 0, 0.28);
-  }
-
-  .spine-node__rib {
-    @apply w-[58px] rounded-full border border-white/10 bg-white/[0.03];
-    height: 14px;
-  }
-
-  .spine-node__rib--top {
-    box-shadow: 0 0 22px rgba(89, 229, 255, 0.06);
-  }
-
-  .spine-node__rib--bottom {
-    box-shadow: 0 0 22px rgba(123, 97, 255, 0.08);
-  }
-
-  .spine-node__core {
-    @apply relative h-[34px] w-[34px] rounded-full;
-    background:
-      radial-gradient(circle, rgba(154, 255, 210, 0.82), rgba(89, 229, 255, 0.16) 58%, transparent 72%);
-    box-shadow:
-      0 0 30px rgba(89, 229, 255, 0.32),
-      0 0 50px rgba(123, 97, 255, 0.18);
-  }
-
-  .spine-node__core::after {
+  .rail-system::before {
     content: '';
-    @apply absolute inset-[8px] rounded-full border border-white/15;
+    @apply absolute inset-x-[18%] bottom-10 top-28 rounded-[2rem] border border-white/5;
   }
 
-  .spine-node__meta {
-    @apply absolute left-1/2 top-1/2 flex -translate-x-1/2 translate-y-[62px] items-center gap-2 whitespace-nowrap rounded-full border border-white/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-rami-fog;
-    background-color: rgba(9, 17, 31, 0.88);
+  .rail-system__line {
+    @apply absolute bottom-14 left-10 top-36 w-[2px] rounded-full md:left-1/2 md:-translate-x-1/2;
+    background: linear-gradient(180deg, rgba(89, 229, 255, 0), rgba(89, 229, 255, 0.7), rgba(154, 255, 210, 0.86), rgba(89, 229, 255, 0));
+    box-shadow: 0 0 22px rgba(89, 229, 255, 0.24);
   }
 
-  .spine-node__index {
-    @apply text-rami-gold;
+  .rail-system__pulse {
+    @apply absolute left-10 h-4 w-4 -translate-x-[7px] rounded-full md:left-1/2 md:-translate-x-1/2;
+    background: radial-gradient(circle, rgba(154, 255, 210, 0.95), rgba(89, 229, 255, 0.45) 52%, transparent 72%);
+    box-shadow:
+      0 0 24px rgba(89, 229, 255, 0.42),
+      0 0 48px rgba(123, 97, 255, 0.18);
+    transition: top 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .spine-node__name {
-    @apply text-rami-cream;
+  .rail-card {
+    @apply absolute left-6 right-6 flex items-center gap-4 opacity-0 transition-all duration-500 ease-out md:left-auto md:right-auto md:w-[44%];
+    transform: translateY(28px);
   }
 
-  .spine-callout {
-    @apply absolute left-1/2 z-10 w-[205px] rounded-[1.2rem] border border-white/10 px-4 py-3.5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur;
-    background-color: rgba(10, 19, 35, 0.9);
-    transition: transform 120ms linear, opacity 120ms linear;
+  .rail-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .spine-callout--left {
-    transform-origin: right center;
+  .rail-card--left {
+    flex-direction: row-reverse;
   }
 
-  .spine-callout--right {
-    transform-origin: left center;
+  .rail-card--right {
+    justify-content: flex-start;
   }
 
-  .spine-callout__title {
+  .rail-card__node {
+    @apply relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.22)];
+    background-color: #09111f;
+  }
+
+  .rail-card__node::before {
+    content: '';
+    @apply absolute h-6 w-6 rounded-full border border-white/10;
+  }
+
+  .rail-card__dot {
+    @apply h-3 w-3 rounded-full bg-rami-gold;
+    box-shadow: 0 0 18px rgba(89, 229, 255, 0.46);
+  }
+
+  .rail-card__body {
+    @apply flex-1 rounded-[1.25rem] border border-white/10 px-4 py-4 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur;
+    background-color: rgba(10, 19, 35, 0.88);
+  }
+
+  .rail-card__title {
     @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-rami-gold;
   }
 
-  .spine-callout__detail {
-    @apply mt-2 text-sm leading-6 text-rami-fog;
+  .rail-card__detail {
+    @apply mt-2 text-sm leading-7 text-rami-fog;
+  }
+
+  .rail-card.is-active .rail-card__body {
+    border-color: rgba(89, 229, 255, 0.3);
+    box-shadow:
+      0 18px 60px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(89, 229, 255, 0.06);
+  }
+
+  .rail-card.is-active .rail-card__node {
+    border-color: rgba(89, 229, 255, 0.28);
+  }
+
+  @media (min-width: 768px) {
+    .rail-card--left {
+      left: 6%;
+      right: auto;
+    }
+
+    .rail-card--right {
+      left: auto;
+      right: 6%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rail-frame {
+      min-height: 560px;
+    }
+
+    .rail-system {
+      min-height: 560px;
+      padding-top: 7.5rem;
+    }
+
+    .rail-system::before {
+      inset-inline: 16px;
+      bottom: 14px;
+      top: 102px;
+    }
   }
 }
 
