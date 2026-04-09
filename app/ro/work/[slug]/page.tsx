@@ -24,6 +24,12 @@ export default function CaseStudyPageRo({ params }: Props) {
   const cs = getCaseStudy(params.slug, 'ro')
   if (!cs) notFound()
 
+  const proofStrip = [
+    ['Status', cs.status],
+    ['Categorie', cs.tags],
+    ['Focus sistem', cs.builtWith[0] ?? 'Sistem custom'],
+  ]
+
   return (
     <main>
       <article>
@@ -32,23 +38,30 @@ export default function CaseStudyPageRo({ params }: Props) {
             <Link href="/ro/work" className="eyebrow hover:text-rami-goldSoft">
               Înapoi la proiecte
             </Link>
-            <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_320px] lg:items-end">
+
+            <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
               <div>
                 <h1 className="section-title">{cs.title}</h1>
-                <p className="mt-5 max-w-3xl text-base leading-8 text-rami-fog">{cs.outcome}</p>
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-rami-cream/90">{cs.outcome}</p>
               </div>
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
-                <p className="label">Status</p>
-                <p className="mt-3 text-lg text-rami-cream">{cs.status}</p>
-                <p className="mt-6 label">Categorie</p>
-                <p className="mt-3 text-sm leading-7 text-rami-fog">{cs.tags}</p>
+
+              <div className="rounded-[1.9rem] border border-white/10 bg-[#0a1323]/75 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+                <p className="label">Snapshot de sistem</p>
+                <div className="mt-5 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+                  {proofStrip.map(([label, value]) => (
+                    <div key={label} className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-rami-gold">{label}</p>
+                      <p className="mt-3 text-sm leading-7 text-rami-fog">{value}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         <section className="section-divider py-10 md:py-16">
-          <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
             <div className="space-y-6">
               <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7">
                 <p className="label">Construit cu</p>
@@ -62,7 +75,7 @@ export default function CaseStudyPageRo({ params }: Props) {
               </div>
 
               <div className="rounded-[1.75rem] border border-white/10 bg-[#0a1323]/75 p-7">
-                <p className="label">Citire sistem</p>
+                <p className="label">Citire operațională</p>
                 <div className="mt-5 space-y-5">
                   <div className="border-b border-white/10 pb-4">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rami-gold">Context de business</p>
@@ -74,6 +87,21 @@ export default function CaseStudyPageRo({ params }: Props) {
                   </div>
                 </div>
               </div>
+
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-7">
+                <p className="label">Anatomia sistemului</p>
+                <div className="mt-5 space-y-3">
+                  {[
+                    'Presiunea operațională este identificată clar',
+                    'Stratul de workflow sau produs este scos la suprafață și scopat strâns',
+                    'Sistemul este livrat pentru utilizare reală, nu pentru prezentare',
+                  ].map((item) => (
+                    <div key={item} className="rounded-[1.1rem] border border-white/10 px-4 py-3 text-sm leading-7 text-rami-fog">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="space-y-10">
@@ -81,17 +109,27 @@ export default function CaseStudyPageRo({ params }: Props) {
                 <p className="eyebrow">Problema</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">{cs.problem}</p>
               </div>
+
               <div className="border-t border-white/10 pt-6">
                 <p className="eyebrow">Ce a fost construit</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">{cs.solutionLead}</p>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-rami-cream">
-                  {cs.solutionBullets.map((bullet) => (
-                    <li key={bullet} className="rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 py-3">
-                      {bullet}
-                    </li>
+                <div className="mt-5 grid gap-3">
+                  {cs.solutionBullets.map((bullet, index) => (
+                    <div key={bullet} className="rounded-[1.15rem] border border-white/10 bg-white/[0.03] px-4 py-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-rami-gold">0{index + 1}</p>
+                      <p className="mt-3 text-sm leading-7 text-rami-cream">{bullet}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <p className="mt-5 text-base leading-8 text-rami-fog">{cs.solutionClosing}</p>
+              </div>
+
+              <div className="border-t border-white/10 pt-6">
+                <p className="eyebrow">De ce contează</p>
+                <p className="mt-4 text-base leading-8 text-rami-fog">
+                  Miza acestui build nu a fost o interfață mai frumoasă sau un stack mai modern. Miza a fost eliminarea
+                  unei fricțiuni operaționale reale și transformarea ei într-un sistem care continuă să creeze leverage după lansare.
+                </p>
               </div>
             </div>
           </div>

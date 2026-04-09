@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
@@ -12,10 +11,14 @@ const services = [
   {
     id: 'lead-generation',
     title: 'Lead generation systems',
-    strap: 'Acquire demand without adding manual prospecting back onto the founder.',
+    strap: 'Acquire demand without putting manual prospecting back onto the founder.',
     description:
       'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market and sales motion.',
-    outcomes: ['Qualified conversations arriving consistently', 'Lead follow-up handled automatically', 'A tighter pipeline with fewer dropped opportunities'],
+    outcomes: [
+      'Qualified conversations arriving consistently',
+      'Lead follow-up handled automatically',
+      'A tighter pipeline with fewer dropped opportunities',
+    ],
     fit: 'Local services, B2B operators, recruiters, and founder-led teams that need demand but cannot burn hours every day on outbound.',
   },
   {
@@ -24,7 +27,11 @@ const services = [
     strap: 'Turn repetitive coordination into a system instead of a staffing problem.',
     description:
       'Onboarding, reporting, scheduling, handoffs, invoicing, reminders, CRM hygiene, and back-office loops rebuilt into faster operating flows.',
-    outcomes: ['Hours returned to the team every week', 'Fewer manual mistakes and handoff failures', 'More capacity without hiring admin for avoidable work'],
+    outcomes: [
+      'Hours returned to the team every week',
+      'Fewer manual mistakes and handoff failures',
+      'More capacity without hiring admin for avoidable work',
+    ],
     fit: 'Service businesses, clinics, agencies, and operators buried in repeatable tasks that should already be automated.',
   },
   {
@@ -33,7 +40,11 @@ const services = [
     strap: 'A focused product surface built for one real job, not a bloated roadmap.',
     description:
       'Internal tools, client portals, dashboards, calculators, or a sharp MVP designed around a clear workflow and a concrete commercial use.',
-    outcomes: ['Working software in weeks, not quarters', 'A product shaped around your actual workflow', 'A codebase that can keep compounding after launch'],
+    outcomes: [
+      'Working software in weeks, not quarters',
+      'A product shaped around your actual workflow',
+      'A codebase that can keep compounding after launch',
+    ],
     fit: 'Founders building the first useful version and operators who have already outgrown spreadsheets plus disconnected SaaS tools.',
   },
   {
@@ -42,7 +53,11 @@ const services = [
     strap: 'Practical intelligence inside the stack you already use.',
     description:
       'Document extraction, summarization, routing, triage, internal assistants, content operations, and decision-support layers where AI actually reduces drag.',
-    outcomes: ['High-volume repetitive work handled automatically', 'Useful outputs delivered in existing systems', 'No full rebuild required just to add intelligence'],
+    outcomes: [
+      'High-volume repetitive work handled automatically',
+      'Useful outputs delivered inside existing systems',
+      'No full rebuild required just to add intelligence',
+    ],
     fit: 'Teams handling documents, messages, repetitive decisions, or data-heavy operational flows where AI can improve throughput immediately.',
   },
 ]
@@ -51,6 +66,12 @@ const delivery = [
   'We start from one bottleneck, not a vague transformation brief.',
   'The first version is scoped to create operational leverage quickly.',
   'Automation, interface, and business logic are designed together.',
+]
+
+const signals = [
+  ['Best for', 'Operators with real pressure in revenue, delivery, or internal execution.'],
+  ['Not for', 'Teams looking for long discovery workshops without a clearly named outcome.'],
+  ['Engagement style', 'Tight scope, direct collaboration, useful first release, then refinement.'],
 ]
 
 export default function ServicesPage() {
@@ -64,8 +85,8 @@ export default function ServicesPage() {
           </div>
           <div className="space-y-6">
             <p className="lede">
-              The offer is not “AI consulting.” It is a set of focused build tracks for businesses that need a working
-              system, a cleaner workflow, or a faster path to revenue.
+              The offer is not &quot;AI consulting.&quot; It is a set of focused build tracks for businesses that need a
+              working system, a cleaner workflow, or a faster path to revenue.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {delivery.map((item) => (
@@ -78,7 +99,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-divider py-10 md:py-14">
+      <section className="section-divider py-8 md:py-12">
         <div className="shell grid gap-6">
           {services.map((service, index) => (
             <section
@@ -137,6 +158,17 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-divider py-20">
+        <div className="shell grid gap-5 md:grid-cols-3">
+          {signals.map(([title, body]) => (
+            <div key={title} className="rounded-[1.5rem] border border-white/10 bg-[#0a1323]/72 p-5">
+              <p className="label">{title}</p>
+              <p className="mt-4 text-sm leading-7 text-rami-fog">{body}</p>
+            </div>
+          ))}
         </div>
       </section>
 
