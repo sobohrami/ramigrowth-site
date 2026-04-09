@@ -28,8 +28,11 @@ const stages = [
 
 export default function SystemDisassemblySection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const stackRef = useRef<HTMLDivElement>(null)
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([])
   const [visible, setVisible] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [pulseOffset, setPulseOffset] = useState(0)
 
   useEffect(() => {
     const node = sectionRef.current
@@ -49,6 +52,7 @@ export default function SystemDisassemblySection() {
 
   useEffect(() => {
     if (!visible) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const timer = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % stages.length)
@@ -57,15 +61,41 @@ export default function SystemDisassemblySection() {
     return () => window.clearInterval(timer)
   }, [visible])
 
+  useEffect(() => {
+    const updatePulse = () => {
+      const stack = stackRef.current
+      const node = nodeRefs.current[activeIndex]
+
+      if (!stack || !node) return
+
+      setPulseOffset(node.offsetTop + node.offsetHeight / 2)
+    }
+
+    updatePulse()
+
+    const resizeObserver = new ResizeObserver(updatePulse)
+
+    if (stackRef.current) {
+      resizeObserver.observe(stackRef.current)
+    }
+
+    window.addEventListener('resize', updatePulse)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', updatePulse)
+    }
+  }, [activeIndex])
+
   return (
     <section ref={sectionRef} className="section-divider py-20 md:py-24">
       <div className="shell grid gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
         <div className="max-w-xl">
           <p className="eyebrow">System breakdown</p>
-          <h2 className="section-title mt-6">A phone-safe automation diagram with a live signal moving through the stack.</h2>
+          <h2 className="section-title mt-6">A responsive automation map with a live signal moving through the stack.</h2>
           <p className="mt-6 text-base leading-8 text-rami-fog">
-            Instead of locking the page into a sticky full-screen segment, this section reveals the system as a sequential
-            signal rail. It is easier to read, cleaner on laptops, and much more reliable on mobile.
+            The system now reads like an actual operating diagram: one central rail, four visible layers, and a live signal
+            that moves through the stack without breaking the layout on laptop or phone.
           </p>
 
           <div className="mt-8 space-y-3">
@@ -109,42 +139,55 @@ export default function SystemDisassemblySection() {
 
           <div className="rail-header">
             <p className="breakdown-label">Operator blueprint</p>
-            <p className="breakdown-value">A visible automation rail: intake, logic, execution, and memory.</p>
+            <p className="breakdown-value">A stable automation rail: intake, logic, execution, and memory.</p>
           </div>
 
           <div className="rail-system">
-            <div className="rail-system__line" />
-            <div
-              className="rail-system__pulse"
-              style={{ top: `${18 + activeIndex * 22}%` }}
-              aria-hidden="true"
-            />
+            <div ref={stackRef} className="rail-stack">
+              <div className="rail-stack__line" aria-hidden="true" />
+              <div
+                className="rail-stack__pulse"
+                style={{ transform: `translate(-50%, ${pulseOffset}px)` }}
+                aria-hidden="true"
+              />
 
-            {stages.map((stage, index) => {
-              const active = index === activeIndex
-              const side = index % 2 === 0 ? 'right' : 'left'
+              {stages.map((stage, index) => {
+                const active = index === activeIndex
+                const side = index % 2 === 0 ? 'right' : 'left'
 
-              return (
-                <div
-                  key={`${stage.title}-card`}
-                  className={`rail-card rail-card--${side} ${visible ? 'is-visible' : ''} ${active ? 'is-active' : ''}`}
-                  style={
-                    {
-                      top: `${14 + index * 22}%`,
-                      transitionDelay: `${index * 90}ms`,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div className="rail-card__node">
-                    <span className="rail-card__dot" />
+                return (
+                  <div
+                    key={`${stage.title}-row`}
+                    className={`rail-row rail-row--${side} ${visible ? 'is-visible' : ''} ${active ? 'is-active' : ''}`}
+                    style={{ transitionDelay: `${index * 90}ms` }}
+                  >
+                    <div className="rail-row__lane rail-row__lane--left" aria-hidden="true" />
+
+                    <div className="rail-row__axis">
+                      <div
+                        ref={(element) => {
+                          nodeRefs.current[index] = element
+                        }}
+                        className="rail-row__node"
+                      >
+                        <span className="rail-row__dot" />
+                      </div>
+                      <span className="rail-row__index">{`0${index + 1}`}</span>
+                    </div>
+
+                    <div className="rail-row__lane rail-row__lane--right" aria-hidden="true" />
+
+                    <article className="rail-row__body">
+                      <div className="rail-row__header">
+                        <p className="rail-row__title">{stage.title}</p>
+                        <p className="rail-row__note">{stage.note}</p>
+                      </div>
+                      <p className="rail-row__detail">{stage.detail}</p>
+                    </article>
                   </div>
-                  <div className="rail-card__body">
-                    <p className="rail-card__title">{stage.title}</p>
-                    <p className="rail-card__detail">{stage.detail}</p>
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
