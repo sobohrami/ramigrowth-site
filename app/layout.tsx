@@ -3,6 +3,7 @@ import { Manrope, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
+import LocaleHtmlSync from '@/components/LocaleHtmlSync'
 import { getSiteUrl } from '@/lib/site-config'
 
 const sans = Manrope({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body>
+        <LocaleHtmlSync />
         <SiteNav />
         {children}
         <SiteFooter />

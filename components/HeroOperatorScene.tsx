@@ -2,22 +2,45 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import type { Locale } from '@/lib/locales'
+import { localizePath } from '@/lib/locales'
 
-const chips = [
-  { title: 'Lead routing', detail: 'Inbox -> CRM -> Calendar', className: 'left-[-4%] top-[12%] md:left-[-10%]' },
-  { title: 'AI triage', detail: 'Qualify, summarize, assign', className: 'right-[-2%] top-[18%] md:right-[-8%]' },
-  { title: 'Workflow sync', detail: 'Ops, reminders, follow-up', className: 'left-[2%] bottom-[18%] md:left-[-6%]' },
-]
-
-const signals = [
-  'Intent scoring',
-  'Follow-up logic',
-  'Smart summaries',
-  'Task orchestration',
-]
-
-export default function HeroOperatorScene() {
+export default function HeroOperatorScene({ locale = 'en' }: { locale?: Locale }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const chips =
+    locale === 'ro'
+      ? [
+          { title: 'Rutare lead-uri', detail: 'Inbox -> CRM -> Calendar', className: 'left-[-4%] top-[12%] md:left-[-10%]' },
+          { title: 'Triage AI', detail: 'Califică, rezumă, atribuie', className: 'right-[-2%] top-[18%] md:right-[-8%]' },
+          { title: 'Sync operațional', detail: 'Ops, remindere, follow-up', className: 'left-[2%] bottom-[18%] md:left-[-6%]' },
+        ]
+      : [
+          { title: 'Lead routing', detail: 'Inbox -> CRM -> Calendar', className: 'left-[-4%] top-[12%] md:left-[-10%]' },
+          { title: 'AI triage', detail: 'Qualify, summarize, assign', className: 'right-[-2%] top-[18%] md:right-[-8%]' },
+          { title: 'Workflow sync', detail: 'Ops, reminders, follow-up', className: 'left-[2%] bottom-[18%] md:left-[-6%]' },
+        ]
+  const signals =
+    locale === 'ro' ? ['Scor intenție', 'Logică follow-up', 'Rezumat inteligent', 'Orchestrare taskuri'] : ['Intent scoring', 'Follow-up logic', 'Smart summaries', 'Task orchestration']
+  const copy =
+    locale === 'ro'
+      ? {
+          activeSystem: 'Sistem activ',
+          systemValue: 'Operator RamiGrowth',
+          mode: 'Mod',
+          modeValue: 'Orchestrare venituri + operațiuni',
+          outputs: 'Rezultate',
+          outputsValue: 'Lead-uri, workflow-uri, unelte interne',
+          cta: 'Vezi sistemele în acțiune',
+        }
+      : {
+          activeSystem: 'Active system',
+          systemValue: 'RamiGrowth operator',
+          mode: 'Mode',
+          modeValue: 'Revenue + ops orchestration',
+          outputs: 'Outputs',
+          outputsValue: 'Leads, workflows, internal tools',
+          cta: 'See systems in action',
+        }
 
   const handleMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -143,8 +166,8 @@ export default function HeroOperatorScene() {
 
         <div className="hero-orbit-data">
           <div>
-            <p className="hero-orbit-data__label">Active system</p>
-            <p className="hero-orbit-data__value">RamiGrowth operator</p>
+            <p className="hero-orbit-data__label">{copy.activeSystem}</p>
+            <p className="hero-orbit-data__value">{copy.systemValue}</p>
           </div>
           <div className="hero-orbit-data__stack">
             {signals.map((signal, index) => (
@@ -157,15 +180,15 @@ export default function HeroOperatorScene() {
 
         <div className="hero-console">
           <div>
-            <p className="hero-console__label">Mode</p>
-            <p className="hero-console__value">Revenue + ops orchestration</p>
+            <p className="hero-console__label">{copy.mode}</p>
+            <p className="hero-console__value">{copy.modeValue}</p>
           </div>
           <div>
-            <p className="hero-console__label">Outputs</p>
-            <p className="hero-console__value">Leads, workflows, internal tools</p>
+            <p className="hero-console__label">{copy.outputs}</p>
+            <p className="hero-console__value">{copy.outputsValue}</p>
           </div>
-          <Link href="/work" className="hero-console__cta">
-            See systems in action
+          <Link href={localizePath('/work', locale)} className="hero-console__cta">
+            {copy.cta}
           </Link>
         </div>
       </div>

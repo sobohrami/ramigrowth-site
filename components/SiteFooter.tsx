@@ -1,54 +1,93 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { getContactEmail } from '@/lib/site-config'
+import { getLocaleFromPathname, localizePath } from '@/lib/locales'
 
 export default function SiteFooter() {
   const email = getContactEmail()
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname)
+  const copy =
+    locale === 'ro'
+      ? {
+          eyebrow: 'RamiGrowth',
+          headline: 'Sisteme pentru operatori care vor ritm, nu încă un PDF de strategie.',
+          body:
+            'Motoare de outreach, unelte interne și sisteme de automatizare construite cu scope clar și rezultat comercial direct.',
+          explore: 'Explorează',
+          services: 'Servicii',
+          work: 'Proiecte',
+          about: 'Despre',
+          contact: 'Contact',
+          contactTitle: 'Contact',
+          location: 'Bazat în România, remote-first',
+          availability: 'Disponibilitate selectivă pentru proiecte bine definite.',
+          rights: `Copyright ${new Date().getFullYear()} RamiGrowth`,
+          closing: 'Construit pentru viteză, claritate și leverage comercial.',
+        }
+      : {
+          eyebrow: 'RamiGrowth',
+          headline: 'Systems for operators who want momentum, not another strategy deck.',
+          body:
+            'Outreach engines, internal tools, and automation systems built with a sharp scope and a direct commercial outcome.',
+          explore: 'Explore',
+          services: 'Services',
+          work: 'Work',
+          about: 'About',
+          contact: 'Contact',
+          contactTitle: 'Contact',
+          location: 'Romania-based, remote-first',
+          availability: 'Selective availability for scoped projects.',
+          rights: `Copyright ${new Date().getFullYear()} RamiGrowth`,
+          closing: 'Built for speed, clarity, and commercial leverage.',
+        }
 
   return (
     <footer className="section-divider bg-[#07090d]">
       <div className="shell grid gap-16 py-16 md:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <p className="eyebrow">RamiGrowth</p>
+          <p className="eyebrow">{copy.eyebrow}</p>
           <h2 className="mt-5 max-w-xl font-display text-4xl leading-tight text-rami-cream md:text-5xl">
-            Systems for operators who want momentum, not another strategy deck.
+            {copy.headline}
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">
-            Outreach engines, internal tools, and automation systems built with a sharp scope and a direct commercial
-            outcome.
+            {copy.body}
           </p>
         </div>
 
         <div className="grid gap-12 sm:grid-cols-2">
           <div>
-            <p className="label">Explore</p>
+            <p className="label">{copy.explore}</p>
             <ul className="mt-5 space-y-3 text-sm text-rami-fog">
               <li>
-                <Link href="/services" className="hover:text-rami-cream">
-                  Services
+                <Link href={localizePath('/services', locale)} className="hover:text-rami-cream">
+                  {copy.services}
                 </Link>
               </li>
               <li>
-                <Link href="/work" className="hover:text-rami-cream">
-                  Work
+                <Link href={localizePath('/work', locale)} className="hover:text-rami-cream">
+                  {copy.work}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-rami-cream">
-                  About
+                <Link href={localizePath('/about', locale)} className="hover:text-rami-cream">
+                  {copy.about}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-rami-cream">
-                  Contact
+                <Link href={localizePath('/contact', locale)} className="hover:text-rami-cream">
+                  {copy.contact}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="label">Contact</p>
+            <p className="label">{copy.contactTitle}</p>
             <div className="mt-5 space-y-3 text-sm text-rami-fog">
-              <p>Romania-based, remote-first</p>
+              <p>{copy.location}</p>
               {email ? (
                 <p>
                   <a href={`mailto:${email}`} className="text-rami-gold hover:text-rami-goldSoft">
@@ -56,7 +95,7 @@ export default function SiteFooter() {
                   </a>
                 </p>
               ) : null}
-              <p>Selective availability for scoped projects.</p>
+              <p>{copy.availability}</p>
             </div>
           </div>
         </div>
@@ -64,8 +103,8 @@ export default function SiteFooter() {
 
       <div className="section-divider">
         <div className="shell flex flex-col gap-3 py-6 text-xs uppercase tracking-[0.18em] text-rami-fog/60 md:flex-row md:items-center md:justify-between">
-          <p>Copyright {new Date().getFullYear()} RamiGrowth</p>
-          <p>Built for speed, clarity, and commercial leverage.</p>
+          <p>{copy.rights}</p>
+          <p>{copy.closing}</p>
         </div>
       </div>
     </footer>

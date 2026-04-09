@@ -1,15 +1,22 @@
 import Link from 'next/link'
 import { getCalendlyUrl } from '@/lib/site-config'
+import type { Locale } from '@/lib/locales'
+import { localizePath } from '@/lib/locales'
 
 type Props = {
   headline: string
   subtext: string
   ctaLabel: string
   contactOnly?: boolean
+  locale?: Locale
 }
 
-export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly }: Props) {
+export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly, locale = 'en' }: Props) {
   const cal = getCalendlyUrl()
+  const helper =
+    locale === 'ro'
+      ? 'Problemă clară, recomandare directă și un răspuns rapid dacă merită construit sau nu.'
+      : 'Clear problem, direct recommendation, and a fast yes or no on whether I should build it.'
 
   return (
     <section className="section-divider relative overflow-hidden py-24">
@@ -31,13 +38,11 @@ export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly }: P
                   {ctaLabel}
                 </a>
               ) : (
-                <Link href="/contact" className="button-primary min-w-[220px]">
+                <Link href={localizePath('/contact', locale)} className="button-primary min-w-[220px]">
                   {ctaLabel}
                 </Link>
               )}
-              <p className="mt-4 max-w-sm text-sm leading-7 text-rami-fog">
-                Clear problem, direct recommendation, and a fast yes or no on whether I should build it.
-              </p>
+              <p className="mt-4 max-w-sm text-sm leading-7 text-rami-fog">{helper}</p>
             </div>
           </div>
         </div>

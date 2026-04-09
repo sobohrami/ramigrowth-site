@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const cs = getCaseStudy(params.slug, 'en')
+  const cs = getCaseStudy(params.slug, 'ro')
   if (!cs) return {}
 
   return {
@@ -20,8 +20,8 @@ export function generateMetadata({ params }: Props): Metadata {
   }
 }
 
-export default function CaseStudyPage({ params }: Props) {
-  const cs = getCaseStudy(params.slug, 'en')
+export default function CaseStudyPageRo({ params }: Props) {
+  const cs = getCaseStudy(params.slug, 'ro')
   if (!cs) notFound()
 
   return (
@@ -29,8 +29,8 @@ export default function CaseStudyPage({ params }: Props) {
       <article>
         <section className="section-divider py-16 md:py-20">
           <div className="shell">
-            <Link href="/work" className="eyebrow hover:text-rami-goldSoft">
-              Back to work
+            <Link href="/ro/work" className="eyebrow hover:text-rami-goldSoft">
+              Înapoi la proiecte
             </Link>
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_320px] lg:items-end">
               <div>
@@ -40,7 +40,7 @@ export default function CaseStudyPage({ params }: Props) {
               <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
                 <p className="label">Status</p>
                 <p className="mt-3 text-lg text-rami-cream">{cs.status}</p>
-                <p className="mt-6 label">Category</p>
+                <p className="mt-6 label">Categorie</p>
                 <p className="mt-3 text-sm leading-7 text-rami-fog">{cs.tags}</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function CaseStudyPage({ params }: Props) {
           <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="space-y-6">
               <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7">
-                <p className="label">Built with</p>
+                <p className="label">Construit cu</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   {cs.builtWith.map((tool) => (
                     <span key={tool} className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.14em] text-rami-fog">
@@ -62,14 +62,14 @@ export default function CaseStudyPage({ params }: Props) {
               </div>
 
               <div className="rounded-[1.75rem] border border-white/10 bg-[#0a1323]/75 p-7">
-                <p className="label">System readout</p>
+                <p className="label">Citire sistem</p>
                 <div className="mt-5 space-y-5">
                   <div className="border-b border-white/10 pb-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rami-gold">Business context</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rami-gold">Context de business</p>
                     <p className="mt-3 text-sm leading-7 text-rami-fog">{cs.context}</p>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rami-gold">Outcome target</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rami-gold">Țintă de rezultat</p>
                     <p className="mt-3 text-sm leading-7 text-rami-fog">{cs.outcome}</p>
                   </div>
                 </div>
@@ -78,15 +78,11 @@ export default function CaseStudyPage({ params }: Props) {
 
             <div className="space-y-10">
               <div className="border-t border-white/10 pt-6">
-                <p className="eyebrow">Context</p>
-                <p className="mt-4 text-base leading-8 text-rami-fog">{cs.context}</p>
-              </div>
-              <div className="border-t border-white/10 pt-6">
-                <p className="eyebrow">Problem</p>
+                <p className="eyebrow">Problema</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">{cs.problem}</p>
               </div>
               <div className="border-t border-white/10 pt-6">
-                <p className="eyebrow">What was built</p>
+                <p className="eyebrow">Ce a fost construit</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">{cs.solutionLead}</p>
                 <ul className="mt-5 space-y-3 text-sm leading-7 text-rami-cream">
                   {cs.solutionBullets.map((bullet) => (
@@ -97,21 +93,17 @@ export default function CaseStudyPage({ params }: Props) {
                 </ul>
                 <p className="mt-5 text-base leading-8 text-rami-fog">{cs.solutionClosing}</p>
               </div>
-              <div className="border-t border-white/10 pt-6">
-                <p className="eyebrow">Outcome</p>
-                <p className="mt-4 text-base leading-8 text-rami-fog">{cs.outcome}</p>
-              </div>
             </div>
           </div>
         </section>
       </article>
 
       <CTAStrip
-        headline="Have a similar bottleneck?"
-        subtext="Describe the operational problem and I will tell you whether it wants a workflow, an app, or a lighter fix."
-        ctaLabel="Get in touch"
+        headline="Ai un bottleneck similar?"
+        subtext="Descrie problema operațională și îți spun dacă are nevoie de workflow, aplicație sau o rezolvare mai simplă."
+        ctaLabel="Intră în contact"
         contactOnly
-        locale="en"
+        locale="ro"
       />
     </main>
   )

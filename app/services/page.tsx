@@ -11,109 +11,129 @@ export const metadata: Metadata = {
 const services = [
   {
     id: 'lead-generation',
-    title: 'Lead generation and outreach systems',
+    title: 'Lead generation systems',
+    strap: 'Acquire demand without adding manual prospecting back onto the founder.',
     description:
-      'A custom-built system that finds target prospects, sends personalized outreach, follows up automatically, and routes interest directly into your pipeline.',
-    outcome: [
-      'A fuller calendar without manual prospecting',
-      'Follow-up logic running in the background',
-      'Leads tracked and routed instead of disappearing into inboxes',
-    ],
-    fit: 'Local service businesses, B2B operators, recruiters, and teams spending real time every week chasing new business.',
-    proof: 'Built the lead generation and follow-up engine behind ProDetailer.app.',
-    cta: "Let's talk about your lead problem",
+      'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market and sales motion.',
+    outcomes: ['Qualified conversations arriving consistently', 'Lead follow-up handled automatically', 'A tighter pipeline with fewer dropped opportunities'],
+    fit: 'Local services, B2B operators, recruiters, and founder-led teams that need demand but cannot burn hours every day on outbound.',
   },
   {
     id: 'workflow-automation',
-    title: 'Business workflow automation',
+    title: 'Workflow automation',
+    strap: 'Turn repetitive coordination into a system instead of a staffing problem.',
     description:
-      'Client onboarding, reporting, scheduling, invoicing, data entry, and back-office loops mapped and rebuilt into faster workflows.',
-    outcome: [
-      'Hours returned each week',
-      'Fewer manual errors and less copy-paste work',
-      'Operational capacity without hiring just to handle admin',
-    ],
-    fit: 'Service businesses, clinics, agencies, and small ops teams repeating the same work over and over.',
-    proof: 'Built automation and internal workflow tooling across multiple client and internal projects.',
-    cta: "Tell me what's eating your team's time",
+      'Onboarding, reporting, scheduling, handoffs, invoicing, reminders, CRM hygiene, and back-office loops rebuilt into faster operating flows.',
+    outcomes: ['Hours returned to the team every week', 'Fewer manual mistakes and handoff failures', 'More capacity without hiring admin for avoidable work'],
+    fit: 'Service businesses, clinics, agencies, and operators buried in repeatable tasks that should already be automated.',
   },
   {
     id: 'custom-web-apps',
-    title: 'Custom web apps and MVPs',
+    title: 'Custom web apps',
+    strap: 'A focused product surface built for one real job, not a bloated roadmap.',
     description:
-      'Focused products for a specific business problem: portals, calculators, dashboards, internal tools, or a sharp MVP with a commercial purpose.',
-    outcome: [
-      'A working product in weeks, not quarters',
-      'Built around the exact workflow instead of forcing a generic tool',
-      'Code you can keep extending after launch',
-    ],
-    fit: 'Founders who need a real first product and operators who have outgrown spreadsheets or stitched-together tools.',
-    proof: 'Built ProDetailer.app and SalariuOk.ro as focused products for clear market needs.',
-    cta: 'Describe what you need built',
+      'Internal tools, client portals, dashboards, calculators, or a sharp MVP designed around a clear workflow and a concrete commercial use.',
+    outcomes: ['Working software in weeks, not quarters', 'A product shaped around your actual workflow', 'A codebase that can keep compounding after launch'],
+    fit: 'Founders building the first useful version and operators who have already outgrown spreadsheets plus disconnected SaaS tools.',
   },
   {
     id: 'ai-enhanced-tooling',
-    title: 'AI-enhanced internal tooling',
+    title: 'AI-enhanced tooling',
+    strap: 'Practical intelligence inside the stack you already use.',
     description:
-      'Practical AI layered into existing operations: summarization, information extraction, routing, content workflows, and internal assistant surfaces.',
-    outcome: [
-      'High-volume repetitive tasks handled automatically',
-      'Useful outputs delivered inside the existing stack',
-      'No full rebuild required just to add intelligence',
-    ],
-    fit: 'Teams processing documents, messages, or repetitive information flows in legal, finance, HR, operations, and content.',
-    proof: 'Used across internal systems and automation-led builds where speed and triage matter.',
-    cta: "Tell me what you're trying to automate",
+      'Document extraction, summarization, routing, triage, internal assistants, content operations, and decision-support layers where AI actually reduces drag.',
+    outcomes: ['High-volume repetitive work handled automatically', 'Useful outputs delivered in existing systems', 'No full rebuild required just to add intelligence'],
+    fit: 'Teams handling documents, messages, repetitive decisions, or data-heavy operational flows where AI can improve throughput immediately.',
   },
+]
+
+const delivery = [
+  'We start from one bottleneck, not a vague transformation brief.',
+  'The first version is scoped to create operational leverage quickly.',
+  'Automation, interface, and business logic are designed together.',
 ]
 
 export default function ServicesPage() {
   return (
     <main>
       <section className="section-divider py-20 md:py-24">
-        <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="eyebrow">Services</p>
-            <h1 className="section-title mt-6">The work is scoped around one business problem at a time.</h1>
+            <h1 className="section-title mt-6">Systems built around specific operational pressure.</h1>
           </div>
-          <p className="lede">
-            If the outcome is not clear, I do not dress it up with process. These are the four categories where I am
-            most useful and where the payoff is usually easiest to measure.
-          </p>
+          <div className="space-y-6">
+            <p className="lede">
+              The offer is not “AI consulting.” It is a set of focused build tracks for businesses that need a working
+              system, a cleaner workflow, or a faster path to revenue.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {delivery.map((item) => (
+                <div key={item} className="rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-rami-fog">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-divider py-8">
-        <div className="shell">
-          <div className="divide-y divide-white/10 border-y border-white/10">
-            {services.map((service, index) => (
-              <div key={service.id} id={service.id} className="scroll-mt-24 py-10 md:py-12">
-                <div className="grid gap-8 lg:grid-cols-[100px_1.1fr_0.9fr] lg:gap-12">
-                  <div className="font-display text-5xl text-rami-gold">0{index + 1}</div>
+      <section className="section-divider py-10 md:py-14">
+        <div className="shell grid gap-6">
+          {services.map((service, index) => (
+            <section
+              key={service.id}
+              id={service.id}
+              className="scroll-mt-24 rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:p-8"
+            >
+              <div className="grid gap-8 lg:grid-cols-[90px_1.1fr_0.9fr] lg:gap-10">
+                <div className="font-display text-5xl text-rami-gold/80">0{index + 1}</div>
 
-                  <div>
-                    <h2 className="font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
-                    <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
-                    <p className="mt-6 label">Who this is for</p>
-                    <p className="mt-3 text-sm leading-7 text-rami-fog">{service.fit}</p>
-                    <p className="mt-6 label">Proof</p>
-                    <p className="mt-3 text-sm leading-7 text-rami-fog">{service.proof}</p>
-                  </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">Build track</p>
+                  <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
+                  <p className="mt-4 max-w-2xl text-lg leading-8 text-rami-cream/90">{service.strap}</p>
+                  <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
+                </div>
 
-                  <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
+                <div className="space-y-5">
+                  <div className="rounded-[1.5rem] border border-white/10 bg-[#0a1323]/70 p-5">
                     <p className="label">Primary outcomes</p>
                     <ul className="mt-4 space-y-3 text-sm leading-7 text-rami-cream">
-                      {service.outcome.map((item) => (
+                      {service.outcomes.map((item) => (
                         <li key={item} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
                           {item}
                         </li>
                       ))}
                     </ul>
-                    <Link href="/contact" className="button-secondary mt-8 w-full">
-                      {service.cta}
-                    </Link>
+                  </div>
+                  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
+                    <p className="label">Best fit</p>
+                    <p className="mt-4 text-sm leading-7 text-rami-fog">{service.fit}</p>
                   </div>
                 </div>
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-divider py-20">
+        <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">How engagements start</p>
+            <h2 className="section-title mt-6">The first sprint is about seeing the system, not decorating the brief.</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              ['01', 'Map the friction', 'We identify the part of the workflow where money, time, or momentum is leaking.'],
+              ['02', 'Scope the useful version', 'We define the smallest build that creates leverage quickly and can keep compounding after launch.'],
+              ['03', 'Ship and refine', 'The working system goes live fast, then we improve it based on real usage rather than assumptions.'],
+            ].map(([step, title, body]) => (
+              <div key={step} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
+                <p className="font-display text-3xl text-rami-gold/80">{step}</p>
+                <h3 className="mt-4 text-xl font-semibold text-rami-cream">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-rami-fog">{body}</p>
               </div>
             ))}
           </div>
@@ -121,9 +141,10 @@ export default function ServicesPage() {
       </section>
 
       <CTAStrip
-        headline="Need help choosing the right build?"
-        subtext="Bring the problem, not the spec. I will tell you whether it wants outreach automation, a workflow rebuild, or a product."
+        headline="Need help choosing the right build track?"
+        subtext="Bring the bottleneck, the revenue problem, or the workflow that keeps breaking. I will tell you which system wants to exist first."
         ctaLabel="Start the conversation"
+        locale="en"
       />
     </main>
   )

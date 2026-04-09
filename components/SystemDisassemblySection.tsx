@@ -2,37 +2,52 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import type { Locale } from '@/lib/locales'
+import { localizePath } from '@/lib/locales'
 
-const stages = [
-  {
-    title: 'Perception',
-    detail: 'Captures forms, CRM updates, inbox activity, and live demand signals.',
-    note: 'Intake surface',
-  },
-  {
-    title: 'Workflow',
-    detail: 'Transforms business rules into branching automation, retries, and next-step routing.',
-    note: 'Logic layer',
-  },
-  {
-    title: 'Actions',
-    detail: 'Triggers outbound messages, bookings, handoffs, reminders, and operational tasks.',
-    note: 'Execution layer',
-  },
-  {
-    title: 'Memory',
-    detail: 'Stores context, summaries, and state so the system stays coherent over time.',
-    note: 'Context layer',
-  },
-]
-
-export default function SystemDisassemblySection() {
+export default function SystemDisassemblySection({ locale = 'en' }: { locale?: Locale }) {
   const sectionRef = useRef<HTMLElement>(null)
   const stackRef = useRef<HTMLDivElement>(null)
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([])
   const [visible, setVisible] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const [pulseOffset, setPulseOffset] = useState(0)
+  const stages =
+    locale === 'ro'
+      ? [
+          { title: 'Percepție', detail: 'Captează formulare, update-uri CRM, activitate din inbox și semnale live de cerere.', note: 'Strat de intake' },
+          { title: 'Workflow', detail: 'Transformă regulile de business în automatizări ramificate, retry-uri și rutare către următorul pas.', note: 'Strat logic' },
+          { title: 'Acțiuni', detail: 'Declanșează mesaje outbound, booking-uri, handoff-uri, remindere și taskuri operaționale.', note: 'Strat de execuție' },
+          { title: 'Memorie', detail: 'Păstrează context, rezumate și stare astfel încât sistemul să rămână coerent în timp.', note: 'Strat de context' },
+        ]
+      : [
+          { title: 'Perception', detail: 'Captures forms, CRM updates, inbox activity, and live demand signals.', note: 'Intake surface' },
+          { title: 'Workflow', detail: 'Transforms business rules into branching automation, retries, and next-step routing.', note: 'Logic layer' },
+          { title: 'Actions', detail: 'Triggers outbound messages, bookings, handoffs, reminders, and operational tasks.', note: 'Execution layer' },
+          { title: 'Memory', detail: 'Stores context, summaries, and state so the system stays coherent over time.', note: 'Context layer' },
+        ]
+  const copy =
+    locale === 'ro'
+      ? {
+          eyebrow: 'Anatomia sistemului',
+          title: 'O hartă de automatizare responsive, cu un semnal live care trece prin întregul stack.',
+          body:
+            'Sistemul se citește acum ca o diagramă operațională reală: un rail central, patru straturi vizibile și un semnal live care trece prin stack fără să rupă layout-ul pe laptop sau telefon.',
+          cta: 'Explorează stack-ul',
+          helper: 'Conceput să rămână lizibil pe telefon și laptop',
+          headerLabel: 'Blueprint operator',
+          headerValue: 'Un rail de automatizare stabil: intake, logică, execuție și memorie.',
+        }
+      : {
+          eyebrow: 'System breakdown',
+          title: 'A responsive automation map with a live signal moving through the stack.',
+          body:
+            'The system now reads like an actual operating diagram: one central rail, four visible layers, and a live signal that moves through the stack without breaking the layout on laptop or phone.',
+          cta: 'Explore the stack',
+          helper: 'Designed to stay readable on phone and laptop',
+          headerLabel: 'Operator blueprint',
+          headerValue: 'A stable automation rail: intake, logic, execution, and memory.',
+        }
 
   useEffect(() => {
     const node = sectionRef.current
@@ -91,12 +106,9 @@ export default function SystemDisassemblySection() {
     <section ref={sectionRef} className="section-divider py-20 md:py-24">
       <div className="shell grid gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
         <div className="max-w-xl">
-          <p className="eyebrow">System breakdown</p>
-          <h2 className="section-title mt-6">A responsive automation map with a live signal moving through the stack.</h2>
-          <p className="mt-6 text-base leading-8 text-rami-fog">
-            The system now reads like an actual operating diagram: one central rail, four visible layers, and a live signal
-            that moves through the stack without breaking the layout on laptop or phone.
-          </p>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h2 className="section-title mt-6">{copy.title}</h2>
+          <p className="mt-6 text-base leading-8 text-rami-fog">{copy.body}</p>
 
           <div className="mt-8 space-y-3">
             {stages.map((stage, index) => {
@@ -125,12 +137,10 @@ export default function SystemDisassemblySection() {
           </div>
 
           <div className="mt-6 flex items-center gap-4">
-            <Link href="/services" className="button-primary">
-              Explore the stack
+            <Link href={localizePath('/services', locale)} className="button-primary">
+              {copy.cta}
             </Link>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rami-fog/70">
-              Designed to stay readable on phone and laptop
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rami-fog/70">{copy.helper}</p>
           </div>
         </div>
 
@@ -138,8 +148,8 @@ export default function SystemDisassemblySection() {
           <div className="rail-grid" />
 
           <div className="rail-header">
-            <p className="breakdown-label">Operator blueprint</p>
-            <p className="breakdown-value">A stable automation rail: intake, logic, execution, and memory.</p>
+            <p className="breakdown-label">{copy.headerLabel}</p>
+            <p className="breakdown-value">{copy.headerValue}</p>
           </div>
 
           <div className="rail-system">
