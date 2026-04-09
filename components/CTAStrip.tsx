@@ -13,11 +13,11 @@ type Props = {
 
 export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly, locale = 'en' }: Props) {
   const cal = getCalendlyUrl()
-  const eyebrow = locale === 'ro' ? 'Pasul următor' : 'Next move'
+  const eyebrow = locale === 'ro' ? 'Următorul pas' : 'Next step'
   const helper =
     locale === 'ro'
-      ? 'Problemă clară, recomandare directă și un răspuns rapid dacă merită construit sau nu.'
-      : 'Clear problem, direct recommendation, and a fast yes or no on whether I should build it.'
+      ? 'Problemă clară, recomandare rapidă și un următor pas direct.'
+      : 'Clear problem, quick recommendation, and a direct next step.'
 
   return (
     <section className="section-divider relative overflow-hidden py-20 md:py-24">

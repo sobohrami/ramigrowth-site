@@ -15,8 +15,15 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!cs) return {}
 
   return {
-    title: cs.title,
+    title: `${cs.title} - studiu de caz`,
     description: cs.outcome.slice(0, 160),
+    alternates: {
+      canonical: `/ro/work/${params.slug}`,
+      languages: {
+        en: `/work/${params.slug}`,
+        ro: `/ro/work/${params.slug}`,
+      },
+    },
   }
 }
 
@@ -36,7 +43,7 @@ export default function CaseStudyPageRo({ params }: Props) {
         <section className="section-divider py-16 md:py-20">
           <div className="shell">
             <Link href="/ro/work" className="eyebrow hover:text-rami-goldSoft">
-              Înapoi la proiecte
+              Înapoi la studii de caz
             </Link>
 
             <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -92,9 +99,9 @@ export default function CaseStudyPageRo({ params }: Props) {
                 <p className="label">Anatomia sistemului</p>
                 <div className="mt-5 space-y-3">
                   {[
-                    'Presiunea operațională este identificată clar',
-                    'Stratul de workflow sau produs este scos la suprafață și scopat strâns',
-                    'Sistemul este livrat pentru utilizare reală, nu pentru prezentare',
+                    'Punctul real de presiune este identificat clar',
+                    'Stratul de workflow sau produs este scopat strâns',
+                    'Build-ul este livrat pentru utilizare reală, nu doar pentru prezentare',
                   ].map((item) => (
                     <div key={item} className="rounded-[1.1rem] border border-white/10 px-4 py-3 text-sm leading-7 text-rami-fog">
                       {item}
@@ -127,8 +134,8 @@ export default function CaseStudyPageRo({ params }: Props) {
               <div className="border-t border-white/10 pt-6">
                 <p className="eyebrow">De ce contează</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">
-                  Miza acestui build nu a fost o interfață mai frumoasă sau un stack mai modern. Miza a fost eliminarea
-                  unei fricțiuni operaționale reale și transformarea ei într-un sistem care continuă să creeze leverage după lansare.
+                  Scopul nu a fost o interfață mai frumoasă sau un stack mai la modă. Scopul a fost să eliminăm o fricțiune
+                  reală de business și să o înlocuim cu un sistem care continuă să creeze leverage după lansare.
                 </p>
               </div>
             </div>
@@ -138,7 +145,7 @@ export default function CaseStudyPageRo({ params }: Props) {
 
       <CTAStrip
         headline="Ai un bottleneck similar?"
-        subtext="Descrie problema operațională și îți spun dacă are nevoie de workflow, aplicație sau o rezolvare mai simplă."
+        subtext="Descrie problema operațională și îți spun dacă are nevoie de workflow, aplicație custom sau o rezolvare mai simplă."
         ctaLabel="Intră în contact"
         contactOnly
         locale="ro"

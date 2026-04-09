@@ -3,9 +3,16 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About RamiGrowth and the AI Automation Studio Model',
   description:
-    'Builder and operator: custom automation systems, web applications, and AI-enhanced tools for real operational problems.',
+    'Learn how RamiGrowth works: a builder-led AI automation studio focused on lead generation systems, workflow automation, and custom software for real business problems.',
+  alternates: {
+    canonical: '/about',
+    languages: {
+      en: '/about',
+      ro: '/ro/about',
+    },
+  },
 }
 
 const proof = [
@@ -17,19 +24,19 @@ const proof = [
   {
     label: 'Built',
     title: 'SalariuOk.ro',
-    body: 'Romania-first salary benchmarking product with a focused decision surface.',
+    body: 'A Romania-first salary benchmarking product designed around a clear decision workflow.',
   },
   {
-    label: 'Bias',
+    label: 'Approach',
     title: 'Tight scope',
-    body: 'Clear problem, sharp execution, useful first version, then refinement.',
+    body: 'Clear problem, useful first version, direct execution, then refinement.',
   },
 ]
 
 const principles = [
-  'Direct execution without an account-manager layer',
+  'Builder-led execution without an account-manager layer',
   'Small number of active projects at any one time',
-  'Commercial outcomes prioritized over theater and jargon',
+  'Commercial outcomes prioritized over jargon and process theater',
 ]
 
 export default function AboutPage() {
@@ -39,18 +46,21 @@ export default function AboutPage() {
         <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">About</p>
-            <h1 className="section-title mt-6">Builder first. Operator-minded. Close to the work.</h1>
+            <h1 className="section-title mt-6">A small AI automation studio built for direct execution.</h1>
           </div>
 
           <div className="space-y-6 text-base leading-8 text-rami-fog">
-            <p>I work directly on a small number of systems instead of trying to look like a giant agency machine.</p>
             <p>
-              That means no junior handoff chain, no padded process invented to justify a bigger invoice, and no separation
-              between the person scoping the system and the person building it.
+              RamiGrowth works like a builder-led studio, not a bloated agency model. The person diagnosing the
+              bottleneck is the same person shaping the system.
             </p>
             <p>
-              Most projects fall into one of three buckets: revenue generation, operational efficiency, or a focused
-              product surface that should exist because the current tool stack is not enough.
+              That means fewer handoffs, tighter decisions, and faster delivery. It also means projects stay grounded in
+              the real workflow instead of drifting into generic AI positioning.
+            </p>
+            <p>
+              Most work falls into three lanes: demand generation, operations automation, or a focused product surface
+              that should exist because the current stack is no longer enough.
             </p>
           </div>
         </div>
@@ -71,13 +81,13 @@ export default function AboutPage() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <p className="eyebrow">Operating model</p>
-            <h2 className="section-title mt-6">The model is simple: see the pressure clearly, then build the system that removes it.</h2>
+            <p className="eyebrow">How projects run</p>
+            <h2 className="section-title mt-6">See the pressure clearly, then build the smallest system that removes it.</h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-[1.75rem] border border-white/10 bg-[#0a1323]/75 p-7">
-              <p className="label">How I work</p>
+              <p className="label">Operating principles</p>
               <ul className="mt-5 space-y-4 text-sm leading-7 text-rami-cream">
                 {principles.map((item) => (
                   <li key={item} className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
@@ -89,11 +99,11 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-base leading-8 text-rami-fog">
               <p>
-                I scope before I commit. If the business win cannot be named upfront, it is usually too early to build.
+                I scope before I commit. If the business win cannot be named clearly up front, it is usually too early to build.
               </p>
               <p>
-                The goal is not to maximize project count. The goal is to ship systems that become genuinely useful inside
-                a business and keep compounding after launch.
+                The goal is not to maximize project count. The goal is to ship systems that become useful inside a real
+                business and keep compounding after launch.
               </p>
               <p>
                 If that sounds like the partnership you want,{' '}
@@ -109,7 +119,7 @@ export default function AboutPage() {
 
       <CTAStrip
         headline="Need a builder who can stay close to the actual business problem?"
-        subtext="That is the whole model: small number of projects, sharp scope, direct execution, and systems that are expected to work in the real world."
+        subtext="That is the model: small number of projects, sharp scope, direct execution, and systems that are expected to work in the real world."
         ctaLabel="Book a discovery call"
         locale="en"
       />

@@ -15,8 +15,15 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!cs) return {}
 
   return {
-    title: cs.title,
+    title: `${cs.title} Case Study`,
     description: cs.outcome.slice(0, 160),
+    alternates: {
+      canonical: `/work/${params.slug}`,
+      languages: {
+        en: `/work/${params.slug}`,
+        ro: `/ro/work/${params.slug}`,
+      },
+    },
   }
 }
 
@@ -36,7 +43,7 @@ export default function CaseStudyPage({ params }: Props) {
         <section className="section-divider py-16 md:py-20">
           <div className="shell">
             <Link href="/work" className="eyebrow hover:text-rami-goldSoft">
-              Back to work
+              Back to case studies
             </Link>
 
             <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -92,9 +99,9 @@ export default function CaseStudyPage({ params }: Props) {
                 <p className="label">System anatomy</p>
                 <div className="mt-5 space-y-3">
                   {[
-                    'Problem pressure identified',
-                    'Workflow or product layer scoped tightly',
-                    'Execution system shipped for real-world use',
+                    'A real pressure point is identified clearly',
+                    'The workflow or product layer is scoped tightly',
+                    'The build is shipped for real-world use, not just presentation',
                   ].map((item) => (
                     <div key={item} className="rounded-[1.1rem] border border-white/10 px-4 py-3 text-sm leading-7 text-rami-fog">
                       {item}
@@ -127,8 +134,8 @@ export default function CaseStudyPage({ params }: Props) {
               <div className="border-t border-white/10 pt-6">
                 <p className="eyebrow">Why it matters</p>
                 <p className="mt-4 text-base leading-8 text-rami-fog">
-                  The point of the build was not a prettier interface or a more modern stack. The point was to remove a real
-                  operating drag and turn it into a system that could keep creating leverage after launch.
+                  The point was not to create a prettier interface or a more fashionable stack. The point was to remove
+                  a real business drag and replace it with a system that keeps creating leverage after launch.
                 </p>
               </div>
             </div>
@@ -138,7 +145,7 @@ export default function CaseStudyPage({ params }: Props) {
 
       <CTAStrip
         headline="Have a similar bottleneck?"
-        subtext="Describe the operational problem and I will tell you whether it wants a workflow, an app, or a lighter fix."
+        subtext="Describe the operational problem and I will tell you whether it wants a workflow, a custom app, or a lighter fix."
         ctaLabel="Get in touch"
         contactOnly
         locale="en"

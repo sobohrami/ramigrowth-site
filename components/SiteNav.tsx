@@ -14,28 +14,30 @@ export default function SiteNav() {
   const copy =
     locale === 'ro'
       ? {
-          strap: 'Studio de automatizare',
+          strap: 'Studio de automatizare AI',
           links: [
             { href: '/services', label: 'Servicii' },
             { href: '/work', label: 'Proiecte' },
+            { href: '/faq', label: 'Întrebări' },
             { href: '/about', label: 'Despre' },
             { href: '/contact', label: 'Contact' },
           ],
           home: 'Acasă',
           otherLang: 'English',
-          cta: 'Pornește un proiect',
+          cta: 'Programează un apel',
         }
       : {
-          strap: 'Automation studio',
+          strap: 'AI automation studio',
           links: [
             { href: '/services', label: 'Services' },
             { href: '/work', label: 'Work' },
+            { href: '/faq', label: 'FAQ' },
             { href: '/about', label: 'About' },
             { href: '/contact', label: 'Contact' },
           ],
           home: 'Home',
           otherLang: 'Romanian',
-          cta: 'Start a project',
+          cta: 'Book a call',
         }
 
   return (

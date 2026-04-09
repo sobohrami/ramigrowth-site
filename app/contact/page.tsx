@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 }
 
 const situations = [
-  'You need qualified demand without doing more manual outbound work yourself.',
-  'Your team keeps losing time in repetitive operational loops that should already be automated.',
-  'You need a focused internal tool, client-facing app, or sharper AI system built quickly.',
+  'You need qualified demand without personally handling more manual outbound.',
+  'Your team keeps losing time inside repetitive operational loops that should already be automated.',
+  'You need a focused internal tool, client-facing app, or AI workflow built quickly and clearly.',
 ]
 
 const nextSteps = [
-  ['01', 'Brief review', 'I read the problem, look for the real operational pressure, and decide if a build is justified.'],
+  ['01', 'Brief review', 'I read the problem, look for the real pressure point, and decide if a build is justified.'],
   ['02', 'Fast recommendation', 'You get a direct answer on whether this wants automation, a custom app, or a lighter operational fix.'],
   ['03', 'Scoped next move', 'If there is a fit, we define the smallest useful version worth building first.'],
 ]
@@ -36,14 +36,14 @@ export default function ContactPage() {
         <div className="shell grid gap-16 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Contact</p>
-            <h1 className="section-title mt-6">Bring the bottleneck. I will tell you whether it is worth building.</h1>
+            <h1 className="section-title mt-6">Tell me where the business is slowing down. I will tell you what to automate first.</h1>
 
             <div className="mt-8 space-y-5 text-base leading-8 text-rami-fog">
               <p>
-                I take on a small number of projects at a time. Before I say yes to anything, I want to understand the
-                real business problem, the expected outcome, and whether this is the right tool for it.
+                I take on a small number of projects at a time. Before I say yes, I want to understand the real business
+                problem, the expected outcome, and whether building is the right move.
               </p>
-              <p>The most useful situations are usually these:</p>
+              <p>The most useful starting points usually look like this:</p>
             </div>
 
             <div className="mt-8 space-y-3">
@@ -71,7 +71,7 @@ export default function ContactPage() {
               <div className="mb-8 border-b border-white/10 pb-6">
                 <p className="eyebrow text-rami-gold/90">Project brief</p>
                 <p className="mt-4 text-sm leading-7 text-rami-fog">
-                  Short, specific, and grounded in the real workflow. That makes the answer much better.
+                  Keep it short, specific, and grounded in the real workflow. That makes the recommendation much better.
                 </p>
               </div>
               <ContactForm locale="en" />

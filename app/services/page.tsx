@@ -4,7 +4,7 @@ import CTAStrip from '@/components/CTAStrip'
 export const metadata: Metadata = {
   title: 'AI Automation Services, Lead Generation Systems, and Custom App Builds',
   description:
-    'Explore RamiGrowth AI automation services: lead generation systems, workflow automation, custom web app development, and AI-enhanced tooling for outcome-led businesses.',
+    'Explore RamiGrowth services for AI automation, lead generation, workflow automation, custom web app development, and AI-enhanced internal tooling.',
   keywords: [
     'AI automation services',
     'lead generation systems',
@@ -25,38 +25,38 @@ const services = [
   {
     id: 'lead-generation',
     title: 'Lead generation systems',
-    strap: 'Acquire demand without putting manual prospecting back onto the founder.',
+    strap: 'Generate qualified conversations without putting manual prospecting back on the founder.',
     description:
-      'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market and sales motion.',
+      'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market, your offer, and your sales motion.',
     outcomes: [
       'Qualified conversations arriving consistently',
       'Lead follow-up handled automatically',
       'A tighter pipeline with fewer dropped opportunities',
     ],
-    fit: 'Local services, B2B operators, recruiters, and founder-led teams that need demand but cannot burn hours every day on outbound.',
+    fit: 'Local services, B2B operators, recruiters, and founder-led teams that need demand without losing hours every day to manual outreach.',
   },
   {
     id: 'workflow-automation',
     title: 'Workflow automation',
     strap: 'Turn repetitive coordination into a system instead of a staffing problem.',
     description:
-      'Onboarding, reporting, scheduling, handoffs, invoicing, reminders, CRM hygiene, and back-office loops rebuilt into faster operating flows.',
+      'Onboarding, scheduling, reporting, reminders, handoffs, CRM hygiene, invoicing, and back-office loops rebuilt into faster operating flows.',
     outcomes: [
       'Hours returned to the team every week',
       'Fewer manual mistakes and handoff failures',
-      'More capacity without hiring admin for avoidable work',
+      'More capacity without hiring for avoidable admin',
     ],
     fit: 'Service businesses, clinics, agencies, and operators buried in repeatable tasks that should already be automated.',
   },
   {
     id: 'custom-web-apps',
     title: 'Custom web apps',
-    strap: 'A focused product surface built for one real job, not a bloated roadmap.',
+    strap: 'Build the exact product surface the current stack cannot give you.',
     description:
-      'Internal tools, client portals, dashboards, calculators, or a sharp MVP designed around a clear workflow and a concrete commercial use.',
+      'Internal tools, client portals, dashboards, calculators, or a sharp MVP designed around one clear workflow and one concrete commercial use.',
     outcomes: [
       'Working software in weeks, not quarters',
-      'A product shaped around your actual workflow',
+      'A product shaped around your real workflow',
       'A codebase that can keep compounding after launch',
     ],
     fit: 'Founders building the first useful version and operators who have already outgrown spreadsheets plus disconnected SaaS tools.',
@@ -64,9 +64,9 @@ const services = [
   {
     id: 'ai-enhanced-tooling',
     title: 'AI-enhanced tooling',
-    strap: 'Practical intelligence inside the stack you already use.',
+    strap: 'Put practical intelligence into the stack you already use.',
     description:
-      'Document extraction, summarization, routing, triage, internal assistants, content operations, and decision-support layers where AI actually reduces drag.',
+      'Document extraction, summarization, triage, routing, internal assistants, content operations, and decision-support layers where AI actually reduces drag.',
     outcomes: [
       'High-volume repetitive work handled automatically',
       'Useful outputs delivered inside existing systems',
@@ -77,15 +77,15 @@ const services = [
 ]
 
 const delivery = [
-  'We start from one bottleneck, not a vague transformation brief.',
-  'The first version is scoped to create operational leverage quickly.',
+  'Projects start from one named bottleneck, not a vague AI transformation brief.',
+  'The first version is scoped to create leverage quickly.',
   'Automation, interface, and business logic are designed together.',
 ]
 
 const signals = [
-  ['Best for', 'Operators with real pressure in revenue, delivery, or internal execution.'],
-  ['Not for', 'Teams looking for long discovery workshops without a clearly named outcome.'],
-  ['Engagement style', 'Tight scope, direct collaboration, useful first release, then refinement.'],
+  ['Best for', 'Businesses with pressure in revenue, delivery, or internal execution.'],
+  ['Not for', 'Teams looking for long discovery workshops without a clearly named business outcome.'],
+  ['How projects run', 'Tight scope, direct collaboration, useful first release, then refinement.'],
 ]
 
 export default function ServicesPage() {
@@ -95,12 +95,12 @@ export default function ServicesPage() {
         <div className="shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="eyebrow">Services</p>
-            <h1 className="section-title mt-6">Systems built around specific operational pressure.</h1>
+            <h1 className="section-title mt-6">AI automation services built around real business bottlenecks.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              The offer is not &quot;AI consulting.&quot; It is a set of focused build tracks for businesses that need a
-              working system, a cleaner workflow, or a faster path to revenue.
+              This is not generic AI consulting. These are focused build tracks for lead generation, workflow
+              automation, custom apps, and AI tooling that solve specific business problems.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {delivery.map((item) => (
@@ -156,14 +156,14 @@ export default function ServicesPage() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow">How engagements start</p>
-            <h2 className="section-title mt-6">The first sprint is about seeing the system, not decorating the brief.</h2>
+            <p className="eyebrow">How projects start</p>
+            <h2 className="section-title mt-6">The first sprint is about understanding the system, not decorating the brief.</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ['01', 'Map the friction', 'We identify the part of the workflow where money, time, or momentum is leaking.'],
+              ['01', 'Map the friction', 'We identify where money, time, or momentum is leaking.'],
               ['02', 'Scope the useful version', 'We define the smallest build that creates leverage quickly and can keep compounding after launch.'],
-              ['03', 'Ship and refine', 'The working system goes live fast, then we improve it based on real usage rather than assumptions.'],
+              ['03', 'Ship and refine', 'The system goes live fast, then we improve it based on real usage rather than assumptions.'],
             ].map(([step, title, body]) => (
               <div key={step} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
                 <p className="font-display text-3xl text-rami-gold/80">{step}</p>
@@ -187,7 +187,7 @@ export default function ServicesPage() {
       </section>
 
       <CTAStrip
-        headline="Need help choosing the right build track?"
+        headline="Need help choosing the right AI automation service?"
         subtext="Bring the bottleneck, the revenue problem, or the workflow that keeps breaking. I will tell you which system wants to exist first."
         ctaLabel="Start the conversation"
         locale="en"

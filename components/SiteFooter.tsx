@@ -13,35 +13,37 @@ export default function SiteFooter() {
     locale === 'ro'
       ? {
           eyebrow: 'RamiGrowth',
-          headline: 'Sisteme pentru operatori care vor ritm, nu încă un PDF de strategie.',
+          headline: 'Automatizări AI pentru business-uri care vor mai multe lead-uri, mai puțină muncă manuală și mai mult control.',
           body:
-            'Motoare de outreach, unelte interne și sisteme de automatizare construite cu scope clar și rezultat comercial direct.',
+            'Sisteme de lead generation, aplicații web custom și automatizări de procese construite cu scope clar și rezultat comercial măsurabil.',
           explore: 'Explorează',
           services: 'Servicii',
           work: 'Proiecte',
+          faq: 'Întrebări',
           about: 'Despre',
           contact: 'Contact',
           contactTitle: 'Contact',
           location: 'Bazat în România, remote-first',
           availability: 'Disponibilitate selectivă pentru proiecte bine definite.',
           rights: `Copyright ${new Date().getFullYear()} RamiGrowth`,
-          closing: 'Construit pentru viteză, claritate și leverage comercial.',
+          closing: 'Construit pentru claritate, viteză și leverage comercial.',
         }
       : {
           eyebrow: 'RamiGrowth',
-          headline: 'Systems for operators who want momentum, not another strategy deck.',
+          headline: 'AI automation systems for businesses that want more leads, less manual work, and better follow-through.',
           body:
-            'Outreach engines, internal tools, and automation systems built with a sharp scope and a direct commercial outcome.',
+            'Lead generation systems, custom web apps, and workflow automation built with a sharp scope and a direct commercial outcome.',
           explore: 'Explore',
           services: 'Services',
           work: 'Work',
+          faq: 'FAQ',
           about: 'About',
           contact: 'Contact',
           contactTitle: 'Contact',
           location: 'Romania-based, remote-first',
           availability: 'Selective availability for scoped projects.',
           rights: `Copyright ${new Date().getFullYear()} RamiGrowth`,
-          closing: 'Built for speed, clarity, and commercial leverage.',
+          closing: 'Built for clarity, speed, and commercial leverage.',
         }
 
   return (
@@ -65,6 +67,11 @@ export default function SiteFooter() {
               <li>
                 <Link href={localizePath('/work', locale)} className="hover:text-rami-cream">
                   {copy.work}
+                </Link>
+              </li>
+              <li>
+                <Link href={localizePath('/faq', locale)} className="hover:text-rami-cream">
+                  {copy.faq}
                 </Link>
               </li>
               <li>

@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 const situations = [
   'Ai nevoie de lead-uri calificate fără să faci mai mult outbound manual chiar tu.',
   'Echipa pierde timp în bucle operaționale repetitive care ar trebui deja automatizate.',
-  'Ai nevoie de o unealtă internă, o aplicație pentru clienți sau un sistem AI construit rapid și clar.',
+  'Ai nevoie de o unealtă internă, o aplicație pentru clienți sau un workflow AI construit rapid și clar.',
 ]
 
 const nextSteps = [
-  ['01', 'Revizuire brief', 'Citesc problema, caut presiunea operațională reală și decid dacă merită un build.'],
+  ['01', 'Revizuire brief', 'Citesc problema, caut punctul real de presiune și decid dacă merită un build.'],
   ['02', 'Recomandare rapidă', 'Primești un răspuns direct: automatizare, aplicație custom sau o rezolvare operațională mai ușoară.'],
   ['03', 'Următorul pas cu scope clar', 'Dacă există fit, definim cea mai mică versiune utilă care merită construită prima.'],
 ]
@@ -36,14 +36,14 @@ export default function ContactPageRo() {
         <div className="shell grid gap-16 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Contact</p>
-            <h1 className="section-title mt-6">Vino cu bottleneck-ul. Îți spun dacă merită construit.</h1>
+            <h1 className="section-title mt-6">Spune-mi unde încetinește business-ul. Îți spun ce merită automatizat primul.</h1>
 
             <div className="mt-8 space-y-5 text-base leading-8 text-rami-fog">
               <p>
                 Lucrez cu un număr mic de proiecte simultan. Înainte să spun da, vreau să înțeleg problema reală,
-                rezultatul dorit și dacă acesta este cu adevărat instrumentul potrivit.
+                rezultatul dorit și dacă a construi este într-adevăr pasul corect.
               </p>
-              <p>Cele mai utile situații sunt de obicei acestea:</p>
+              <p>Cele mai bune puncte de pornire arată, de obicei, așa:</p>
             </div>
 
             <div className="mt-8 space-y-3">
@@ -71,7 +71,7 @@ export default function ContactPageRo() {
               <div className="mb-8 border-b border-white/10 pb-6">
                 <p className="eyebrow text-rami-gold/90">Brief de proiect</p>
                 <p className="mt-4 text-sm leading-7 text-rami-fog">
-                  Scurt, specific și legat de workflow-ul real. Așa iese și răspunsul mai bun.
+                  Ține-l scurt, specific și legat de workflow-ul real. Așa iese și recomandarea mai bună.
                 </p>
               </div>
               <ContactForm locale="ro" />

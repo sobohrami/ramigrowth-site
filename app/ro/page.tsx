@@ -6,16 +6,16 @@ import SystemDisassemblySection from '@/components/SystemDisassemblySection'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Servicii AI pentru automatizare, lead generation și aplicații web custom',
+  title: 'Automatizări AI pentru lead generation, procese și aplicații web custom',
   description:
-    'RamiGrowth construiește servicii de automatizare AI, lead generation, automatizare procese și aplicații web custom pentru business-uri care vor rezultate operaționale reale.',
+    'RamiGrowth ajută firmele de servicii și echipele conduse de operatori să automatizeze lead generation-ul, procesele și execuția cu AI.',
   keywords: [
     'automatizări AI',
     'servicii AI România',
     'automatizare procese',
     'lead generation',
     'aplicații web custom',
-    'agenție AI România',
+    'agenție automatizare AI',
   ],
   alternates: {
     canonical: '/ro',
@@ -30,8 +30,8 @@ const services = [
   {
     index: '01',
     name: 'Sisteme de lead generation',
-    desc: 'Prospectare, outbound personalizat, logică de follow-up și rutare de lead-uri construite în jurul pieței și ofertei tale.',
-    outcome: 'Mai multe conversații relevante fără prospectare manuală zilnică.',
+    desc: 'Prospectare, outbound personalizat, logică de follow-up și rutare de lead-uri construite în jurul pieței și procesului tău de vânzare.',
+    outcome: 'Mai multe conversații relevante fără prospectare manuală în fiecare săptămână.',
     id: 'lead-generation',
   },
   {
@@ -44,14 +44,14 @@ const services = [
   {
     index: '03',
     name: 'Aplicații web custom',
-    desc: 'Unelte interne, aplicații pentru clienți și MVP-uri construite în jurul unei probleme reale, nu al unei platforme generice.',
-    outcome: 'Un produs funcțional în săptămâni, nu un plan pe șase luni.',
+    desc: 'Unelte interne, aplicații pentru clienți și MVP-uri construite în jurul unui job real de business, nu al unei platforme generice.',
+    outcome: 'Un produs util în săptămâni, nu un ciclu de planificare de șase luni.',
     id: 'custom-web-apps',
   },
   {
     index: '04',
     name: 'Tooling cu AI',
-    desc: 'AI practic introdus în procese reale: sumarizare, documente, rutare și suport pentru decizii.',
+    desc: 'AI practic adăugat în procese reale: sumarizare, rutare, triere, documente și suport intern.',
     outcome: 'Mai mult throughput fără să reconstruiești toată operațiunea.',
     id: 'ai-enhanced-tooling',
   },
@@ -59,31 +59,31 @@ const services = [
 
 const principles = [
   {
-    title: 'Construit aproape de problema de business',
-    body: 'Fără lanțuri lungi de handoff, fără teatru de agenție și fără documente inutile înainte să existe ceva real.',
+    title: 'Construit în jurul unui bottleneck real',
+    body: 'Proiectele pornesc dintr-o problemă operațională sau comercială clară, nu dintr-un brief vag de transformare AI.',
   },
   {
-    title: 'Scope pentru rezultat, nu pentru aparențe',
-    body: 'Fiecare build este legat de un rezultat comercial sau operațional: mai multe lead-uri, mai puțin lucru manual sau un produs care poate fi lansat.',
+    title: 'Lansat în versiuni utile',
+    body: 'Prima versiune este scopată să creeze leverage rapid, apoi este îmbunătățită pe baza utilizării reale.',
   },
   {
-    title: 'Suficient de rapid încât să creeze leverage',
-    body: 'Ținta este momentum. Strângem brief-ul, construim versiunea utilă și iterăm după ce sistemul este live.',
+    title: 'Gândit pentru follow-through',
+    body: 'Scopul nu este un demo arătos, ci un sistem pe care echipa îl poate folosi și care continuă să creeze valoare după lansare.',
   },
 ]
 
 const caseStudies = [
   {
     slug: 'prodetailer',
-    label: 'Platformă lead-gen',
+    label: 'Platformă lead generation',
     title: 'ProDetailer.app',
-    body: 'Un motor de lead generation și follow-up pentru business-uri de auto detailing, construit să transforme outreach-ul în lucrări rezervate.',
+    body: 'Un sistem de lead generation și follow-up pentru business-uri de auto detailing, construit să transforme outreach-ul în lucrări rezervate.',
   },
   {
     slug: 'salariuok',
-    label: 'Aplicație market intelligence',
+    label: 'Aplicație de market intelligence',
     title: 'SalariuOk.ro',
-    body: 'Un produs de salary benchmarking pentru piața din România, construit cu date live și o interfață focusată pe operator.',
+    body: 'Un produs de salary benchmarking pentru piața din România, construit în jurul unei experiențe clare de căutare și suport decizional util.',
   },
 ]
 
@@ -98,18 +98,16 @@ export default function HomePageRo() {
 
         <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-12 py-14 md:gap-16 md:py-24 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
-            <p className="eyebrow">Servicii de automatizare pentru operatori</p>
+            <p className="eyebrow">Studio de automatizare AI</p>
             <h1 className="display-title mt-6 max-w-4xl">
-              Servicii AI care construiesc motorul,
-              <br />
-              nu încă un blocaj.
+              Automatizări AI pentru business-uri care vor mai multe lead-uri și mai puțină muncă manuală.
             </h1>
             <p className="lede mt-7">
-              RamiGrowth proiectează și lansează sisteme de lead generation, automatizare procese, aplicații web
-              custom și workflow-uri cu AI pentru business-uri care au nevoie acum de un upgrade operațional concret.
+              RamiGrowth construiește sisteme de lead generation, automatizare de procese, aplicații web custom și
+              unelte AI pentru firme de servicii și echipe conduse de operatori care au nevoie de execuție mai rapidă și rezultate reale.
             </p>
             <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
-              Vizualuri AI credibile. Workflow-uri autonome. Un strat de sistem care chiar pare viu.
+              Lead generation. Automatizare workflow-uri. Aplicații custom. Unelte AI care se potrivesc operațiunii reale.
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -131,19 +129,17 @@ export default function HomePageRo() {
               <div>
                 <p className="eyebrow text-rami-fog/60">Focus</p>
                 <p className="mt-2 text-sm leading-7 text-rami-cream">
-                  Lead generation, automatizare workflow-uri, servicii AI, aplicații custom.
+                  Lead generation, automatizare procese, aplicații custom, tooling cu AI.
                 </p>
               </div>
               <div>
                 <p className="eyebrow text-rami-fog/60">Livrare</p>
-                <p className="mt-2 text-sm leading-7 text-rami-cream">
-                  Scope strâns, comunicare directă, software funcțional.
-                </p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">Scope strâns, build rapid, colaborare directă.</p>
               </div>
               <div>
-                <p className="eyebrow text-rami-fog/60">Client ideal</p>
+                <p className="eyebrow text-rami-fog/60">Potrivire bună</p>
                 <p className="mt-2 text-sm leading-7 text-rami-cream">
-                  Operatori care vor viteză și upside comercial real.
+                  Firme de servicii, fondatori și echipe cu un bottleneck real de rezolvat.
                 </p>
               </div>
             </div>
@@ -158,8 +154,8 @@ export default function HomePageRo() {
       <section className="section-divider py-24">
         <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
-            <p className="eyebrow">De ce aleg clienții modelul acesta</p>
-            <h2 className="section-title mt-6 max-w-xl">Mai puțină ceremonie. Mai mult leverage.</h2>
+            <p className="eyebrow">De ce funcționează</p>
+            <h2 className="section-title mt-6 max-w-xl">Mai puțin zgomot. Sisteme mai utile.</h2>
           </div>
 
           <div className="grid gap-10 md:grid-cols-3">
@@ -177,9 +173,7 @@ export default function HomePageRo() {
         <div className="shell">
           <div className="max-w-3xl">
             <p className="eyebrow">Ce construiesc</p>
-            <h2 className="section-title mt-6">
-              Patru moduri cu leverage mare prin care reducem fricțiunea și creăm momentum.
-            </h2>
+            <h2 className="section-title mt-6">Servicii create pentru cerere, eliminarea muncii manuale și execuție mai bună.</h2>
           </div>
 
           <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
@@ -209,7 +203,7 @@ export default function HomePageRo() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="eyebrow">Proiecte selectate</p>
-              <h2 className="section-title mt-6">Dovadă în produse live, nu în mockup-uri ipotetice.</h2>
+              <h2 className="section-title mt-6">Studii de caz construite în jurul unor rezultate comerciale reale.</h2>
             </div>
             <Link href="/ro/work" className="button-secondary max-w-max">
               Vezi toate proiectele
@@ -230,9 +224,7 @@ export default function HomePageRo() {
                 <div>
                   <h3 className="font-display text-4xl text-rami-cream md:text-5xl">{item.title}</h3>
                   <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">{item.body}</p>
-                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-rami-gold">
-                    Deschide studiul de caz
-                  </p>
+                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-rami-gold">Deschide studiul de caz</p>
                 </div>
               </Link>
             ))}
@@ -241,8 +233,8 @@ export default function HomePageRo() {
       </section>
 
       <CTAStrip
-        headline="Ai un blocaj operațional care merită rezolvat?"
-        subtext="Vino cu problema reală. Îți spun dacă ar trebui automatizată, construită ca unealtă sau lăsată în pace."
+        headline="Ai nevoie de un sistem AI care chiar economisește timp sau generează venit?"
+        subtext="Vino cu bottleneck-ul, workflow-ul manual sau problema de cerere. Îți spun ce merită automatizat primul."
         ctaLabel="Programează un discovery call"
         locale="ro"
       />

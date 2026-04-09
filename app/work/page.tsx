@@ -19,8 +19,8 @@ export default function WorkPage() {
   const items = getCaseStudies('en')
   const proofPoints = [
     'Commercially-scoped builds, not speculative experiments',
-    'Systems that combine automation, interface design, and operations logic',
-    'Romanian-market experience alongside client-work automation',
+    'Systems that combine automation, interface design, and operating logic',
+    'Romanian-market experience alongside client automation work',
   ]
 
   return (
@@ -28,13 +28,13 @@ export default function WorkPage() {
       <section className="section-divider py-20 md:py-24">
         <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="eyebrow">Selected work</p>
-            <h1 className="section-title mt-6">Products and automation systems shaped around one commercial job.</h1>
+            <p className="eyebrow">Work</p>
+            <h1 className="section-title mt-6">Case studies in AI automation, lead generation, and focused product builds.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              These projects were not built to fill a portfolio grid. Each one answered a narrow operational or market
-              question, then shipped as a working system.
+              These projects were not built to fill a portfolio grid. Each one solved a specific business job: create
+              demand, remove workflow drag, or build a digital product people can actually use.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {proofPoints.map((item) => (

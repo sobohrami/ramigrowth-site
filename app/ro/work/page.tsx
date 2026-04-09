@@ -28,13 +28,13 @@ export default function WorkPageRo() {
       <section className="section-divider py-20 md:py-24">
         <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="eyebrow">Proiecte selectate</p>
-            <h1 className="section-title mt-6">Produse și sisteme de automatizare modelate în jurul unui job comercial clar.</h1>
+            <p className="eyebrow">Proiecte</p>
+            <h1 className="section-title mt-6">Studii de caz în automatizări AI, lead generation și produse digitale concentrate.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Aceste proiecte nu au fost construite doar ca să umple un grid de portofoliu. Fiecare a răspuns unei
-              întrebări operaționale sau de piață, apoi a fost livrat ca sistem funcțional.
+              Aceste proiecte nu au fost făcute ca să umple un portofoliu. Fiecare a rezolvat un job clar de business:
+              să creeze cerere, să elimine fricțiunea operațională sau să lanseze un produs digital util.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {proofPoints.map((item) => (
