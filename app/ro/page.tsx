@@ -45,10 +45,10 @@ const services = [
 const principles = [
   {
     title: 'Construit aproape de problema de business',
-    body: 'Fără lanț lung de handoff-uri, fără teatru de agenție și fără documente inutile înainte să existe ceva real.',
+    body: 'Fără lanțuri lungi de handoff, fără teatru de agenție și fără documente inutile înainte să existe ceva real.',
   },
   {
-    title: 'Scope pentru rezultat, nu pentru vanity',
+    title: 'Scope pentru rezultat, nu pentru aparențe',
     body: 'Fiecare build este legat de un rezultat comercial sau operațional: mai multe lead-uri, mai puțin lucru manual sau un produs care poate fi lansat.',
   },
   {
@@ -81,7 +81,7 @@ export default function HomePageRo() {
         <div className="ambient-orb absolute left-[-8%] top-24 h-64 w-64 rounded-full bg-rami-gold/10 blur-3xl" />
         <div className="ambient-orb absolute right-[-10%] top-16 h-80 w-80 rounded-full bg-rami-steel/20 blur-3xl" />
 
-        <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-16 py-16 md:py-24 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-12 py-14 md:gap-16 md:py-24 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Sisteme de automatizare pentru operatori</p>
             <h1 className="display-title mt-6 max-w-4xl">
@@ -94,7 +94,7 @@ export default function HomePageRo() {
               nevoie acum de un upgrade operațional concret, nu de șase săptămâni de discovery.
             </p>
             <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
-              Vizualuri AI cu încredere ridicată. Workflow-uri autonome. Un strat de sistem care chiar pare viu.
+              Vizualuri AI credibile. Workflow-uri autonome. Un strat de sistem care chiar pare viu.
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -135,7 +135,7 @@ export default function HomePageRo() {
       <SystemDisassemblySection locale="ro" />
 
       <section className="section-divider py-24">
-        <div className="shell grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <p className="eyebrow">De ce aleg clienții modelul acesta</p>
             <h2 className="section-title mt-6 max-w-xl">Mai puțină ceremonie. Mai mult leverage.</h2>

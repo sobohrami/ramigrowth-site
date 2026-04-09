@@ -21,7 +21,7 @@ export default function AboutPageRo() {
             <p>Lucrez direct pe un număr mic de sisteme, nu încerc să par o agenție mare.</p>
             <p>
               Asta înseamnă fără handoff către juniori, fără proces umflat doar ca să justifice factura și fără separare
-              între persoana care scoperă sistemul și persoana care îl construiește.
+              între persoana care definește sistemul și persoana care îl construiește.
             </p>
             <p>
               Majoritatea proiectelor intră în trei categorii: generare de venit, eficiență operațională sau un produs
@@ -35,7 +35,7 @@ export default function AboutPageRo() {
         <div className="shell grid gap-6 md:grid-cols-3">
           {[
             ['Built', 'ProDetailer.app', 'Automatizare lead generation și follow-up pentru business-uri de auto detailing.'],
-            ['Built', 'SalariuOk.ro', 'Produs de salary benchmarking pentru România, cu suprafață focusată pe decizie.'],
+            ['Built', 'SalariuOk.ro', 'Produs de salary benchmarking pentru România, cu o interfață focusată pe decizie.'],
             ['Bias', 'Tight scope', 'Problemă clară, execuție clară, primă versiune utilă, apoi rafinare.'],
           ].map(([label, title, body]) => (
             <div key={title} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_22px_80px_rgba(0,0,0,0.18)]">

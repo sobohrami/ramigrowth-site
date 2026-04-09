@@ -24,8 +24,7 @@ export default function ContactPageRo() {
                 rezultatul dorit și dacă acesta este cu adevărat instrumentul potrivit.
               </p>
               <p>
-                Prefer să primesc un brief specific: unde se blochează operațiunea, ce rezultat vrei și ce ai încercat
-                deja.
+                Prefer să primesc un brief specific: unde se blochează operațiunea, ce rezultat vrei și ce ai încercat deja.
               </p>
             </div>
 

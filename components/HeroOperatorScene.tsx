@@ -20,7 +20,9 @@ export default function HeroOperatorScene({ locale = 'en' }: { locale?: Locale }
           { title: 'Workflow sync', detail: 'Ops, reminders, follow-up', className: 'left-[2%] bottom-[18%] md:left-[-6%]' },
         ]
   const signals =
-    locale === 'ro' ? ['Scor intenție', 'Logică follow-up', 'Rezumat inteligent', 'Orchestrare taskuri'] : ['Intent scoring', 'Follow-up logic', 'Smart summaries', 'Task orchestration']
+    locale === 'ro'
+      ? ['Scor de intenție', 'Logică de follow-up', 'Rezumat inteligent', 'Orchestrare taskuri']
+      : ['Intent scoring', 'Follow-up logic', 'Smart summaries', 'Task orchestration']
   const copy =
     locale === 'ro'
       ? {
@@ -54,11 +56,7 @@ export default function HeroOperatorScene({ locale = 'en' }: { locale?: Locale }
   return (
     <div className="relative mx-auto w-full max-w-[620px] [perspective:1800px]">
       {chips.map((chip, index) => (
-        <div
-          key={chip.title}
-          className={`hero-chip ${chip.className}`}
-          style={{ animationDelay: `${index * 0.45}s` }}
-        >
+        <div key={chip.title} className={`hero-chip ${chip.className}`} style={{ animationDelay: `${index * 0.45}s` }}>
           <p className="hero-chip__title">{chip.title}</p>
           <p className="hero-chip__detail">{chip.detail}</p>
         </div>
@@ -135,27 +133,10 @@ export default function HeroOperatorScene({ locale = 'en' }: { locale?: Locale }
                 stroke="rgba(255,255,255,0.08)"
                 strokeWidth="2"
               />
-              <path
-                d="M202 346h116"
-                stroke="rgba(154,255,210,0.7)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                opacity="0.72"
-              />
-              <path
-                d="M214 372h92M223 398h74M236 424h48"
-                stroke="rgba(89,229,255,0.72)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                opacity="0.72"
-              />
+              <path d="M202 346h116" stroke="rgba(154,255,210,0.7)" strokeWidth="3" strokeLinecap="round" opacity="0.72" />
+              <path d="M214 372h92M223 398h74M236 424h48" stroke="rgba(89,229,255,0.72)" strokeWidth="3" strokeLinecap="round" opacity="0.72" />
               <circle cx="260" cy="134" r="10" fill="rgba(89,229,255,0.82)" />
-              <path
-                d="M260 145v28"
-                stroke="rgba(89,229,255,0.88)"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
+              <path d="M260 145v28" stroke="rgba(89,229,255,0.88)" strokeWidth="4" strokeLinecap="round" />
             </svg>
 
             <div className="hero-sentinel__scanline" />

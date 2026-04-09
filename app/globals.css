@@ -36,7 +36,7 @@
 
 @layer components {
   .shell {
-    @apply mx-auto w-full max-w-[1200px] px-6 md:px-8;
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8;
   }
 
   .eyebrow {
@@ -44,15 +44,15 @@
   }
 
   .display-title {
-    @apply font-display text-5xl leading-[0.95] tracking-[-0.03em] text-rami-cream md:text-7xl;
+    @apply font-display text-[2.85rem] leading-[0.95] tracking-[-0.03em] text-rami-cream md:text-7xl;
   }
 
   .section-title {
-    @apply font-display text-4xl leading-tight tracking-[-0.03em] text-rami-cream md:text-5xl;
+    @apply font-display text-[2.35rem] leading-tight tracking-[-0.03em] text-rami-cream md:text-5xl;
   }
 
   .lede {
-    @apply max-w-2xl text-base leading-8 text-rami-fog md:text-lg;
+    @apply max-w-2xl text-[15px] leading-7 text-rami-fog md:text-lg md:leading-8;
   }
 
   .section-divider {
@@ -80,7 +80,7 @@
   }
 
   .hero-stage {
-    @apply relative isolate aspect-[0.9] overflow-hidden rounded-[2.5rem] border border-white/10;
+    @apply relative isolate aspect-[0.98] overflow-hidden rounded-[2rem] border border-white/10 md:aspect-[0.9] md:rounded-[2.5rem];
     background:
       radial-gradient(circle at top, rgba(89, 229, 255, 0.12), transparent 24%),
       radial-gradient(circle at 78% 18%, rgba(123, 97, 255, 0.16), transparent 30%),
@@ -155,7 +155,7 @@
   }
 
   .hero-sentinel__shell {
-    @apply relative mt-6 h-[420px] w-[340px];
+    @apply relative mt-6 h-[360px] w-[290px] md:h-[420px] md:w-[340px];
     animation: sentinel-float 7s ease-in-out infinite;
   }
 
@@ -198,7 +198,7 @@
   }
 
   .hero-orbit-data {
-    @apply absolute left-6 right-6 top-6 rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4 md:left-8 md:right-8;
+    @apply absolute left-4 right-4 top-4 rounded-[1.3rem] border border-white/10 bg-white/[0.04] px-4 py-3 md:left-8 md:right-8 md:top-6 md:rounded-[1.5rem] md:px-5 md:py-4;
     box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
     transform: translateZ(30px);
   }
@@ -223,7 +223,7 @@
   }
 
   .hero-console {
-    @apply absolute bottom-6 left-6 right-6 grid gap-5 rounded-[1.75rem] border border-white/10 px-5 py-5 backdrop-blur md:bottom-8 md:left-8 md:right-8 md:grid-cols-[1fr_1fr_auto] md:items-end;
+    @apply absolute bottom-4 left-4 right-4 grid gap-4 rounded-[1.5rem] border border-white/10 px-4 py-4 backdrop-blur md:bottom-8 md:left-8 md:right-8 md:gap-5 md:rounded-[1.75rem] md:px-5 md:py-5 md:grid-cols-[1fr_1fr_auto] md:items-end;
     background-color: rgba(6, 14, 30, 0.88);
     box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
     transform: translateZ(40px);
@@ -248,7 +248,7 @@
   }
 
   .rail-step {
-    @apply rounded-[1.5rem] border border-white/10 bg-white/[0.035] px-4 py-4 shadow-[0_14px_44px_rgba(0,0,0,0.18)] md:px-5;
+    @apply rounded-[1.4rem] border border-white/10 bg-white/[0.035] px-4 py-4 shadow-[0_14px_44px_rgba(0,0,0,0.18)] md:rounded-[1.5rem] md:px-5;
   }
 
   .rail-step__index {
@@ -269,11 +269,11 @@
   }
 
   .rail-header {
-    @apply absolute left-5 right-5 top-5 rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-5 py-4 md:left-6 md:right-6 md:top-6;
+    @apply absolute left-4 right-4 top-4 rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-3 md:left-6 md:right-6 md:top-6 md:rounded-[1.4rem] md:px-5 md:py-4;
   }
 
   .rail-system {
-    @apply relative px-5 pb-6 pt-28 md:px-6 md:pb-8 md:pt-32;
+    @apply relative px-4 pb-6 pt-24 md:px-6 md:pb-8 md:pt-32;
   }
 
   .rail-system::before {

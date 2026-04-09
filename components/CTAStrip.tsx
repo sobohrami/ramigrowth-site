@@ -13,19 +13,20 @@ type Props = {
 
 export default function CTAStrip({ headline, subtext, ctaLabel, contactOnly, locale = 'en' }: Props) {
   const cal = getCalendlyUrl()
+  const eyebrow = locale === 'ro' ? 'Pasul următor' : 'Next move'
   const helper =
     locale === 'ro'
       ? 'Problemă clară, recomandare directă și un răspuns rapid dacă merită construit sau nu.'
       : 'Clear problem, direct recommendation, and a fast yes or no on whether I should build it.'
 
   return (
-    <section className="section-divider relative overflow-hidden py-24">
+    <section className="section-divider relative overflow-hidden py-20 md:py-24">
       <div className="ambient-orb absolute left-[-120px] top-8 h-64 w-64 rounded-full bg-rami-gold/10 blur-3xl" />
       <div className="ambient-orb absolute bottom-[-80px] right-0 h-72 w-72 rounded-full bg-rami-steel/20 blur-3xl" />
 
       <div className="shell relative">
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] px-8 py-10 shadow-[0_30px_100px_rgba(0,0,0,0.25)] md:px-12 md:py-14">
-          <p className="eyebrow">Next move</p>
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-8 shadow-[0_30px_100px_rgba(0,0,0,0.25)] md:px-12 md:py-14">
+          <p className="eyebrow">{eyebrow}</p>
           <div className="mt-6 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div>
               <h2 className="section-title max-w-3xl">{headline}</h2>

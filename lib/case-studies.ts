@@ -102,7 +102,8 @@ export const CASE_STUDIES: Record<string, CaseStudyRecord> = {
         'Discuțiile despre salarii în România sunt încă opace. Angajații nu știu dacă sunt subplătiți. Angajatorii nu știu dacă ofertele lor sunt competitive. Datele publice sunt fragmentate, vechi sau prea generale ca să fie utile.',
       problem:
         'Nu exista un produs clar și focusat de salary benchmarking construit special pentru piața din România. Opțiunile existente erau fie prea largi, fie prea manuale, împingând oamenii spre forumuri și presupuneri.',
-      solutionLead: 'SalariuOk.ro este un produs focusat construit să răspundă bine la o singură întrebare: care este un interval salarial corect în această piață?',
+      solutionLead:
+        'SalariuOk.ro este un produs focusat construit să răspundă bine la o singură întrebare: care este un interval salarial corect în această piață?',
       solutionBullets: [
         'Permite căutarea intervalelor salariale după rol, industrie și nivel de experiență',
         'Afișează date relevante pentru România, nu benchmark-uri globale generice',

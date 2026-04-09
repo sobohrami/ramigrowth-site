@@ -46,18 +46,14 @@ export default function SiteFooter() {
 
   return (
     <footer className="section-divider bg-[#07090d]">
-      <div className="shell grid gap-16 py-16 md:grid-cols-[1.2fr_0.8fr]">
+      <div className="shell grid gap-12 py-14 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:py-16">
         <div>
           <p className="eyebrow">{copy.eyebrow}</p>
-          <h2 className="mt-5 max-w-xl font-display text-4xl leading-tight text-rami-cream md:text-5xl">
-            {copy.headline}
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">
-            {copy.body}
-          </p>
+          <h2 className="mt-5 max-w-xl font-display text-4xl leading-tight text-rami-cream md:text-5xl">{copy.headline}</h2>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">{copy.body}</p>
         </div>
 
-        <div className="grid gap-12 sm:grid-cols-2">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12">
           <div>
             <p className="label">{copy.explore}</p>
             <ul className="mt-5 space-y-3 text-sm text-rami-fog">

@@ -8,8 +8,9 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
   const copy =
     locale === 'ro'
       ? {
-          config:
-            'Formularul de contact nu este configurat încă. Setează',
+          config: 'Formularul de contact nu este configurat încă. Setează',
+          fallback:
+            'în mediul de deployment sau folosește adresa de email din footer, dacă este disponibilă.',
           name: 'Numele tău',
           email: 'Adresa ta de email',
           company: 'Business sau numele companiei',
@@ -22,8 +23,8 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
           send: 'Trimite brief-ul',
         }
       : {
-          config:
-            'Contact form is not configured yet. Set',
+          config: 'Contact form is not configured yet. Set',
+          fallback: 'in the deployment environment, or use the email in the footer if provided.',
           name: 'Your name',
           email: 'Your email address',
           company: 'Business or company name',
@@ -43,7 +44,7 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
         <code className="rounded bg-black/20 px-1.5 py-0.5 font-mono text-xs text-rami-cream">
           NEXT_PUBLIC_FORMSPREE_FORM_ID
         </code>{' '}
-        in the deployment environment, or use the email in the footer if provided.
+        {copy.fallback}
       </p>
     )
   }
@@ -78,7 +79,7 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
           {copy.problem}
         </label>
         <p className="mt-2 text-sm leading-7 text-rami-fog">{copy.problemHint}</p>
-        <textarea id="problem" name="problem" required rows={6} className="field" />
+        <textarea id="problem" name="problem" required rows={6} className="field min-h-[160px]" />
       </div>
 
       <div>

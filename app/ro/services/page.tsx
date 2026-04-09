@@ -57,7 +57,7 @@ export default function ServicesPageRo() {
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Oferta nu este “consultanță AI”. Este un set de direcții de build pentru business-uri care au nevoie de un
+              Oferta nu este „consultanță AI”. Este un set de direcții de build pentru business-uri care au nevoie de un
               sistem funcțional, un workflow mai curat sau o cale mai rapidă spre venit.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">

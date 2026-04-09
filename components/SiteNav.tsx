@@ -22,6 +22,7 @@ export default function SiteNav() {
             { href: '/contact', label: 'Contact' },
           ],
           home: 'Acasă',
+          otherLang: 'English',
           cta: 'Pornește un proiect',
         }
       : {
@@ -33,19 +34,20 @@ export default function SiteNav() {
             { href: '/contact', label: 'Contact' },
           ],
           home: 'Home',
+          otherLang: 'Romanian',
           cta: 'Start a project',
         }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-rami-night/70 backdrop-blur-xl">
-      <div className="shell flex items-center justify-between py-4">
+      <div className="shell flex items-center justify-between py-3 md:py-4">
         <Link href={localizePath('/', locale)} className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-rami-gold/50 bg-white/5 font-display text-xl text-rami-gold">
             R
           </span>
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-rami-fog/70">{copy.strap}</p>
-            <p className="font-display text-2xl leading-none text-rami-cream">RamiGrowth</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-rami-fog/70">{copy.strap}</p>
+            <p className="font-display text-[1.7rem] leading-none text-rami-cream md:text-2xl">RamiGrowth</p>
           </div>
         </Link>
 
@@ -90,7 +92,7 @@ export default function SiteNav() {
 
       {open && (
         <div id="mobile-nav" className="border-t border-white/10 bg-rami-night/95 md:hidden">
-          <nav className="shell flex flex-col gap-6 py-8" aria-label="Mobile primary">
+          <nav className="shell flex flex-col gap-5 py-6" aria-label="Mobile primary">
             <Link href={localizePath('/', locale)} onClick={() => setOpen(false)} className="text-lg font-medium text-rami-cream">
               {copy.home}
             </Link>
@@ -107,9 +109,9 @@ export default function SiteNav() {
             <Link
               href={swapLocaleInPath(pathname, locale === 'en' ? 'ro' : 'en')}
               onClick={() => setOpen(false)}
-              className="text-lg font-medium text-rami-fog"
+              className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-rami-fog"
             >
-              {locale === 'en' ? 'Romanian' : 'English'}
+              {copy.otherLang}
             </Link>
             <Link href={localizePath('/contact', locale)} onClick={() => setOpen(false)} className="button-primary w-full">
               {copy.cta}

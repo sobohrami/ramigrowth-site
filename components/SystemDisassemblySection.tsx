@@ -15,9 +15,9 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
   const stages =
     locale === 'ro'
       ? [
-          { title: 'Percepție', detail: 'Captează formulare, update-uri CRM, activitate din inbox și semnale live de cerere.', note: 'Strat de intake' },
+          { title: 'Percepție', detail: 'Captează formulare, actualizări din CRM, activitate din inbox și semnale live de cerere.', note: 'Strat de intake' },
           { title: 'Workflow', detail: 'Transformă regulile de business în automatizări ramificate, retry-uri și rutare către următorul pas.', note: 'Strat logic' },
-          { title: 'Acțiuni', detail: 'Declanșează mesaje outbound, booking-uri, handoff-uri, remindere și taskuri operaționale.', note: 'Strat de execuție' },
+          { title: 'Acțiuni', detail: 'Declanșează mesaje outbound, programări, handoff-uri, remindere și taskuri operaționale.', note: 'Strat de execuție' },
           { title: 'Memorie', detail: 'Păstrează context, rezumate și stare astfel încât sistemul să rămână coerent în timp.', note: 'Strat de context' },
         ]
       : [
@@ -30,9 +30,9 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
     locale === 'ro'
       ? {
           eyebrow: 'Anatomia sistemului',
-          title: 'O hartă de automatizare responsive, cu un semnal live care trece prin întregul stack.',
+          title: 'O hartă de automatizare care rămâne clară și pe telefon, și pe laptop.',
           body:
-            'Sistemul se citește acum ca o diagramă operațională reală: un rail central, patru straturi vizibile și un semnal live care trece prin stack fără să rupă layout-ul pe laptop sau telefon.',
+            'Sistemul se citește acum ca o diagramă operațională reală: un rail central, patru straturi vizibile și un semnal live care trece prin stack fără să rupă layout-ul.',
           cta: 'Explorează stack-ul',
           helper: 'Conceput să rămână lizibil pe telefon și laptop',
           headerLabel: 'Blueprint operator',
@@ -74,7 +74,7 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
     }, 1700)
 
     return () => window.clearInterval(timer)
-  }, [visible])
+  }, [stages.length, visible])
 
   useEffect(() => {
     const updatePulse = () => {
@@ -117,9 +117,7 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
               return (
                 <div
                   key={stage.title}
-                  className={`rail-step transition-all duration-300 ${
-                    active ? 'border-rami-gold/40 bg-white/[0.06]' : 'opacity-85'
-                  }`}
+                  className={`rail-step transition-all duration-300 ${active ? 'border-rami-gold/40 bg-white/[0.06]' : 'opacity-85'}`}
                 >
                   <div className="flex items-start gap-4">
                     <div className={`rail-step__index ${active ? 'border-rami-gold/40 text-rami-gold' : ''}`}>{`0${index + 1}`}</div>
@@ -136,7 +134,7 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
             })}
           </div>
 
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Link href={localizePath('/services', locale)} className="button-primary">
               {copy.cta}
             </Link>
@@ -155,11 +153,7 @@ export default function SystemDisassemblySection({ locale = 'en' }: { locale?: L
           <div className="rail-system">
             <div ref={stackRef} className="rail-stack">
               <div className="rail-stack__line" aria-hidden="true" />
-              <div
-                className="rail-stack__pulse"
-                style={{ transform: `translate(-50%, ${pulseOffset}px)` }}
-                aria-hidden="true"
-              />
+              <div className="rail-stack__pulse" style={{ transform: `translate(-50%, ${pulseOffset}px)` }} aria-hidden="true" />
 
               {stages.map((stage, index) => {
                 const active = index === activeIndex
