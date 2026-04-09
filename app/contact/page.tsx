@@ -3,8 +3,16 @@ import ContactForm from '@/components/ContactForm'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Discovery call first. Tell me about your operational problem and I respond within 24 hours.',
+  title: 'Contact for AI Automation Services and Custom Build Projects',
+  description:
+    'Contact RamiGrowth about AI automation services, workflow automation, lead generation systems, or custom app builds. Discovery-first and response within 24 hours.',
+  alternates: {
+    canonical: '/contact',
+    languages: {
+      en: '/contact',
+      ro: '/ro/contact',
+    },
+  },
 }
 
 const situations = [

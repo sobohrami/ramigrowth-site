@@ -6,16 +6,31 @@ import SystemDisassemblySection from '@/components/SystemDisassemblySection'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Acasă',
+  title: 'Servicii AI pentru automatizare, lead generation și aplicații web custom',
   description:
-    'Construiesc sisteme care îți cresc business-ul: outreach automatizat, aplicații custom și workflow-uri AI cu rezultat real.',
+    'RamiGrowth construiește servicii de automatizare AI, lead generation, automatizare procese și aplicații web custom pentru business-uri care vor rezultate operaționale reale.',
+  keywords: [
+    'automatizări AI',
+    'servicii AI România',
+    'automatizare procese',
+    'lead generation',
+    'aplicații web custom',
+    'agenție AI România',
+  ],
+  alternates: {
+    canonical: '/ro',
+    languages: {
+      en: '/',
+      ro: '/ro',
+    },
+  },
 }
 
 const services = [
   {
     index: '01',
     name: 'Sisteme de lead generation',
-    desc: 'Prospectare, outbound personalizat, logică de follow-up și rutare lead-uri construite pe piața și oferta ta.',
+    desc: 'Prospectare, outbound personalizat, logică de follow-up și rutare de lead-uri construite în jurul pieței și ofertei tale.',
     outcome: 'Mai multe conversații relevante fără prospectare manuală zilnică.',
     id: 'lead-generation',
   },
@@ -83,15 +98,15 @@ export default function HomePageRo() {
 
         <div className="shell relative grid min-h-[calc(100svh-82px)] items-center gap-12 py-14 md:gap-16 md:py-24 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
-            <p className="eyebrow">Sisteme de automatizare pentru operatori</p>
+            <p className="eyebrow">Servicii de automatizare pentru operatori</p>
             <h1 className="display-title mt-6 max-w-4xl">
-              Construim motorul,
+              Servicii AI care construiesc motorul,
               <br />
               nu încă un blocaj.
             </h1>
             <p className="lede mt-7">
-              Proiectez și lansez sisteme de venit, unelte interne și workflow-uri cu AI pentru business-uri care au
-              nevoie acum de un upgrade operațional concret, nu de șase săptămâni de discovery.
+              RamiGrowth proiectează și lansează sisteme de lead generation, automatizare procese, aplicații web
+              custom și workflow-uri cu AI pentru business-uri care au nevoie acum de un upgrade operațional concret.
             </p>
             <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
               Vizualuri AI credibile. Workflow-uri autonome. Un strat de sistem care chiar pare viu.
@@ -115,15 +130,21 @@ export default function HomePageRo() {
             <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
               <div>
                 <p className="eyebrow text-rami-fog/60">Focus</p>
-                <p className="mt-2 text-sm leading-7 text-rami-cream">Lead generation, automatizare workflow-uri, aplicații custom.</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">
+                  Lead generation, automatizare workflow-uri, servicii AI, aplicații custom.
+                </p>
               </div>
               <div>
                 <p className="eyebrow text-rami-fog/60">Livrare</p>
-                <p className="mt-2 text-sm leading-7 text-rami-cream">Scope strâns, comunicare directă, software funcțional.</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">
+                  Scope strâns, comunicare directă, software funcțional.
+                </p>
               </div>
               <div>
                 <p className="eyebrow text-rami-fog/60">Client ideal</p>
-                <p className="mt-2 text-sm leading-7 text-rami-cream">Operatori care vor viteză și upside comercial real.</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">
+                  Operatori care vor viteză și upside comercial real.
+                </p>
               </div>
             </div>
           </div>
@@ -156,7 +177,9 @@ export default function HomePageRo() {
         <div className="shell">
           <div className="max-w-3xl">
             <p className="eyebrow">Ce construiesc</p>
-            <h2 className="section-title mt-6">Patru moduri cu leverage mare prin care reducem fricțiunea și creăm momentum.</h2>
+            <h2 className="section-title mt-6">
+              Patru moduri cu leverage mare prin care reducem fricțiunea și creăm momentum.
+            </h2>
           </div>
 
           <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
@@ -207,7 +230,9 @@ export default function HomePageRo() {
                 <div>
                   <h3 className="font-display text-4xl text-rami-cream md:text-5xl">{item.title}</h3>
                   <p className="mt-5 max-w-2xl text-base leading-8 text-rami-fog">{item.body}</p>
-                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-rami-gold">Deschide studiul de caz</p>
+                  <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-rami-gold">
+                    Deschide studiul de caz
+                  </p>
                 </div>
               </Link>
             ))}

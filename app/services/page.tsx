@@ -2,9 +2,23 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'AI Automation Services, Lead Generation Systems, and Custom App Builds',
   description:
-    'Lead generation, workflow automation, custom web apps, and AI-enhanced internal tooling for outcome-led builds.',
+    'Explore RamiGrowth AI automation services: lead generation systems, workflow automation, custom web app development, and AI-enhanced tooling for outcome-led businesses.',
+  keywords: [
+    'AI automation services',
+    'lead generation systems',
+    'workflow automation services',
+    'custom web app development',
+    'AI tooling for business',
+  ],
+  alternates: {
+    canonical: '/services',
+    languages: {
+      en: '/services',
+      ro: '/ro/services',
+    },
+  },
 }
 
 const services = [

@@ -6,9 +6,23 @@ import SystemDisassemblySection from '@/components/SystemDisassemblySection'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'AI Automation Services for Lead Generation, Workflow Automation, and Custom Apps',
   description:
-    'I build systems that grow your business: automated outreach, custom apps, and workflow tools with real outcomes.',
+    'RamiGrowth builds AI automation services, lead generation systems, workflow automation, and custom web apps for operators who need faster execution and real business outcomes.',
+  keywords: [
+    'AI automation services',
+    'lead generation automation',
+    'workflow automation services',
+    'custom web app development',
+    'AI automation agency',
+  ],
+  alternates: {
+    canonical: '/',
+    languages: {
+      en: '/',
+      ro: '/ro',
+    },
+  },
 }
 
 const services = [
@@ -85,13 +99,14 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Automation systems for operators</p>
             <h1 className="display-title mt-6 max-w-4xl">
-              Build the engine,
+              AI automation services that build the engine,
               <br />
               not another bottleneck.
             </h1>
             <p className="lede mt-7">
-              I design and ship revenue systems, internal tools, and AI-enhanced workflows for businesses that need a
-              concrete operational upgrade now, not six weeks of discovery.
+              RamiGrowth designs and ships lead generation systems, workflow automation, custom web apps, and
+              AI-enhanced operations for businesses that need a concrete operational upgrade now, not six weeks of
+              discovery.
             </p>
             <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.22em] text-rami-gold/90">
               Deep-trust AI visuals. Autonomous workflows. A system layer that actually feels alive.
@@ -115,7 +130,9 @@ export default function HomePage() {
             <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
               <div>
                 <p className="eyebrow text-rami-fog/60">Focus</p>
-                <p className="mt-2 text-sm leading-7 text-rami-cream">Lead generation, workflow automation, custom apps.</p>
+                <p className="mt-2 text-sm leading-7 text-rami-cream">
+                  Lead generation systems, workflow automation, AI automation services.
+                </p>
               </div>
               <div>
                 <p className="eyebrow text-rami-fog/60">Delivery</p>

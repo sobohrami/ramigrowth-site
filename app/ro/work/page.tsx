@@ -3,12 +3,25 @@ import type { Metadata } from 'next'
 import { getCaseStudies } from '@/lib/case-studies'
 
 export const metadata: Metadata = {
-  title: 'Proiecte',
-  description: 'Studii de caz: ProDetailer.app și SalariuOk.ro, construite pentru rezultate reale de business.',
+  title: 'Studii de caz în automatizări AI, lead generation și produse digitale',
+  description:
+    'Vezi studii de caz RamiGrowth pentru automatizări AI, lead generation și produse digitale, inclusiv ProDetailer.app și SalariuOk.ro.',
+  alternates: {
+    canonical: '/ro/work',
+    languages: {
+      en: '/work',
+      ro: '/ro/work',
+    },
+  },
 }
 
 export default function WorkPageRo() {
   const items = getCaseStudies('ro')
+  const proofPoints = [
+    'Build-uri cu scope comercial clar, nu experimente speculative',
+    'Sisteme care combină automatizare, interfață și logică operațională',
+    'Experiență în piața din România plus sisteme de automatizare pentru clienți',
+  ]
 
   return (
     <main>
@@ -20,16 +33,15 @@ export default function WorkPageRo() {
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Aceste proiecte nu au fost construite ca să umple un grid de portofoliu. Fiecare a răspuns unei întrebări
-              operaționale sau de piață și apoi a fost livrat ca sistem funcțional.
+              Aceste proiecte nu au fost construite doar ca să umple un grid de portofoliu. Fiecare a răspuns unei
+              întrebări operaționale sau de piață, apoi a fost livrat ca sistem funcțional.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                'Build-uri cu scope comercial clar, nu experimente speculative',
-                'Sisteme care combină automatizare, interfață și logică operațională',
-                'Experiență în piața din România plus sisteme de automatizare pentru clienți',
-              ].map((item) => (
-                <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-rami-fog">
+              {proofPoints.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-rami-fog"
+                >
                   {item}
                 </div>
               ))}

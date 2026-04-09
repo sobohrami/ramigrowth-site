@@ -2,9 +2,23 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'Servicii',
+  title: 'Servicii AI, lead generation și automatizare procese',
   description:
-    'Lead generation, automatizare workflow-uri, aplicații web custom și tooling intern cu AI, toate construite pentru rezultat.',
+    'Explorează serviciile RamiGrowth: automatizări AI, lead generation, automatizare workflow-uri, aplicații web custom și tooling intern construit pentru rezultat.',
+  keywords: [
+    'automatizări AI',
+    'automatizare procese',
+    'lead generation',
+    'aplicații web custom',
+    'servicii AI România',
+  ],
+  alternates: {
+    canonical: '/ro/services',
+    languages: {
+      en: '/services',
+      ro: '/ro/services',
+    },
+  },
 }
 
 const services = [
@@ -13,8 +27,12 @@ const services = [
     title: 'Sisteme de lead generation',
     strap: 'Atrage cerere fără să pui prospectarea manuală înapoi pe umerii fondatorului.',
     description:
-      'Prospectare, enrichment, outbound personalizat, logică de follow-up și rutare lead-uri construite pe piața și procesul tău de vânzare.',
-    outcomes: ['Conversații calificate care apar constant', 'Follow-up automatizat', 'Pipeline mai strâns, cu mai puține oportunități pierdute'],
+      'Prospectare, enrichment, outbound personalizat, logică de follow-up și rutare de lead-uri construite pe piața și procesul tău de vânzare.',
+    outcomes: [
+      'Conversații calificate care apar constant',
+      'Follow-up automatizat',
+      'Pipeline mai strâns, cu mai puține oportunități pierdute',
+    ],
     fit: 'Servicii locale, operatori B2B, recrutare și echipe conduse de fondatori care au nevoie de cerere, dar nu pot consuma zilnic ore întregi pe outbound.',
   },
   {
@@ -23,7 +41,11 @@ const services = [
     strap: 'Transformă munca repetitivă într-un sistem, nu într-o problemă de staffing.',
     description:
       'Onboarding, rapoarte, programări, handoff-uri, facturare, remindere, igienă CRM și bucle back-office reconstruite în fluxuri mai rapide.',
-    outcomes: ['Ore câștigate înapoi în fiecare săptămână', 'Mai puține greșeli manuale și eșecuri de handoff', 'Mai multă capacitate fără angajări pentru muncă evitabilă'],
+    outcomes: [
+      'Ore câștigate înapoi în fiecare săptămână',
+      'Mai puține greșeli manuale și eșecuri de handoff',
+      'Mai multă capacitate fără angajări pentru muncă evitabilă',
+    ],
     fit: 'Business-uri de servicii, clinici, agenții și operatori îngropați în taskuri repetitive care ar trebui deja automatizate.',
   },
   {
@@ -32,7 +54,11 @@ const services = [
     strap: 'O suprafață de produs focusată pe un job real, nu pe un roadmap umflat.',
     description:
       'Unelte interne, portaluri pentru clienți, dashboard-uri, calculatoare sau un MVP clar construit în jurul unui workflow concret și al unui use case comercial.',
-    outcomes: ['Software funcțional în săptămâni, nu în trimestre', 'Produs modelat pe workflow-ul tău real', 'Codebase care poate continua să crească după lansare'],
+    outcomes: [
+      'Software funcțional în săptămâni, nu în trimestre',
+      'Produs modelat pe workflow-ul tău real',
+      'Codebase care poate continua să crească după lansare',
+    ],
     fit: 'Fondatori care construiesc prima versiune utilă și operatori care au depășit deja spreadsheet-uri plus SaaS-uri rupte între ele.',
   },
   {
@@ -41,9 +67,25 @@ const services = [
     strap: 'Inteligență practică în stack-ul pe care îl folosești deja.',
     description:
       'Extracție din documente, sumarizare, rutare, triere, asistenți interni, operațiuni de conținut și straturi de suport decizional acolo unde AI reduce fricțiunea reală.',
-    outcomes: ['Volum mare de muncă repetitivă preluat automat', 'Output-uri utile livrate în sistemele existente', 'Fără rebuild complet doar pentru a adăuga inteligență'],
+    outcomes: [
+      'Volum mare de muncă repetitivă preluat automat',
+      'Output-uri utile livrate în sistemele existente',
+      'Fără rebuild complet doar pentru a adăuga inteligență',
+    ],
     fit: 'Echipe care lucrează cu documente, mesaje, decizii repetitive sau fluxuri operaționale bogate în date.',
   },
+]
+
+const delivery = [
+  'Pornim de la un singur bottleneck, nu de la un brief vag de transformare.',
+  'Prima versiune este gândită să creeze leverage operațional rapid.',
+  'Automatizarea, interfața și logica de business sunt proiectate împreună.',
+]
+
+const signals = [
+  ['Potrivit pentru', 'Operatori cu presiune reală în venituri, livrare sau execuție internă.'],
+  ['Nu este pentru', 'Echipe care vor workshop-uri lungi de discovery fără un rezultat clar numit.'],
+  ['Stil de lucru', 'Scope strâns, colaborare directă, primă versiune utilă, apoi rafinare.'],
 ]
 
 export default function ServicesPageRo() {
@@ -57,16 +99,15 @@ export default function ServicesPageRo() {
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Oferta nu este „consultanță AI”. Este un set de direcții de build pentru business-uri care au nevoie de un
-              sistem funcțional, un workflow mai curat sau o cale mai rapidă spre venit.
+              Oferta nu este „consultanță AI”. Este un set de direcții de build pentru business-uri care au nevoie de
+              un sistem funcțional, un workflow mai curat sau o cale mai rapidă spre venit.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                'Pornim de la un singur bottleneck, nu de la un brief vag de transformare.',
-                'Prima versiune este gândită să creeze leverage operațional rapid.',
-                'Automatizarea, interfața și logica de business sunt proiectate împreună.',
-              ].map((item) => (
-                <div key={item} className="rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-rami-fog">
+              {delivery.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-rami-fog"
+                >
                   {item}
                 </div>
               ))}
@@ -75,7 +116,7 @@ export default function ServicesPageRo() {
         </div>
       </section>
 
-      <section className="section-divider py-10 md:py-14">
+      <section className="section-divider py-8 md:py-12">
         <div className="shell grid gap-6">
           {services.map((service, index) => (
             <section
@@ -87,8 +128,12 @@ export default function ServicesPageRo() {
                 <div className="font-display text-5xl text-rami-gold/80">0{index + 1}</div>
 
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">Direcție de build</p>
-                  <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">
+                    Direcție de build
+                  </p>
+                  <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">
+                    {service.title}
+                  </h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-rami-cream/90">{service.strap}</p>
                   <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
                 </div>
@@ -115,8 +160,41 @@ export default function ServicesPageRo() {
         </div>
       </section>
 
+      <section className="section-divider py-20">
+        <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Cum încep colaborările</p>
+            <h2 className="section-title mt-6">Primul sprint este despre a vedea sistemul, nu despre a decora brief-ul.</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              ['01', 'Mapăm fricțiunea', 'Identificăm zona în care se scurg bani, timp sau momentum.'],
+              ['02', 'Definim versiunea utilă', 'Stabilim cel mai mic build care creează leverage rapid și poate continua să crească după lansare.'],
+              ['03', 'Lansăm și rafinăm', 'Sistemul funcțional ajunge repede live, apoi îl îmbunătățim pe baza utilizării reale, nu a presupunerilor.'],
+            ].map(([step, title, body]) => (
+              <div key={step} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
+                <p className="font-display text-3xl text-rami-gold/80">{step}</p>
+                <h3 className="mt-4 text-xl font-semibold text-rami-cream">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-rami-fog">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-divider py-20">
+        <div className="shell grid gap-5 md:grid-cols-3">
+          {signals.map(([title, body]) => (
+            <div key={title} className="rounded-[1.5rem] border border-white/10 bg-[#0a1323]/72 p-5">
+              <p className="label">{title}</p>
+              <p className="mt-4 text-sm leading-7 text-rami-fog">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <CTAStrip
-        headline="Vrei să alegem direcția corectă de build?"
+        headline="Vrei ajutor să alegem direcția corectă de build?"
         subtext="Vino cu bottleneck-ul, problema de venit sau workflow-ul care continuă să se rupă. Îți spun care sistem merită construit primul."
         ctaLabel="Începe conversația"
         locale="ro"

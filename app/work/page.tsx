@@ -3,8 +3,16 @@ import type { Metadata } from 'next'
 import { getCaseStudies } from '@/lib/case-studies'
 
 export const metadata: Metadata = {
-  title: 'Work',
-  description: 'Case studies: ProDetailer.app and SalariuOk.ro, built for real business outcomes.',
+  title: 'Case Studies in AI Automation, Lead Generation, and Product Builds',
+  description:
+    'Review RamiGrowth case studies across AI automation, lead generation systems, and product builds including ProDetailer.app and SalariuOk.ro.',
+  alternates: {
+    canonical: '/work',
+    languages: {
+      en: '/work',
+      ro: '/ro/work',
+    },
+  },
 }
 
 export default function WorkPage() {

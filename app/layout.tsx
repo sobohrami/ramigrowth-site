@@ -19,17 +19,38 @@ const display = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: 'RamiGrowth | Systems that grow your business',
+    default: 'RamiGrowth | AI Automation Services, Workflow Systems, and Custom Apps',
     template: '%s | RamiGrowth',
   },
   description:
-    'Automated outreach, custom web apps, and workflow automation built for business owners who need real outcomes.',
+    'RamiGrowth builds AI automation services, workflow systems, lead generation engines, and custom web apps for businesses that need real operational outcomes.',
   metadataBase: new URL(getSiteUrl()),
+  keywords: [
+    'AI automation services',
+    'workflow automation',
+    'lead generation systems',
+    'custom web apps',
+    'AI agency Romania',
+    'business process automation',
+    'automation studio',
+  ],
+  alternates: {
+    languages: {
+      en: '/',
+      ro: '/ro',
+    },
+  },
   openGraph: {
-    title: 'RamiGrowth | Systems that grow your business',
+    title: 'RamiGrowth | AI Automation Services, Workflow Systems, and Custom Apps',
     description:
-      'Automated outreach, custom web apps, and workflow automation built for business owners who need real outcomes.',
+      'RamiGrowth builds AI automation services, workflow systems, lead generation engines, and custom web apps for businesses that need real operational outcomes.',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RamiGrowth | AI Automation Services, Workflow Systems, and Custom Apps',
+    description:
+      'AI automation services, workflow systems, lead generation engines, and custom apps built for businesses that need real outcomes.',
   },
   icons: {
     icon: '/favicon.svg',
