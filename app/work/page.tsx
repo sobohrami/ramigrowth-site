@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { getCaseStudies } from '@/lib/case-studies'
 
 export const metadata: Metadata = {
-  title: 'Case Studies in AI Automation, Lead Generation, and Product Builds',
+  title: 'Case studies in lead generation, automation, and product builds',
   description:
-    'Review RamiGrowth case studies across AI automation, lead generation systems, and product builds including ProDetailer.app and SalariuOk.ro.',
+    'Review RamiGrowth case studies across lead generation systems, workflow automation, and product builds including ProDetailer.app and SalariuOk.ro.',
   alternates: {
     canonical: '/work',
     languages: {
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   const items = getCaseStudies('en')
   const proofPoints = [
-    'Commercially-scoped builds, not speculative experiments',
-    'Systems that combine automation, interface design, and operating logic',
-    'Romanian-market experience alongside client automation work',
+    'Lead generation systems for service businesses',
+    'Automation and product builds designed to launch, not just pitch',
+    'Romanian-market products plus client delivery systems',
   ]
 
   return (
@@ -29,12 +29,11 @@ export default function WorkPage() {
         <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">Work</p>
-            <h1 className="section-title mt-6">Case studies in AI automation, lead generation, and focused product builds.</h1>
+            <h1 className="section-title mt-6">Recent projects in lead generation, workflow automation, and product builds.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              These projects were not built to fill a portfolio grid. Each one solved a specific business job: create
-              demand, remove workflow drag, or build a digital product people can actually use.
+              These projects show how RamiGrowth turns a specific business problem into a working system people can actually use.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {proofPoints.map((item) => (

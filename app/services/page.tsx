@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'AI Automation Services, Lead Generation Systems, and Custom App Builds',
+  title: 'AI automation services for lead generation, operations, and custom software',
   description:
-    'Explore RamiGrowth services for AI automation, lead generation, workflow automation, custom web app development, and AI-enhanced internal tooling.',
+    'Explore RamiGrowth services for AI automation, lead generation, workflow automation, and custom software built for service businesses and operator-led teams.',
   keywords: [
     'AI automation services',
     'lead generation systems',
@@ -25,67 +25,67 @@ const services = [
   {
     id: 'lead-generation',
     title: 'Lead generation systems',
-    strap: 'Generate qualified conversations without putting manual prospecting back on the founder.',
+    strap: 'Find, contact, and follow up with the right prospects automatically.',
     description:
-      'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market, your offer, and your sales motion.',
+      'Prospect sourcing, enrichment, personalized outbound, follow-up logic, and lead routing built around your market, your offer, and your sales process.',
     outcomes: [
-      'Qualified conversations arriving consistently',
-      'Lead follow-up handled automatically',
-      'A tighter pipeline with fewer dropped opportunities',
+      'More qualified conversations',
+      'Follow-up handled automatically',
+      'A cleaner pipeline with fewer missed opportunities',
     ],
-    fit: 'Local services, B2B operators, recruiters, and founder-led teams that need demand without losing hours every day to manual outreach.',
+    fit: 'Best for service businesses, B2B operators, recruiters, and founder-led teams that need demand without losing hours every week to manual outreach.',
   },
   {
     id: 'workflow-automation',
     title: 'Workflow automation',
-    strap: 'Turn repetitive coordination into a system instead of a staffing problem.',
+    strap: 'Reduce repetitive admin and keep the team moving.',
     description:
-      'Onboarding, scheduling, reporting, reminders, handoffs, CRM hygiene, invoicing, and back-office loops rebuilt into faster operating flows.',
+      'Onboarding, scheduling, reporting, reminders, handoffs, CRM hygiene, invoicing, and back-office loops rebuilt into faster, easier operating flows.',
     outcomes: [
-      'Hours returned to the team every week',
-      'Fewer manual mistakes and handoff failures',
-      'More capacity without hiring for avoidable admin',
+      'Hours saved every week',
+      'Fewer manual mistakes',
+      'More delivery capacity without extra admin hires',
     ],
-    fit: 'Service businesses, clinics, agencies, and operators buried in repeatable tasks that should already be automated.',
+    fit: 'Best for service businesses, clinics, agencies, and operators buried in repeatable tasks that should already be automated.',
   },
   {
     id: 'custom-web-apps',
     title: 'Custom web apps',
-    strap: 'Build the exact product surface the current stack cannot give you.',
+    strap: 'Build the tool your team wishes already existed.',
     description:
-      'Internal tools, client portals, dashboards, calculators, or a sharp MVP designed around one clear workflow and one concrete commercial use.',
+      'Internal tools, client portals, dashboards, calculators, or a focused MVP designed around one clear workflow and one real business use case.',
     outcomes: [
-      'Working software in weeks, not quarters',
-      'A product shaped around your real workflow',
-      'A codebase that can keep compounding after launch',
+      'Useful software in weeks, not quarters',
+      'A product shaped around the way your team actually works',
+      'A codebase that can keep improving after launch',
     ],
-    fit: 'Founders building the first useful version and operators who have already outgrown spreadsheets plus disconnected SaaS tools.',
+    fit: 'Best for founders building the first useful version and teams that have outgrown spreadsheets plus disconnected SaaS tools.',
   },
   {
     id: 'ai-enhanced-tooling',
     title: 'AI-enhanced tooling',
-    strap: 'Put practical intelligence into the stack you already use.',
+    strap: 'Use AI where it saves time or improves decisions.',
     description:
-      'Document extraction, summarization, triage, routing, internal assistants, content operations, and decision-support layers where AI actually reduces drag.',
+      'Document extraction, summarization, triage, routing, internal assistants, content operations, and decision-support layers where AI can reduce real operational drag.',
     outcomes: [
       'High-volume repetitive work handled automatically',
       'Useful outputs delivered inside existing systems',
       'No full rebuild required just to add intelligence',
     ],
-    fit: 'Teams handling documents, messages, repetitive decisions, or data-heavy operational flows where AI can improve throughput immediately.',
+    fit: 'Best for teams handling documents, messages, repetitive decisions, or data-heavy workflows where AI can improve throughput quickly.',
   },
 ]
 
 const delivery = [
-  'Projects start from one named bottleneck, not a vague AI transformation brief.',
-  'The first version is scoped to create leverage quickly.',
-  'Automation, interface, and business logic are designed together.',
+  'Start with one clear business problem.',
+  'Ship a useful first version fast.',
+  'Improve the system after real usage, not guesswork.',
 ]
 
 const signals = [
-  ['Best for', 'Businesses with pressure in revenue, delivery, or internal execution.'],
-  ['Not for', 'Teams looking for long discovery workshops without a clearly named business outcome.'],
-  ['How projects run', 'Tight scope, direct collaboration, useful first release, then refinement.'],
+  ['Who this is for', 'Teams that need more leads, less manual work, or a better internal tool.'],
+  ['What you can expect', 'Clear scope, direct collaboration, and a practical first release.'],
+  ['What matters most', 'The system has to save time, create revenue, or make execution easier.'],
 ]
 
 export default function ServicesPage() {
@@ -95,12 +95,12 @@ export default function ServicesPage() {
         <div className="shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="eyebrow">Services</p>
-            <h1 className="section-title mt-6">AI automation services built around real business bottlenecks.</h1>
+            <h1 className="section-title mt-6">AI automation services for lead generation, operations, and custom software.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              This is not generic AI consulting. These are focused build tracks for lead generation, workflow
-              automation, custom apps, and AI tooling that solve specific business problems.
+              Choose the service that matches the problem: bring in more qualified leads, remove repetitive admin, or
+              build a tool your team will actually use.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {delivery.map((item) => (
@@ -125,7 +125,7 @@ export default function ServicesPage() {
                 <div className="font-display text-5xl text-rami-gold/80">0{index + 1}</div>
 
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">Build track</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">Service</p>
                   <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-rami-cream/90">{service.strap}</p>
                   <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
@@ -133,7 +133,7 @@ export default function ServicesPage() {
 
                 <div className="space-y-5">
                   <div className="rounded-[1.5rem] border border-white/10 bg-[#0a1323]/70 p-5">
-                    <p className="label">Primary outcomes</p>
+                    <p className="label">Main outcomes</p>
                     <ul className="mt-4 space-y-3 text-sm leading-7 text-rami-cream">
                       {service.outcomes.map((item) => (
                         <li key={item} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
@@ -156,14 +156,14 @@ export default function ServicesPage() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow">How projects start</p>
-            <h2 className="section-title mt-6">The first sprint is about understanding the system, not decorating the brief.</h2>
+            <p className="eyebrow">How projects move</p>
+            <h2 className="section-title mt-6">From clear problem to useful launch.</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ['01', 'Map the friction', 'We identify where money, time, or momentum is leaking.'],
-              ['02', 'Scope the useful version', 'We define the smallest build that creates leverage quickly and can keep compounding after launch.'],
-              ['03', 'Ship and refine', 'The system goes live fast, then we improve it based on real usage rather than assumptions.'],
+              ['01', 'Find the friction', 'We identify where time, money, or follow-through is leaking.'],
+              ['02', 'Scope the first version', 'We define the smallest build that makes a meaningful difference fast.'],
+              ['03', 'Launch and improve', 'The system goes live quickly, then gets refined based on real use.'],
             ].map(([step, title, body]) => (
               <div key={step} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
                 <p className="font-display text-3xl text-rami-gold/80">{step}</p>
@@ -187,8 +187,8 @@ export default function ServicesPage() {
       </section>
 
       <CTAStrip
-        headline="Need help choosing the right AI automation service?"
-        subtext="Bring the bottleneck, the revenue problem, or the workflow that keeps breaking. I will tell you which system wants to exist first."
+        headline="Not sure which service fits your problem?"
+        subtext="Tell me what is slowing the business down and I will point you to the right next move."
         ctaLabel="Start the conversation"
         locale="en"
       />

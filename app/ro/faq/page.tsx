@@ -3,7 +3,7 @@ import CTAStrip from '@/components/CTAStrip'
 import { getFaqs } from '@/lib/faqs'
 
 export const metadata: Metadata = {
-  title: 'Întrebări frecvente despre automatizări AI, aplicații custom și workflow-uri',
+  title: 'Întrebări frecvente despre automatizări AI, aplicații custom și durată',
   description:
     'Întrebări frecvente despre serviciile RamiGrowth de automatizare AI, aplicații custom, automatizare workflow-uri, durată, preț și potrivire.',
   alternates: {
@@ -38,16 +38,14 @@ export default function FaqPageRo() {
         <div className="shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="eyebrow">Întrebări frecvente</p>
-            <h1 className="section-title mt-6">Răspunsuri despre automatizări AI, aplicații custom și modul în care rulează proiectele.</h1>
+            <h1 className="section-title mt-6">Întrebări frecvente despre proiecte de automatizare, aplicații custom și colaborare.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Pagina aceasta răspunde la întrebările pe care cele mai multe business-uri le au înainte să înceapă un
-              proiect de automatizare sau un build custom. Dacă știi deja care este bottleneck-ul, putem trece direct la conversație.
+              Dacă încerci să îți dai seama dacă automatizarea merită, cât durează un proiect sau dacă business-ul tău este potrivit, începe de aici.
             </p>
             <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 text-sm leading-7 text-rami-fog">
-              Răspunsurile clare și structurate ajută și motoarele de căutare sau sistemele AI să înțeleagă ce construiește
-              RamiGrowth, pentru cine și cum încep colaborările.
+              Aici găsești răspunsuri despre potrivire, durată, tooling, preț și ce se întâmplă după prima conversație.
             </div>
           </div>
         </div>
@@ -66,8 +64,8 @@ export default function FaqPageRo() {
       </section>
 
       <CTAStrip
-        headline="Încă decizi ce tip de sistem ai nevoie?"
-        subtext="Descrie bottleneck-ul, workflow-ul repetitiv sau blocajul de creștere. Îți spun ce direcție are sens prima."
+        headline="Încă nu e clar ce tip de sistem ai nevoie?"
+        subtext="Spune-mi ce încetinește business-ul și te ajut să găsești cel mai bun punct de pornire."
         ctaLabel="Programează un discovery call"
         locale="ro"
       />

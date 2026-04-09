@@ -3,9 +3,9 @@ import ContactForm from '@/components/ContactForm'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Contact for AI Automation Services and Custom Build Projects',
+  title: 'Contact for AI automation services and custom software projects',
   description:
-    'Contact RamiGrowth about AI automation services, workflow automation, lead generation systems, or custom app builds. Discovery-first and response within 24 hours.',
+    'Contact RamiGrowth about AI automation, lead generation systems, workflow automation, or custom software. Discovery-first and response within 24 hours.',
   alternates: {
     canonical: '/contact',
     languages: {
@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 }
 
 const situations = [
-  'You need qualified demand without personally handling more manual outbound.',
-  'Your team keeps losing time inside repetitive operational loops that should already be automated.',
-  'You need a focused internal tool, client-facing app, or AI workflow built quickly and clearly.',
+  'You need more qualified demand without handling more manual outbound yourself.',
+  'Your team keeps losing time inside repetitive workflows that should already be automated.',
+  'You need a focused internal tool, client-facing app, or AI workflow built clearly and quickly.',
 ]
 
 const nextSteps = [
-  ['01', 'Brief review', 'I read the problem, look for the real pressure point, and decide if a build is justified.'],
-  ['02', 'Fast recommendation', 'You get a direct answer on whether this wants automation, a custom app, or a lighter operational fix.'],
-  ['03', 'Scoped next move', 'If there is a fit, we define the smallest useful version worth building first.'],
+  ['01', 'Review the problem', 'I read the brief, look for the real point of friction, and decide whether a build makes sense.'],
+  ['02', 'Recommend the right path', 'You get a direct answer on whether this needs automation, custom software, or a lighter fix.'],
+  ['03', 'Define the first version', 'If there is a fit, we scope the smallest useful version worth building first.'],
 ]
 
 export default function ContactPage() {
@@ -36,12 +36,11 @@ export default function ContactPage() {
         <div className="shell grid gap-16 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Contact</p>
-            <h1 className="section-title mt-6">Tell me where the business is slowing down. I will tell you what to automate first.</h1>
+            <h1 className="section-title mt-6">Tell me what is slowing the business down.</h1>
 
             <div className="mt-8 space-y-5 text-base leading-8 text-rami-fog">
               <p>
-                I take on a small number of projects at a time. Before I say yes, I want to understand the real business
-                problem, the expected outcome, and whether building is the right move.
+                If the problem is clear, I can usually tell quickly whether it needs automation, custom software, or a simpler operational fix.
               </p>
               <p>The most useful starting points usually look like this:</p>
             </div>
@@ -71,7 +70,7 @@ export default function ContactPage() {
               <div className="mb-8 border-b border-white/10 pb-6">
                 <p className="eyebrow text-rami-gold/90">Project brief</p>
                 <p className="mt-4 text-sm leading-7 text-rami-fog">
-                  Keep it short, specific, and grounded in the real workflow. That makes the recommendation much better.
+                  Keep it short and specific. The clearer the workflow or business problem, the better the recommendation.
                 </p>
               </div>
               <ContactForm locale="en" />

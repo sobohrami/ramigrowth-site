@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'About RamiGrowth and the AI Automation Studio Model',
+  title: 'About RamiGrowth, a Romania-based AI automation studio',
   description:
-    'Learn how RamiGrowth works: a builder-led AI automation studio focused on lead generation systems, workflow automation, and custom software for real business problems.',
+    'Learn how RamiGrowth works: a Romania-based AI automation studio focused on lead generation systems, workflow automation, and custom software for practical business needs.',
   alternates: {
     canonical: '/about',
     languages: {
@@ -24,19 +24,19 @@ const proof = [
   {
     label: 'Built',
     title: 'SalariuOk.ro',
-    body: 'A Romania-first salary benchmarking product designed around a clear decision workflow.',
+    body: 'A salary benchmarking product designed for the Romanian market.',
   },
   {
-    label: 'Approach',
-    title: 'Tight scope',
-    body: 'Clear problem, useful first version, direct execution, then refinement.',
+    label: 'Model',
+    title: 'Direct collaboration',
+    body: 'Clear scope, one accountable builder, useful first version, then refinement.',
   },
 ]
 
 const principles = [
-  'Builder-led execution without an account-manager layer',
-  'Small number of active projects at any one time',
-  'Commercial outcomes prioritized over jargon and process theater',
+  'You work directly with the person designing and building the system.',
+  'Only a small number of projects run at the same time.',
+  'The work is judged by business results, not AI jargon.',
 ]
 
 export default function AboutPage() {
@@ -46,21 +46,18 @@ export default function AboutPage() {
         <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">About</p>
-            <h1 className="section-title mt-6">A small AI automation studio built for direct execution.</h1>
+            <h1 className="section-title mt-6">RamiGrowth is a Romania-based AI automation studio for practical business systems.</h1>
           </div>
 
           <div className="space-y-6 text-base leading-8 text-rami-fog">
             <p>
-              RamiGrowth works like a builder-led studio, not a bloated agency model. The person diagnosing the
-              bottleneck is the same person shaping the system.
+              The goal is simple: help businesses generate more demand, remove repetitive work, and build tools that make execution easier.
             </p>
             <p>
-              That means fewer handoffs, tighter decisions, and faster delivery. It also means projects stay grounded in
-              the real workflow instead of drifting into generic AI positioning.
+              You work directly with the person shaping the system. That keeps decisions tighter, delivery faster, and the project much closer to the real workflow.
             </p>
             <p>
-              Most work falls into three lanes: demand generation, operations automation, or a focused product surface
-              that should exist because the current stack is no longer enough.
+              Most projects begin with one of three needs: bring in more leads, automate a process that wastes time, or build a focused internal or client-facing tool.
             </p>
           </div>
         </div>
@@ -81,13 +78,13 @@ export default function AboutPage() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <p className="eyebrow">How projects run</p>
-            <h2 className="section-title mt-6">See the pressure clearly, then build the smallest system that removes it.</h2>
+            <p className="eyebrow">How the work runs</p>
+            <h2 className="section-title mt-6">Clear problem, tight scope, useful first release.</h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-[1.75rem] border border-white/10 bg-[#0a1323]/75 p-7">
-              <p className="label">Operating principles</p>
+              <p className="label">Working principles</p>
               <ul className="mt-5 space-y-4 text-sm leading-7 text-rami-cream">
                 {principles.map((item) => (
                   <li key={item} className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
@@ -99,16 +96,15 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-base leading-8 text-rami-fog">
               <p>
-                I scope before I commit. If the business win cannot be named clearly up front, it is usually too early to build.
+                If the business outcome is not clear enough to name, it is usually too early to build. The first job is to understand what the system needs to improve.
               </p>
               <p>
-                The goal is not to maximize project count. The goal is to ship systems that become useful inside a real
-                business and keep compounding after launch.
+                The aim is not to run as many projects as possible. The aim is to ship systems that keep saving time or creating revenue after launch.
               </p>
               <p>
-                If that sounds like the partnership you want,{' '}
+                If that sounds like the kind of collaboration you want,{' '}
                 <Link href="/contact" className="text-rami-gold hover:text-rami-goldSoft">
-                  start a conversation
+                  start the conversation
                 </Link>
                 .
               </p>
@@ -118,8 +114,8 @@ export default function AboutPage() {
       </section>
 
       <CTAStrip
-        headline="Need a builder who can stay close to the actual business problem?"
-        subtext="That is the model: small number of projects, sharp scope, direct execution, and systems that are expected to work in the real world."
+        headline="Want a builder who stays close to the actual business problem?"
+        subtext="That is the model: direct collaboration, clear scope, and systems built to be useful in the real world."
         ctaLabel="Book a discovery call"
         locale="en"
       />

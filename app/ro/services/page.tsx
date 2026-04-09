@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'Servicii AI, lead generation, automatizare procese și aplicații web custom',
+  title: 'Servicii de automatizare AI pentru lead generation, procese și software custom',
   description:
-    'Explorează serviciile RamiGrowth pentru automatizări AI, lead generation, automatizare workflow-uri, aplicații web custom și tooling intern construit pentru rezultat.',
+    'Explorează serviciile RamiGrowth pentru automatizări AI, lead generation, automatizare de procese și software custom construit pentru firme de servicii și echipe conduse de operatori.',
   keywords: [
     'automatizări AI',
     'automatizare procese',
@@ -25,67 +25,67 @@ const services = [
   {
     id: 'lead-generation',
     title: 'Sisteme de lead generation',
-    strap: 'Generează conversații relevante fără să pui prospectarea manuală înapoi pe umerii fondatorului.',
+    strap: 'Găsește, contactează și urmărește prospectele potrivite în mod automat.',
     description:
       'Prospectare, enrichment, outbound personalizat, logică de follow-up și rutare de lead-uri construite în jurul pieței, ofertei și procesului tău de vânzare.',
     outcomes: [
-      'Conversații calificate care apar constant',
+      'Mai multe conversații calificate',
       'Follow-up automatizat',
-      'Pipeline mai strâns, cu mai puține oportunități pierdute',
+      'Un pipeline mai curat, cu mai puține oportunități pierdute',
     ],
-    fit: 'Servicii locale, operatori B2B, recrutare și echipe conduse de fondatori care au nevoie de cerere fără să piardă zilnic ore pe outreach manual.',
+    fit: 'Potrivit pentru firme de servicii, operatori B2B, recrutare și echipe conduse de fondatori care au nevoie de cerere fără să piardă ore întregi pe outreach manual.',
   },
   {
     id: 'workflow-automation',
     title: 'Automatizare workflow-uri',
-    strap: 'Transformă coordonarea repetitivă într-un sistem, nu într-o problemă de staffing.',
+    strap: 'Redu munca administrativă repetitivă și ține echipa în mișcare.',
     description:
-      'Onboarding, programări, rapoarte, remindere, handoff-uri, igienă CRM, facturare și bucle back-office reconstruite în fluxuri mai rapide.',
+      'Onboarding, programări, rapoarte, remindere, handoff-uri, igienă CRM, facturare și bucle back-office reconstruite în fluxuri mai rapide și mai ușor de urmărit.',
     outcomes: [
       'Ore câștigate înapoi în fiecare săptămână',
-      'Mai puține greșeli manuale și eșecuri de handoff',
-      'Mai multă capacitate fără angajări pentru admin evitabil',
+      'Mai puține greșeli manuale',
+      'Mai multă capacitate fără angajări suplimentare pentru admin',
     ],
-    fit: 'Business-uri de servicii, clinici, agenții și operatori îngropați în taskuri repetitive care ar trebui deja automatizate.',
+    fit: 'Potrivit pentru firme de servicii, clinici, agenții și operatori îngropați în taskuri repetitive care ar trebui deja automatizate.',
   },
   {
     id: 'custom-web-apps',
     title: 'Aplicații web custom',
-    strap: 'Construiește exact suprafața de produs pe care stack-ul actual nu ți-o poate oferi.',
+    strap: 'Construiește exact unealta pe care echipa ta și-ar fi dorit să o aibă deja.',
     description:
-      'Unelte interne, portaluri pentru clienți, dashboard-uri, calculatoare sau un MVP clar construit în jurul unui workflow și al unui use case comercial concret.',
+      'Unelte interne, portaluri pentru clienți, dashboard-uri, calculatoare sau un MVP clar construit în jurul unui workflow și al unui use case real de business.',
     outcomes: [
-      'Software funcțional în săptămâni, nu în trimestre',
-      'Produs modelat pe workflow-ul tău real',
-      'Codebase care poate continua să crească după lansare',
+      'Software util în săptămâni, nu în trimestre',
+      'Un produs construit după felul în care lucrează echipa ta',
+      'O bază care poate continua să evolueze după lansare',
     ],
-    fit: 'Fondatori care construiesc prima versiune utilă și operatori care au depășit deja spreadsheet-uri plus SaaS-uri rupte între ele.',
+    fit: 'Potrivit pentru fondatori care construiesc prima versiune utilă și pentru echipe care au depășit deja spreadsheet-urile plus SaaS-urile rupte între ele.',
   },
   {
     id: 'ai-enhanced-tooling',
     title: 'Tooling cu AI',
-    strap: 'Adaugă inteligență practică în stack-ul pe care îl folosești deja.',
+    strap: 'Folosește AI acolo unde chiar economisește timp sau îmbunătățește deciziile.',
     description:
-      'Extracție din documente, sumarizare, triere, rutare, asistenți interni, operațiuni de conținut și straturi de suport decizional acolo unde AI reduce fricțiunea reală.',
+      'Extracție din documente, sumarizare, triere, rutare, asistenți interni, operațiuni de conținut și straturi de suport decizional acolo unde AI poate reduce fricțiunea operațională reală.',
     outcomes: [
       'Volum mare de muncă repetitivă preluat automat',
       'Output-uri utile livrate în sistemele existente',
       'Fără rebuild complet doar pentru a adăuga inteligență',
     ],
-    fit: 'Echipe care lucrează cu documente, mesaje, decizii repetitive sau fluxuri operaționale bogate în date, unde AI poate crește throughput-ul imediat.',
+    fit: 'Potrivit pentru echipe care lucrează cu documente, mesaje, decizii repetitive sau workflow-uri bogate în date, unde AI poate crește rapid throughput-ul.',
   },
 ]
 
 const delivery = [
-  'Proiectele pornesc dintr-un singur bottleneck numit clar, nu dintr-un brief vag de transformare AI.',
-  'Prima versiune este scopată să creeze leverage rapid.',
-  'Automatizarea, interfața și logica de business sunt proiectate împreună.',
+  'Pornim de la o problemă clară de business.',
+  'Lansăm rapid o primă versiune utilă.',
+  'Îmbunătățim sistemul după utilizare reală, nu după presupuneri.',
 ]
 
 const signals = [
-  ['Potrivit pentru', 'Business-uri cu presiune reală în venituri, livrare sau execuție internă.'],
-  ['Nu este pentru', 'Echipe care caută workshop-uri lungi de discovery fără un rezultat clar de business.'],
-  ['Cum rulează proiectele', 'Scope strâns, colaborare directă, primă versiune utilă, apoi rafinare.'],
+  ['Pentru cine este', 'Pentru echipe care au nevoie de mai multe lead-uri, mai puțină muncă manuală sau o unealtă internă mai bună.'],
+  ['La ce să te aștepți', 'Scope clar, colaborare directă și o primă versiune practică.'],
+  ['Ce contează cel mai mult', 'Sistemul trebuie să economisească timp, să genereze venit sau să facă execuția mai ușoară.'],
 ]
 
 export default function ServicesPageRo() {
@@ -95,12 +95,12 @@ export default function ServicesPageRo() {
         <div className="shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="eyebrow">Servicii</p>
-            <h1 className="section-title mt-6">Servicii de automatizare AI construite în jurul unor bottleneck-uri reale de business.</h1>
+            <h1 className="section-title mt-6">Servicii de automatizare AI pentru lead generation, procese și software custom.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Aici nu vorbim despre consultanță AI generică. Vorbim despre direcții de build clare pentru lead generation,
-              automatizare de procese, aplicații custom și tooling cu AI care rezolvă probleme concrete de business.
+              Alege serviciul care se potrivește problemei: mai multe lead-uri calificate, mai puțină muncă manuală sau
+              o aplicație construită exact pentru fluxul tău de lucru.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {delivery.map((item) => (
@@ -128,12 +128,8 @@ export default function ServicesPageRo() {
                 <div className="font-display text-5xl text-rami-gold/80">0{index + 1}</div>
 
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">
-                    Direcție de build
-                  </p>
-                  <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">
-                    {service.title}
-                  </h2>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rami-gold">Serviciu</p>
+                  <h2 className="mt-4 font-display text-4xl leading-tight text-rami-cream md:text-5xl">{service.title}</h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-rami-cream/90">{service.strap}</p>
                   <p className="mt-5 text-base leading-8 text-rami-fog">{service.description}</p>
                 </div>
@@ -163,14 +159,14 @@ export default function ServicesPageRo() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow">Cum încep proiectele</p>
-            <h2 className="section-title mt-6">Primul sprint este despre înțelegerea sistemului, nu despre decorarea brief-ului.</h2>
+            <p className="eyebrow">Cum se mișcă proiectele</p>
+            <h2 className="section-title mt-6">De la problemă clară la lansare utilă.</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ['01', 'Mapăm fricțiunea', 'Identificăm unde se scurg bani, timp sau momentum.'],
-              ['02', 'Definim versiunea utilă', 'Stabilim cel mai mic build care creează leverage rapid și poate continua să crească după lansare.'],
-              ['03', 'Lansăm și rafinăm', 'Sistemul ajunge repede live, apoi îl îmbunătățim pe baza utilizării reale, nu a presupunerilor.'],
+              ['01', 'Găsim fricțiunea', 'Identificăm unde se pierd timp, bani sau follow-through.'],
+              ['02', 'Scopăm prima versiune', 'Definim cel mai mic build care face o diferență reală și rapidă.'],
+              ['03', 'Lansăm și îmbunătățim', 'Sistemul ajunge repede live, apoi este rafinat pe baza utilizării reale.'],
             ].map(([step, title, body]) => (
               <div key={step} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
                 <p className="font-display text-3xl text-rami-gold/80">{step}</p>
@@ -194,8 +190,8 @@ export default function ServicesPageRo() {
       </section>
 
       <CTAStrip
-        headline="Vrei ajutor să alegi serviciul AI potrivit?"
-        subtext="Vino cu bottleneck-ul, problema de venit sau workflow-ul care continuă să se rupă. Îți spun ce sistem merită construit primul."
+        headline="Nu ești sigur ce serviciu se potrivește?"
+        subtext="Spune-mi ce încetinește business-ul și îți spun rapid care este următorul pas potrivit."
         ctaLabel="Începe conversația"
         locale="ro"
       />

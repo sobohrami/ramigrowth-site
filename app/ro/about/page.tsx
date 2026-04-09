@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import CTAStrip from '@/components/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'Despre RamiGrowth și modelul de studio de automatizare AI',
+  title: 'Despre RamiGrowth, studio de automatizare AI din România',
   description:
-    'Află cum lucrează RamiGrowth: un studio de automatizare AI condus de builder, focusat pe lead generation, automatizare procese și software custom pentru probleme reale de business.',
+    'Află cum lucrează RamiGrowth: un studio de automatizare AI din România, focusat pe lead generation, automatizare de procese și software custom pentru nevoi reale de business.',
   alternates: {
     canonical: '/ro/about',
     languages: {
@@ -24,19 +24,19 @@ const proof = [
   {
     label: 'Built',
     title: 'SalariuOk.ro',
-    body: 'Un produs de salary benchmarking pentru România, gândit în jurul unui workflow clar de decizie.',
+    body: 'Un produs de salary benchmarking construit pentru piața din România.',
   },
   {
     label: 'Model',
-    title: 'Scope strâns',
-    body: 'Problemă clară, primă versiune utilă, execuție directă, apoi rafinare.',
+    title: 'Colaborare directă',
+    body: 'Scope clar, un singur builder responsabil, primă versiune utilă, apoi rafinare.',
   },
 ]
 
 const principles = [
-  'Execuție condusă de builder, fără strat de account management',
-  'Număr mic de proiecte active în același timp',
-  'Rezultatele comerciale au prioritate față de jargon și teatru de proces',
+  'Lucrezi direct cu persoana care proiectează și construiește sistemul.',
+  'Rulează doar un număr mic de proiecte în același timp.',
+  'Munca este judecată după rezultate de business, nu după jargon AI.',
 ]
 
 export default function AboutPageRo() {
@@ -46,21 +46,18 @@ export default function AboutPageRo() {
         <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">Despre</p>
-            <h1 className="section-title mt-6">Un studio mic de automatizare AI construit pentru execuție directă.</h1>
+            <h1 className="section-title mt-6">RamiGrowth este un studio de automatizare AI din România, construit pentru sisteme utile de business.</h1>
           </div>
 
           <div className="space-y-6 text-base leading-8 text-rami-fog">
             <p>
-              RamiGrowth funcționează ca un studio condus de builder, nu ca un model de agenție umflat. Persoana care
-              diagnostichează bottleneck-ul este aceeași care ajunge să modeleze sistemul.
+              Scopul este simplu: să ajute business-urile să genereze mai multă cerere, să elimine munca repetitivă și să construiască unelte care fac execuția mai ușoară.
             </p>
             <p>
-              Asta înseamnă mai puține handoff-uri, decizii mai strânse și livrare mai rapidă. Înseamnă și că proiectele
-              rămân ancorate în workflow-ul real, nu alunecă în poziționări AI generice.
+              Lucrezi direct cu persoana care modelează sistemul. Asta păstrează deciziile mai clare, livrarea mai rapidă și proiectul mai aproape de workflow-ul real.
             </p>
             <p>
-              Cele mai multe proiecte intră în trei direcții: generare de cerere, automatizare operațională sau o
-              suprafață de produs clară care trebuie să existe pentru că stack-ul actual nu mai este suficient.
+              Cele mai multe proiecte pornesc din una dintre aceste nevoi: mai multe lead-uri, un proces care consumă prea mult timp sau o unealtă internă ori pentru clienți care încă nu există.
             </p>
           </div>
         </div>
@@ -81,8 +78,8 @@ export default function AboutPageRo() {
       <section className="section-divider py-20">
         <div className="shell grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <p className="eyebrow">Cum rulează proiectele</p>
-            <h2 className="section-title mt-6">Vedem presiunea clar, apoi construim cel mai mic sistem care o elimină.</h2>
+            <p className="eyebrow">Cum se lucrează</p>
+            <h2 className="section-title mt-6">Problemă clară, scope strâns, primă versiune utilă.</h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
@@ -99,12 +96,10 @@ export default function AboutPageRo() {
 
             <div className="space-y-6 text-base leading-8 text-rami-fog">
               <p>
-                Scope-ul vine înainte de angajament. Dacă rezultatul de business nu poate fi numit clar de la început,
-                de obicei este prea devreme să construim.
+                Dacă rezultatul de business nu este suficient de clar încât să poată fi numit, de obicei este prea devreme să construim. Primul pas este să înțelegem exact ce trebuie îmbunătățit.
               </p>
               <p>
-                Scopul nu este să maximizăm numărul de proiecte. Scopul este să lansăm sisteme care devin utile într-un
-                business real și continuă să creeze valoare după lansare.
+                Ținta nu este să rulăm cât mai multe proiecte. Ținta este să lansăm sisteme care continuă să economisească timp sau să genereze venit după lansare.
               </p>
               <p>
                 Dacă asta este genul de colaborare pe care îl cauți,{' '}
@@ -120,7 +115,7 @@ export default function AboutPageRo() {
 
       <CTAStrip
         headline="Vrei un builder care rămâne aproape de problema reală de business?"
-        subtext="Acesta este modelul: puține proiecte active, scope clar, execuție directă și sisteme care trebuie să funcționeze în lumea reală."
+        subtext="Acesta este modelul: colaborare directă, scope clar și sisteme construite să fie utile în lumea reală."
         ctaLabel="Programează un discovery call"
         locale="ro"
       />

@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { getCaseStudies } from '@/lib/case-studies'
 
 export const metadata: Metadata = {
-  title: 'Studii de caz în automatizări AI, lead generation și produse digitale',
+  title: 'Studii de caz în lead generation, automatizare și produse digitale',
   description:
-    'Vezi studii de caz RamiGrowth pentru automatizări AI, lead generation și produse digitale, inclusiv ProDetailer.app și SalariuOk.ro.',
+    'Vezi studii de caz RamiGrowth pentru lead generation, automatizare și produse digitale, inclusiv ProDetailer.app și SalariuOk.ro.',
   alternates: {
     canonical: '/ro/work',
     languages: {
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 export default function WorkPageRo() {
   const items = getCaseStudies('ro')
   const proofPoints = [
-    'Build-uri cu scope comercial clar, nu experimente speculative',
-    'Sisteme care combină automatizare, interfață și logică operațională',
-    'Experiență în piața din România plus sisteme de automatizare pentru clienți',
+    'Sisteme de lead generation pentru firme de servicii',
+    'Automatizări și produse digitale gândite să fie lansate, nu doar prezentate',
+    'Produse pentru piața din România plus sisteme pentru clienți',
   ]
 
   return (
@@ -29,12 +29,11 @@ export default function WorkPageRo() {
         <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">Proiecte</p>
-            <h1 className="section-title mt-6">Studii de caz în automatizări AI, lead generation și produse digitale concentrate.</h1>
+            <h1 className="section-title mt-6">Proiecte recente de lead generation, automatizare și produse digitale.</h1>
           </div>
           <div className="space-y-6">
             <p className="lede">
-              Aceste proiecte nu au fost făcute ca să umple un portofoliu. Fiecare a rezolvat un job clar de business:
-              să creeze cerere, să elimine fricțiunea operațională sau să lanseze un produs digital util.
+              Aceste proiecte arată cum RamiGrowth transformă o problemă clară de business într-un sistem funcțional pe care oamenii îl pot folosi cu adevărat.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               {proofPoints.map((item) => (

@@ -3,9 +3,9 @@ import ContactForm from '@/components/ContactForm'
 import { getCalendlyUrl } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Contact pentru servicii AI și automatizare procese',
+  title: 'Contact pentru automatizări AI și proiecte software custom',
   description:
-    'Contactează RamiGrowth pentru automatizări AI, lead generation, automatizare workflow-uri sau aplicații web custom. Discovery-first și răspuns în 24 de ore.',
+    'Contactează RamiGrowth pentru automatizări AI, lead generation, automatizare de procese sau software custom. Discovery-first și răspuns în 24 de ore.',
   alternates: {
     canonical: '/ro/contact',
     languages: {
@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 }
 
 const situations = [
-  'Ai nevoie de lead-uri calificate fără să faci mai mult outbound manual chiar tu.',
-  'Echipa pierde timp în bucle operaționale repetitive care ar trebui deja automatizate.',
-  'Ai nevoie de o unealtă internă, o aplicație pentru clienți sau un workflow AI construit rapid și clar.',
+  'Ai nevoie de mai multe lead-uri calificate fără să faci mai mult outbound manual chiar tu.',
+  'Echipa pierde timp în workflow-uri repetitive care ar trebui deja automatizate.',
+  'Ai nevoie de o unealtă internă, o aplicație pentru clienți sau un workflow AI construit clar și rapid.',
 ]
 
 const nextSteps = [
-  ['01', 'Revizuire brief', 'Citesc problema, caut punctul real de presiune și decid dacă merită un build.'],
-  ['02', 'Recomandare rapidă', 'Primești un răspuns direct: automatizare, aplicație custom sau o rezolvare operațională mai ușoară.'],
-  ['03', 'Următorul pas cu scope clar', 'Dacă există fit, definim cea mai mică versiune utilă care merită construită prima.'],
+  ['01', 'Revizuim problema', 'Citesc brief-ul, caut punctul real de fricțiune și decid dacă merită un build.'],
+  ['02', 'Recomand calea potrivită', 'Primești un răspuns direct: automatizare, software custom sau o rezolvare mai simplă.'],
+  ['03', 'Definim prima versiune', 'Dacă există fit, scopăm cea mai mică versiune utilă care merită construită prima.'],
 ]
 
 export default function ContactPageRo() {
@@ -36,12 +36,11 @@ export default function ContactPageRo() {
         <div className="shell grid gap-16 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <p className="eyebrow">Contact</p>
-            <h1 className="section-title mt-6">Spune-mi unde încetinește business-ul. Îți spun ce merită automatizat primul.</h1>
+            <h1 className="section-title mt-6">Spune-mi ce încetinește business-ul.</h1>
 
             <div className="mt-8 space-y-5 text-base leading-8 text-rami-fog">
               <p>
-                Lucrez cu un număr mic de proiecte simultan. Înainte să spun da, vreau să înțeleg problema reală,
-                rezultatul dorit și dacă a construi este într-adevăr pasul corect.
+                Dacă problema este clară, îți pot spune de obicei destul de repede dacă are nevoie de automatizare, software custom sau o rezolvare operațională mai simplă.
               </p>
               <p>Cele mai bune puncte de pornire arată, de obicei, așa:</p>
             </div>
@@ -71,7 +70,7 @@ export default function ContactPageRo() {
               <div className="mb-8 border-b border-white/10 pb-6">
                 <p className="eyebrow text-rami-gold/90">Brief de proiect</p>
                 <p className="mt-4 text-sm leading-7 text-rami-fog">
-                  Ține-l scurt, specific și legat de workflow-ul real. Așa iese și recomandarea mai bună.
+                  Ține-l scurt și specific. Cu cât workflow-ul sau problema de business sunt mai clare, cu atât recomandarea va fi mai bună.
                 </p>
               </div>
               <ContactForm locale="ro" />
